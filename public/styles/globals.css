@@ -1,0 +1,36 @@
+/* ./styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "TangoSans";
+  src: url("/fonts/Tango Sans/TangoSansBold.ttf");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-Bold.ttf");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+.bg404{
+  background-image: radial-gradient(circle farthest-corner at 50% 50%, #070509, #121212 85%)
+}
+
+.gradientButton{
+  background: linear-gradient(276.21deg, #FA2A74 0%, #FAB984 99.12%);
+}

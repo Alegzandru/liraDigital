@@ -1,0 +1,93 @@
+.logo{
+  -webkit-animation: fadein 0.4s ease-out; 
+  -moz-animation: fadein 0.4s ease-out; 
+   -ms-animation: fadein 0.4s ease-out;
+    -o-animation: fadein 0.4s ease-out;
+       animation: fadein 0.4s ease-out;
+}
+
+.h1{
+  -webkit-animation: fadein 0.9s ease-out; 
+       -moz-animation: fadein 0.9s ease-out; 
+        -ms-animation: fadein 0.9s ease-out;
+         -o-animation: fadein 0.9s ease-out;
+            animation: fadein 0.9s ease-out;
+}
+
+.p{
+  -webkit-animation: fadein 2s ease-out; 
+       -moz-animation: fadein 2s ease-out; 
+        -ms-animation: fadein 2s ease-out;
+         -o-animation: fadein 2s ease-out;
+            animation: fadein 2s ease-out;
+}
+
+.button{
+  -webkit-animation: fadein 2.25s ease; 
+       -moz-animation: fadein 2.25s ease; 
+        -ms-animation: fadein 2.25s ease;
+         -o-animation: fadein 2.25s ease;
+            animation: fadein 2.25s ease;
+}
+
+@keyframes fadein {
+  // from { opacity: 0; margin-left: -200px;}
+  // to   { opacity: 1; margin-left: 0px;}
+  0%{
+    opacity: 0; margin-left: -200px;
+  }
+  33%{
+    opacity: 0; margin-left: -200px;
+  }
+  100%{
+    opacity: 1; margin-left: 0px;
+  }
+}
+
+@-moz-keyframes fadein {
+  0%{
+    opacity: 0; margin-left: -200px;
+  }
+  33%{
+    opacity: 0; margin-left: -200px;
+  }
+  100%{
+    opacity: 1; margin-left: 0px;
+  }
+}
+
+@-webkit-keyframes fadein {
+  0%{
+    opacity: 0; margin-left: -200px;
+  }
+  33%{
+    opacity: 0; margin-left: -200px;
+  }
+  100%{
+    opacity: 1; margin-left: 0px;
+  }
+}
+
+@-ms-keyframes fadein {
+  0%{
+    opacity: 0; margin-left: -200px;
+  }
+  33%{
+    opacity: 0; margin-left: -200px;
+  }
+  100%{
+    opacity: 1; margin-left: 0px;
+  }
+}
+
+@-o-keyframes fadein {
+  0%{
+    opacity: 0; margin-left: -200px;
+  }
+  33%{
+    opacity: 0; margin-left: -200px;
+  }
+  100%{
+    opacity: 1; margin-left: 0px;
+  }
+}
