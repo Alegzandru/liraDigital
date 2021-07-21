@@ -4,25 +4,28 @@ import lottie from 'lottie-web'
 import { useEffect, useRef } from 'react'
 
 import logo from '../../public/logoLira.svg'
-import animation from '../../public/404Animation.json'
 import styles from './error.module.scss'
 
 const Error: React.FC = () => {
 
   const lottieRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() =>{
-    if(lottieRef.current){
-      lottie.loadAnimation({
-        container: lottieRef.current,
-        animationData: animation,
-        renderer: 'svg', // "canvas", "html"
-        loop: true, // boolean
-        autoplay: true, // boolean
-      })
-    }
-  }
-  , [lottieRef] )
+  useEffect(() => {
+    (
+      async () => {
+        const lottieJson = await import('../../public/404Animation.json')
+
+        lottie.loadAnimation({
+          container: lottieRef.current as HTMLDivElement,
+          animationData: lottieJson,
+          renderer: 'svg', // "canvas", "html"
+          loop: true, // boolean
+          autoplay: true, // boolean
+        })
+
+      }
+    )()
+  }, [])
 
   return(
     <div className={classNames(
@@ -54,6 +57,9 @@ const Error: React.FC = () => {
       </div>
       <div className="w-full max-w-528px max-h-528px lg:max-w-720px lg:max-h-720px flex flex-row justify-center items-start">
         <div ref={lottieRef} id="react-logo" className="max-w-528px max-h-528px lg:max-w-720px lg:max-h-720px w-full"/>
+        {/* <div className={classNames('text-sm-h1 text-ui-white font-Poppins font-medium', styles.loadingText)}>
+          Loading ...
+        </div> */}
       </div>
       <div className={classNames('mb-4 block lg:hidden mt-8', styles.logo)}>
         <Image src={logo} alt="Logo Lira Digital"></Image>

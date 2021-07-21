@@ -1,7 +1,7 @@
 /* ./styles/globals.css */
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 @font-face {
   font-family: "TangoSans";
@@ -16,6 +16,14 @@
   src: url("/fonts/Poppins/Poppins-Regular.ttf");
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-Medium.ttf");
+  font-style: normal;
+  font-weight: 500;
   font-display: swap;
 }
 
