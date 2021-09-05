@@ -1,0 +1,83 @@
+.benefits{
+  &_digits{
+    background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &_cardText{
+    animation: fadeText 1.2s ease-out infinite;
+  }
+
+  &_cardDigit{
+    animation: fadeDigit 1.2s ease-out infinite;
+  }
+
+  @keyframes fadeText {
+    0% {
+      opacity: 1;
+    }
+
+    25% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeDigit {
+    0% {
+      opacity: 1;
+      margin-top: 0px;
+    }
+
+    25% {
+      opacity: 0;
+      margin-top: -350px;
+    }
+
+    100% {
+      opacity: 1;
+      margin-top: 0px;
+    }
+  }
+
+}
+
+@media only screen and (min-width: 640px) {
+  .benefits{
+    &_parallaxText{
+      position: absolute;
+      top: 200vh;
+      z-index: 0;
+      font-size: 11.45vw;
+    }
+  }
+
+  // @keyframes fadeText {
+  //   0% {
+  //     margin-top: 0px; 
+  //     opacity: 1;
+  //   }
+
+  //   25% {
+  //     opacity: 0;
+  //     margin-top: -300px;
+  //   }
+
+  //   100% {
+  //     opacity: 1;
+  //     margin-top: 0px;
+  //   }
+  // }
+}
+
+@media only screen and (min-width: 1280px) {
+  .benefits{
+    &_parallaxText{
+      font-size: 11.45vw;
+    }
+  }
+}

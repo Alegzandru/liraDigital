@@ -1,0 +1,18 @@
+.whatwedo{
+  &_card{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    mix-blend-mode: color-dodge;
+  }
+
+  &_gradientBorder{
+    border: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);  
+  }
+
+  &_gradientBg{
+    background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
+  }
+}

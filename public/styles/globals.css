@@ -40,5 +40,9 @@
 }
 
 .gradientButton{
-  background: linear-gradient(276.21deg, #FA2A74 0%, #FAB984 99.12%);
+  background: -webkit-linear-gradient(276.21deg, #FA2A74 0%, #FAB984 99.12%);
+}
+
+html{
+  scroll-behavior: smooth;
 }

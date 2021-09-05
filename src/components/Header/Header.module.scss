@@ -1,0 +1,15 @@
+.header{
+  background: rgba(8, 8, 8, 0.8);
+  backdrop-filter: blur(16px);
+  // animation: slide 0.3s ease-out;
+}
+
+@keyframes slide {
+  0%{
+    top: -72px;
+  }
+
+  100%{
+    top: 0px;
+  }
+}
