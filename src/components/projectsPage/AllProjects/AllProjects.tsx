@@ -1,17 +1,20 @@
 import classNames from 'classnames'
+import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { SIZES, SIZE_NAMES } from '../../../constants/common'
-import { PROJECT_TYPES } from '../../../constants/projects'
-import { getColSpan } from '../../../utils/grid'
-import styles from './AllProjects.module.scss'
-import Image from 'next/image'
-import { getActiveProjects } from '../../../utils/projects'
-import { ProjectType } from '../../../types'
 
-const AllProjects = () => {
+import { SIZE_NAMES, SIZES } from '../../../constants/common'
+import { ProjectMinified, ProjectType } from '../../../types'
+import { getColSpan } from '../../../utils/grid'
+import { getActiveProjects } from '../../../utils/projects'
+import styles from './AllProjects.module.scss'
+
+const AllProjects = ({services, projects}: {services: ProjectType[]; projects: ProjectMinified[]}) => {
   const [screenSize, setScreenSize] = useState(SIZE_NAMES.sm)
   const [activeTypes, setActiveTypes] = useState(['All Projects'])
+
+  const activeProjects = activeTypes.includes('All Projects') ? projects : getActiveProjects(projects, activeTypes)
 
   const projectType = ({name}: ProjectType, index: number) => (
     <li
@@ -28,8 +31,7 @@ const AllProjects = () => {
           if(name === 'All Projects'){
             setActiveTypes(['All Projects'])
           } else if(activeTypes.includes('All Projects')){
-            const newArray = activeTypes.filter((activeType) => activeType !== 'All Projects')
-            setActiveTypes([...newArray, name])
+            setActiveTypes([name])
           } else{
             setActiveTypes([...activeTypes, name])
           }
@@ -71,7 +73,7 @@ const AllProjects = () => {
         <div className="w-full pb-28">
           <ul className={classNames('w-full flex flex-row justify-start md:justify-center items-start flex-nowrap md:flex-wrap mb-4 md:mb-0 overflow-x-scroll',
             styles.allprojects_noScrollbar)}>
-            {PROJECT_TYPES.map(projectType)}
+            {services.map(projectType)}
           </ul>
           <div className="flex flex-row justify-end items-center md:hidden">
             <div className="text-ui-darkGrey text-sm-links-sm font-Poppins">
@@ -84,24 +86,30 @@ const AllProjects = () => {
           </div>
         </div>
         <div className="w-full grid grid-cols-6 gap-6 grid-flow-row">
-          {getActiveProjects(activeTypes, PROJECT_TYPES).map((project: Record<string,string>, index: number) => (
+          {activeProjects.map((project: ProjectMinified, index: number) => (
             <div className={classNames('relative h-256px md:h-384px', getColSpan(index, screenSize))} key={index}>
               <div className="w-full h-full relative z-10">
                 <Image
-                  src="/projects/project3.png"
+                  src={project.main_photo}
                   alt="Service 1"
                   layout="fill"
                   objectFit="cover"
                 />
               </div>
-              <div className={classNames('h-full w-full flex flex-col justify-end items-start p-6 relative -mt-256px md:-mt-384px z-20 transition-all duration-300 ', styles.allprojects_cardHover)}>
-                <h5 className="text-lg-h5-poppins font-Poppins font-bold text-ui-white mb-1">
-                  {project.name}
-                </h5>
-                <div className="font-Poppins text-sm-p text-ui-peach">
-                  Website design
-                </div>
-              </div>
+              <Link href={`/project/${project.slug}`}>
+                <a>
+                  <div className={classNames('h-full w-full flex flex-col justify-end items-start p-6 relative -mt-256px md:-mt-384px z-20 transition-all duration-300 ', styles.allprojects_cardHover)}>
+                    <h5 className="text-lg-h5-poppins font-Poppins font-bold text-ui-white mb-1">
+                      {project.name}
+                    </h5>
+                    <div className="font-Poppins text-sm-p text-ui-peach">
+                      {project.services.map((service, index2) => (
+                        <span key={index2}>{service.name}{project.services.length === 0 ? '': index2 === project.services.length - 1 ? '':','}</span>)
+                      )}
+                    </div>
+                  </div>
+                </a>
+              </Link>
             </div>
           ))}
         </div>
@@ -110,5 +118,6 @@ const AllProjects = () => {
     </div>
   )
 }
+
 
 export default AllProjects

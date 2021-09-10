@@ -18,11 +18,44 @@ export type SizeType = Record<string, 'sm' | 'md' | 'lg'>
 
 export type ProjectType = {
   name: string
-  projects: Project[]
 }
 
 export type Project = {
+  id: number
   name: string
+  link: string
+  customer: string
+  initial_data: string
+  aims: string
+  description: string
+  photo1_heading: string
+  photo1_subheading: string
+  process1: string
+  process2: string
+  process3: string
+  photo3_heading: string
+  result1: string
+  result2: string
+  result3: string
+  photo1: string
+  photo2: string
+  photo3: string
+  before_photo: string
+  after_photo: string
+  main_photo: string
+  services: {name: string}[]
+  tools: {name: string}[]
+  platforms: {
+    name: string
+    image: {url: string}
+  }[]
+}
+
+export type ProjectMinified = {
+  name: string
+  services: {name: string}[]
+  main_photo: string
+  slug: string
 }
 
 export type ProjectReqInputs = {
@@ -34,3 +67,4 @@ export type ProjectReqInputs = {
   company: string
   field: string
 }
+

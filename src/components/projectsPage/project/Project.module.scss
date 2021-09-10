@@ -1,0 +1,16 @@
+.project{
+  &_gradientText{
+    background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &_noScrollbar {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+  }
+  
+  &_noScrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}

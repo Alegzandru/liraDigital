@@ -1,5 +1,7 @@
 import { SizeType } from '../types'
 
+export const API_URL = 'https://lira-digital-backend.herokuapp.com'
+
 export const SIZES = {
   sm : 340,
   md: 640,
