@@ -14,10 +14,10 @@ const Step4 = ({register, errors}: Props) => {
   const errorBlockName = errors && errors['name'] && <p className="text-ui-error text-sm-p mt-4 font-Poppins font-medium">*{(errors['name'] as any).message}</p>
   const errorBlockEmail = errors && errors['email'] && <p className="text-ui-error text-sm-p mt-4 font-Poppins font-medium">*{(errors['email'] as any).message}</p>
   const errorBlockCompany = errors && errors['company'] && <p className="text-ui-error text-sm-p mt-4 font-Poppins font-medium">*{(errors['company'] as any).message}</p>
-  const errorBlockField = errors && errors['field'] && <p className="text-ui-error text-sm-p mt-4 font-Poppins font-medium">*{(errors['field'] as any).message}</p>
+  const errorBlockPhone = errors && errors['phone'] && <p className="text-ui-error text-sm-p mt-4 font-Poppins font-medium">*{(errors['phone'] as any).message}</p>
 
   return(
-    <div className="w-full lg:max-w-1000px mx-auto">
+    <div className="w-full mx-auto">
       <h1 className="font-Poppins font-bold text-ui-white text-sm-h1-poppins md:text-md-h1-poppins lg:text-lg-h1-poppins mb-6 md:mb-12 lg:mb-20">
       How can we reach you
       </h1>
@@ -61,14 +61,14 @@ const Step4 = ({register, errors}: Props) => {
         <div>
           <input
             type="text"
-            placeholder="Field of activity"
+            placeholder="Phone number"
             className={classNames(
               'bg-ui-black90 border border-ui-darkGrey p-4 w-full rounded font-Poppins text-ui-grey text-sm-p md:text-md-p lg:text-lg-p outline-none transition-all duration-300',
-              hasError('field') ? 'border-ui-error placeholder-ui-error' : 'hover:border-ui-grey focus:border-ui-peach focus:text-ui-white'
+              hasError('phone') ? 'border-ui-error placeholder-ui-error' : 'hover:border-ui-grey focus:border-ui-peach focus:text-ui-white'
             )}
-            {...register('field', {...VALIDATIONS.field})}
+            {...register('phone', {...VALIDATIONS.phone})}
           />
-          {errorBlockField}
+          {errorBlockPhone}
         </div>
       </div>
     </div>

@@ -65,6 +65,6 @@ export type ProjectReqInputs = {
   name: string
   email: string
   company: string
-  field: string
+  phone: string
 }
 

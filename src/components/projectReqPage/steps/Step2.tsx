@@ -16,7 +16,7 @@ const Step2 = ({register, errors, watch}: Props) => {
   const errorBlock = errors && errors['budget'] && <p className="text-ui-error text-sm-p mt-4 font-Poppins font-medium">*{(errors['budget'] as any).message}</p>
 
   return(
-    <div className="w-full lg:max-w-1000px mx-auto">
+    <div className="w-full mx-auto md:pt-15">
       <h1 className="font-Poppins font-bold text-ui-white text-sm-h1-poppins md:text-md-h1-poppins lg:text-lg-h1-poppins mb-6 md:mb-12 lg:mb-20">
       What is your budget?
       </h1>

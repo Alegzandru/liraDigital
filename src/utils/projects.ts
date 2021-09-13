@@ -12,17 +12,18 @@ export const getActiveProjects = (projects: ProjectMinified[], activeTypes: stri
 }
 
 export const getAvailablePhoto = (project: Project, name: string) => {
-  const photo = project[name] ?
-    project[name].formats.large ?
-      project[name].formats.large.url
-      :
-      project[name].formats.medium ?
-        project[name].formats.medium.url
-        :
-        project[name].formats.small ?
-          project[name].formats.small.url
-          :
-          '/error'
-    : '/error'
+  // const photo = project[name] ?
+  //   project[name].formats.large ?
+  //     project[name].formats.large.url
+  //     :
+  //     project[name].formats.medium ?
+  //       project[name].formats.medium.url
+  //       :
+  //       project[name].formats.small ?
+  //         project[name].formats.small.url
+  //         :
+  //         '/error'
+  //   : '/error'
+  const photo = project[name] ? project[name].url : '/error'
   return photo
 }

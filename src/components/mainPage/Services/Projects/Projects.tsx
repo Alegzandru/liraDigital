@@ -75,8 +75,16 @@ const Projects = () => {
         </button>
       </div>
       <div className="w-full text-center md:text-left">
-        <button className={classNames('py-5 px-20 text-ui-white text-lg-button-md font-bold font-Poppins rounded transform hover:scale-105 transition duration-300', styles.projects_button)}>
+        {/* <button className={classNames('py-5 px-20 text-ui-white text-lg-button-md font-bold font-Poppins rounded transform hover:scale-105 transition duration-300', styles.projects_button)}>
             See our work
+        </button> */}
+        <button className={classNames(styles.projects_button, 'rounded')}>
+          <div className={classNames('h-12 md:h-15 w-full relative z-0 transition duration-300 rounded', styles.projects_button_Bg)}>
+          </div>
+          <div className={classNames('h-12 md:h-15 flex flex-row justify-center items-center px-14 text-ui-white text-sm-button-md md:text-md-button-md lg:text-lg-button-md font-bold font-Poppins',
+            '-mt-12 md:-mt-15 relative z-10')}>
+                  See our work
+          </div>
         </button>
       </div>
     </div>

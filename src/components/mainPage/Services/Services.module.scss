@@ -1,8 +1,9 @@
 .services{
   &_bg{
-    background-image: url('../../../../public/services/liraBgRomb.jpg');
-    background-position: 50% bottom;
+    background-image: url('../../../../public/services/bgRomb.svg');
+    background-position: 50% 90%;
+    // background-position: center;
     background-repeat: no-repeat;
-    background-size: 200% auto;
+    // background-size: 200% auto;
   }
 }

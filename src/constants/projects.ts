@@ -13,7 +13,7 @@ export const PROJECT_TYPES = [
     ],
   },
   {
-    name: 'Social Media Listening & Trend analysis',
+    name: 'Social Media Content & Trend analysis',
     projects: [
       {
         name: 'Mirrors MD',
@@ -58,12 +58,12 @@ export const PROJECT_TYPES = [
 
 export const WEBSITES = [
   {
-    link: 'https://www.belvederewood.md/',
-    img1: '/projects/project2.png',
-    img2: '/projects/project2Hover.png',
-    name: 'Belvedere Wood',
-    shadow: '0px 56px 80px rgba(120, 120, 120, 0.24)',
-    border: '#EEEEEE',
+    link: 'https://www.mirrors.md/',
+    img1: '/projects/project1.png',
+    img2: '/projects/project1Hover.png',
+    name: 'Mirrors MD',
+    shadow: '0px 56px 80px rgba(30, 202, 37, 0.16)',
+    border: '#55AB7A',
   },
   {
     link: 'https://www.mrkebab.md/',
@@ -74,11 +74,11 @@ export const WEBSITES = [
     border: '#F6C1C5',
   },
   {
-    link: 'https://www.mirrors.md/',
-    img1: '/projects/project1.png',
-    img2: '/projects/project1Hover.png',
-    name: 'Mirrors MD',
-    shadow: '0px 56px 80px rgba(30, 202, 37, 0.16)',
-    border: '#55AB7A',
+    link: 'https://www.belvederewood.md/',
+    img1: '/projects/project2.png',
+    img2: '/projects/project2Hover.png',
+    name: 'Belvedere Wood',
+    shadow: '0px 56px 80px rgba(120, 120, 120, 0.24)',
+    border: '#EEEEEE',
   },
 ]

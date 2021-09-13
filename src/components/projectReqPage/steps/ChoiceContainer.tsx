@@ -18,7 +18,7 @@ const ChoiceContainer = ({text, name, asRadio, radioValue, checkboxValue, regist
 
   return(
     <label
-      className={classNames('w-full h-20 md:h-28 flex flex-row justify-between items-center px-4 md:px-6 lg:pl-10 lg:pr-6 rounded group',
+      className={classNames('w-full bg-ui-black90 h-20 md:h-28 flex flex-row justify-between items-center px-4 md:px-6 lg:pl-10 lg:pr-6 rounded group',
         'border hover:border-4 hover:border-ui-black70 hover:bg-ui-black80 transition-all duration-300 cursor-pointer',
         isActive() ? 'border-ui-darkGrey' : 'border-ui-black70')}
     >

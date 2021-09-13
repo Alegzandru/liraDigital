@@ -21,7 +21,7 @@ export const routes = [
     link: '/',
   },
   {
-    name: 'Our works',
+    name: 'Our work',
     link: '/projects',
   },
   {
@@ -38,5 +38,5 @@ export const validations = {
   step1 : ['services'],
   step2 : ['budget'],
   step3 : ['description'],
-  step4 : ['name', 'email', 'company', 'field'],
+  step4 : ['name', 'email', 'company', 'phone'],
 }

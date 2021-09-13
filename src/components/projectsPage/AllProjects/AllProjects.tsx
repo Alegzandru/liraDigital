@@ -38,7 +38,7 @@ const AllProjects = ({services, projects}: {services: ProjectType[]; projects: P
         }
       }}
     >
-      <pre className={`${activeTypes.includes(name) ? 'text-ui-peach' : 'text-ui-grey group-hover:text-ui-white '} font-Poppins h-5 text-lg-links-sm font-medium transition duration-300`}>
+      <pre className={`${activeTypes.includes(name) ? 'text-ui-peach' : 'text-ui-grey group-hover:text-ui-white '} font-Poppins h-5 text-sm-links-md md:text-lg-links-md font-medium transition duration-300`}>
         {name}
       </pre>
     </li>
@@ -64,7 +64,7 @@ const AllProjects = ({services, projects}: {services: ProjectType[]; projects: P
 
   return(
     <div>
-      <div className={classNames('flex flex-row justify-center items-center h-424px', styles.allprojects_upper)}>
+      <div className={classNames('bg-ui-black100 flex flex-row justify-center items-center h-424px', styles.allprojects_upper)}>
         <h1 className="text-sm-h1-tangosans md:text-md-h1-tangosans lg:text-lg-h1-tangosans font-TangoSans font-bold text-center w-full text-ui-white">
         Our projects
         </h1>
@@ -87,7 +87,7 @@ const AllProjects = ({services, projects}: {services: ProjectType[]; projects: P
         </div>
         <div className="w-full grid grid-cols-6 gap-6 grid-flow-row">
           {activeProjects.map((project: ProjectMinified, index: number) => (
-            <div className={classNames('relative h-256px md:h-384px', getColSpan(index, screenSize))} key={index}>
+            <div className={classNames('rounded overflow-hidden relative h-256px md:h-384px', getColSpan(index, screenSize))} key={index}>
               <div className="w-full h-full relative z-10">
                 <Image
                   src={project.main_photo}
@@ -104,7 +104,7 @@ const AllProjects = ({services, projects}: {services: ProjectType[]; projects: P
                     </h5>
                     <div className="font-Poppins text-sm-p text-ui-peach">
                       {project.services.map((service, index2) => (
-                        <span key={index2}>{service.name}{project.services.length === 0 ? '': index2 === project.services.length - 1 ? '':','}</span>)
+                        <span key={index2}>{service.name}{project.services.length === 0 ? '': index2 === project.services.length - 1 ? '':', '}</span>)
                       )}
                     </div>
                   </div>

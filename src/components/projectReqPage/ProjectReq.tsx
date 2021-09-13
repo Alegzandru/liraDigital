@@ -7,14 +7,34 @@ import classNames from 'classnames'
 import Step2 from './steps/Step2'
 import Step3 from './steps/Step3'
 import Step4 from './steps/Step4'
+import Done from './steps/Done'
 
 const ProjectReq = () => {
   const [step, setStep] = useState(0)
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm<ProjectReqInputs>()
 
-  const onSubmit: SubmitHandler<ProjectReqInputs> = () => {
+  const sendMailBrief = async (
+    data: Record<string, string | string[]>,
+  ) => {
+    try {
+      await fetch('/api/brief', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          data,
+        }),
+      })
+    } catch(error){
+      return 0
+    }
+  }
+
+  const onSubmit: SubmitHandler<ProjectReqInputs> = (data) => {
     if(step !== 3) {
+      setStep(step+1)
+    } else{
+      sendMailBrief(data)
       setStep(step+1)
     }
   }
@@ -25,23 +45,30 @@ const ProjectReq = () => {
       case 1 : return <Step2 register={register} watch={watch} errors={errors}/>
       case 2 : return <Step3 register={register} errors={errors}/>
       case 3 : return <Step4 register={register} errors={errors}/>
+      case 4 : return <Done/>
       default : return 'Default return'
     }
   }
   return(
-    <div className="pt-32 md:pt-40 pb-36 md:pb-40 lg:pb-200px w-full bg-ui-black100 px-container-sm md:px-container-md lg:px-container-lg">
-      <div className="flex flex-row justify-start items-center w-full">
-        <div className={`${step >= 0 ? 'bg-ui-peach' : 'bg-ui-black70'} w-1/4 h-1`}/>
-        <div className={`${step >= 1 ? 'bg-ui-peach' : 'bg-ui-black70'} w-1/4 h-1`}/>
-        <div className={`${step >= 2 ? 'bg-ui-peach' : 'bg-ui-black70'} w-1/4 h-1`}/>
-        <div className={`${step >= 3 ? 'bg-ui-peach' : 'bg-ui-black70'} w-1/4 h-1`}/>
+    <div className={classNames('pt-32 md:pt-40 pb-36 md:pb-40 lg:pb-200px w-full bg-ui-black90 px-container-sm md:px-container-md lg:px-container-lg', styles.projectReq_bg)}>
+      {step !== 4 &&
+      <div>
+        <div className="flex flex-row justify-start items-center w-full">
+          <div className={`${step >= 0 ? 'bg-ui-peach' : 'bg-ui-black70'} w-1/4 h-1`}/>
+          <div className={`${step >= 1 ? 'bg-ui-peach' : 'bg-ui-black70'} w-1/4 h-1`}/>
+          <div className={`${step >= 2 ? 'bg-ui-peach' : 'bg-ui-black70'} w-1/4 h-1`}/>
+          <div className={`${step >= 3 ? 'bg-ui-peach' : 'bg-ui-black70'} w-1/4 h-1`}/>
+        </div>
+        <div className="font-Poppins text-ui-darkGrey text-md-p mt-4 mb-10 md:mb-18">
+          {`0${step+1}/04`}
+        </div>
       </div>
-      <div className="font-Poppins text-ui-darkGrey text-md-p mt-4 mb-10 md:mb-18">
-        {`0${step+1}/04`}
-      </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {showStep()}
-        <div className="flex flex-row justify-between items-end mt-14 lg:mt-20">
+      }
+      <form onSubmit={handleSubmit(onSubmit)} className="max-w-1000px mx-auto">
+        <div className="w-full md:h-384px">
+          {showStep()}
+        </div>
+        {step !== 4 && <div className="flex flex-row justify-between items-end mt-14 lg:mt-20">
           <div onClick={() => step !== 0 ? setStep(step-1) : null} className={`${step !== 0 ? '' : 'opacity-0'} flex flex-row justify-between items-center px-1 hover:bg-ui-black80 rounded h-7 cursor-pointer`}>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-ui-peach mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
@@ -74,7 +101,7 @@ const ProjectReq = () => {
                 </div>
               </button>
           }
-        </div>
+        </div>}
       </form>
     </div>
   )

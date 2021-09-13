@@ -76,9 +76,9 @@ const ServiceModal = () => {
           </div>
           {
             service.clients.length !== 0 &&
-            <div className="w-full overflow-hidden py-18 md:py-28 lg:py-30 bg-ui-black100">
+            <div className="w-full overflow-hidden py-18 md:py-28 lg:py-30 bg-ui-black90">
               <div className="w-full px-container-sm md:px-container-md lg:px-container-lg mb-7">
-                <h4 className="w-full text-center text-ui-white font-Poppins font-bold text-md-h4-poppins">
+                <h4 className="w-full text-center text-ui-white font-Poppins font-bold text-md-h4-poppins lg:text-md-h3-poppins">
                   We worked with them on this
                 </h4>
               </div>

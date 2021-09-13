@@ -2,7 +2,7 @@
 
 export const SERVICES = [
   {
-    title: 'Social Media Listening & Trend analysis',
+    title: 'Social Media Content & Trend analysis',
     photo: '/services/popupCover.png',
     texts: [
       'The relationship between you and your customer is like a marriage. Before becoming close you have to establish the right connection.The one that is based on empathy and sympathy for the brand, so that this relationship could be loyal and long lasting.',
@@ -159,7 +159,7 @@ export const SERVICES = [
     ],
   },
   {
-    title: '360 Digital Marketing',
+    title: '360° Digital Marketing',
     photo: '',
     texts: [
       'Either you come for a piece of cake, or you can have it all!',

@@ -1,4 +1,17 @@
 .projects{
+
+  &_button{
+    height: 48px;
+
+    &_Bg{
+      background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
+
+      :hover > &{
+        transform: scale(1.1, 1);
+      }
+    }
+  }
+
   &_outlineText{
     -webkit-text-stroke: 1px white;
   }
@@ -102,6 +115,22 @@
     100%{
       margin-top: 0px;
       opacity: 0;
+    }
+  }
+
+  .projects{
+    &_button{
+      position: absolute;
+      width: 266px;
+      height: 60px;
+  
+      &_Bg{
+        background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
+  
+        :hover > &{
+          transform: scale(1.1, 1);
+        }
+      }
     }
   }
 }

@@ -13,7 +13,7 @@ const Step3 = ({register, errors}: Props) => {
   const errorBlock = hasError && <p className="text-ui-error text-sm-p mt-4 font-Poppins font-medium">*{(errors['description'] as any).message}</p>
 
   return(
-    <div className="w-full lg:max-w-1000px mx-auto">
+    <div className="w-full mx-auto">
       <h1 className="font-Poppins font-bold text-ui-white text-sm-h1-poppins md:text-md-h1-poppins lg:text-lg-h1-poppins mb-20">
       Tell us about your project
       </h1>

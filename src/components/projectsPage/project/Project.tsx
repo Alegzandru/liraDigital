@@ -30,7 +30,7 @@ const ProjectComponent = ({
   platforms,
 }: Project) => (
   <div>
-    <div className="pt-190px md:pt-200px pb-120px md:pb-40 w-full bg-ui-black100 px-container-sm md:px-container-md lg:px-container-lg">
+    <div className="pt-190px md:pt-200px pb-120px md:pb-40 w-full bg-ui-black90 px-container-sm md:px-container-md lg:px-container-lg">
       <h1 className="text-ui-white font-TangoSans text-sm-h1-poppins md:text-md-h1-tangosans lg:text-lg-h1-tangosans mb-10">
         {name}
       </h1>
@@ -42,19 +42,21 @@ const ProjectComponent = ({
         >
           Visit Website
         </a>
-        <svg xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8 text-ui-peach group-hover:-mr-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
+        <Image
+          src="/ui/rightArrow.svg"
+          height={20}
+          width={60}
+          alt="Arrow"
+        />
       </button>
       {
         main_photo !== '/error' &&
-        <div className="w-full relative h-348px md:h-620px mb-9 md:mb-28 lg:mb-18">
-          <Image
+        <div className="w-full relative mb-9 md:mb-28 lg:mb-18">
+          {/* eslint-disable-next-line @next/next/no-img-element*/}
+          <img
             src={main_photo}
             alt="Mr kebab Project"
-            layout="fill"
-            objectFit="contain"
+            className="rounded-md w-full"
           />
         </div>
       }
@@ -78,7 +80,7 @@ const ProjectComponent = ({
               <h5 className="font-Poppins text-ui-darkGrey text-sm-h5-poppins md:text-md-h5-poppins lg:text-lg-h5-poppins font-bold py-1 px-2 mb-3">
                 Services provided
               </h5>
-              <ul className="font-medium font-Poppins text-sm-links-sm md:text-md-links-sm lg:text-lg-links-sm text-ui-grey">
+              <ul className="font-medium font-Poppins text-sm-links-md md:text-md-links-md lg:text-lg-links-md text-ui-grey">
                 {services && services.map((service, index) =>
                   (<li className="list-item py-1 list-disc list-inside px-2" key={index}>
                     {service.name}
@@ -94,7 +96,7 @@ const ProjectComponent = ({
               <h5 className="font-Poppins text-ui-darkGrey text-sm-h5-poppins md:text-md-h5-poppins lg:text-lg-h5-poppins font-bold py-1 px-2 mb-3">
                 Tools
               </h5>
-              <ul className="font-medium font-Poppins text-sm-links-sm md:text-md-links-sm lg:text-lg-links-sm text-ui-grey">
+              <ul className="font-medium font-Poppins text-sm-links-md md:text-md-links-md lg:text-lg-links-md text-ui-grey">
                 {tools && tools.map((tool, index) =>
                   (<li className="list-item py-1 list-disc list-inside px-2" key={index}>
                     {tool.name}
@@ -121,8 +123,8 @@ const ProjectComponent = ({
                 className="font-Poppins text-sm-p md:text-md-p lg:text-lg-p text-ui-grey mb-2"
                 dangerouslySetInnerHTML={{__html:
                     initial_data && initial_data
-                      .replace('#-','<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">')
-                      .replace('-#','</li>'),
+                      .replace(/\#-/g,'<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">')
+                      .replace(/\-#/g,'</li>'),
                 }}
               />
             </div>
@@ -137,8 +139,8 @@ const ProjectComponent = ({
                 className="font-Poppins text-sm-p md:text-md-p lg:text-lg-p text-ui-grey mb-2"
                 dangerouslySetInnerHTML={{__html:
                     aims && aims
-                      .replace('#-','<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">')
-                      .replace('-#','</li>'),
+                      .replace(/\#-/g,'<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">')
+                      .replace(/\-#/g,'</li>'),
                 }}
               >
               </ul>

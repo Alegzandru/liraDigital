@@ -1,10 +1,9 @@
 .hero{
-  &_bg{
-    background-image: url('../../../../public/hero/liraBg.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+  margin-top: -100vh;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 
   &_activeWord{
     background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
@@ -19,6 +18,11 @@
     top: calc( 100vh - 64px );
     cursor: pointer;
   }
+}
+
+.canvas{
+  height: 100vh;
+  width: 100%;
 }
 
 @media only screen and (min-width: 640px) {
