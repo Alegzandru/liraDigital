@@ -58,7 +58,7 @@ export const PROJECT_TYPES = [
 
 export const WEBSITES = [
   {
-    link: 'https://www.mirrors.md/',
+    link: 'mrkebab',
     img1: '/projects/project1.png',
     img2: '/projects/project1Hover.png',
     name: 'Mirrors MD',
@@ -66,7 +66,7 @@ export const WEBSITES = [
     border: '#55AB7A',
   },
   {
-    link: 'https://www.mrkebab.md/',
+    link: 'mirrors',
     img1: '/projects/project3.png',
     img2: '/projects/project3Hover.png',
     name: 'Mr. Kebab',
@@ -74,7 +74,7 @@ export const WEBSITES = [
     border: '#F6C1C5',
   },
   {
-    link: 'https://www.belvederewood.md/',
+    link: 'bwp',
     img1: '/projects/project2.png',
     img2: '/projects/project2Hover.png',
     name: 'Belvedere Wood',

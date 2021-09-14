@@ -41,7 +41,7 @@ export const SERVICES = [
   },
   {
     title: 'Brand / Corporate Identity',
-    photo: '',
+    photo: '/services/monsterCorp.gif',
     texts: [
       'Every organization is a living, breathing entity, continually  growing, changing, and responding to outside influences. It’s easy to see, therefore, how your organization’s corporate culture is inextricably linked to its branding and strategy.',
       'In today’s competitive marketplace, it’s vital for organizations of all sizes, missions, and purposes to establish a corporate identity manual, brand style guide, principles, and tone of voice. Here are four reasons why.',
@@ -80,7 +80,7 @@ export const SERVICES = [
   },
   {
     title: 'Google Ads & YouTube Ads',
-    photo: '',
+    photo: '/services/googleAds.gif',
     texts: [
       'Do you love fast results? Then choose Google Ads. Through this strategy you will be on your clients` sight all along. We can track your customers and their behaviour on your site, thus increasing the revenues and e-commerce conversion rate. Let`s dive into the main types of Google Ads campaigns, to choose the best for your business.',
       '<b>Search</b> – Text ads on Google search results',
@@ -127,7 +127,7 @@ export const SERVICES = [
   },
   {
     title: 'Facebook Ads & Sales Funnels',
-    photo: '',
+    photo: '/services/facebookAds.gif',
     texts: [
       'Everybody is on Facebook now! Not a surprise!',
       'But wasting money and getting 0 results is what shocks and gets everyone mad! Not us, and not you anymore, if you choose us. We know it sounds like a cliche because it is :). However you already know that you need a correct, client and sales oriented Facebook and Instagram ads strategy for your business.',
@@ -160,7 +160,7 @@ export const SERVICES = [
   },
   {
     title: '360° Digital Marketing',
-    photo: '',
+    photo: '/services/cake.gif',
     texts: [
       'Either you come for a piece of cake, or you can have it all!',
       'It means taking a holistic approach to marketing so you can avoid leaving any gaps. Implementing such a plan means maintaining a solid presence across multiple online channels to get closer to your clients.',
@@ -181,7 +181,7 @@ export const SERVICES = [
   },
   {
     title: 'UI/UX & Product Design',
-    photo: '',
+    photo: '/services/uiux.gif',
     texts: [
       'The glory of any website depends on how good its web design is. Web design is the most crucial part of your website building. It is the first thing that users and potential customers are going to see, that`s why it must be done cautiously with utmost perfection.',
       'But how to do it and what are the basics of web design? Wait, wait.. do not bother yourself much, we are right here just to make the best UI/UX design for your site or app.',

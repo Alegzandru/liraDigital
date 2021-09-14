@@ -6,6 +6,7 @@ import { ModalContext } from './ServiceModal.context'
 import styles from './ServiceModal.module.scss'
 import {client} from '../Clients/Clients'
 import { SIZES } from '../../../constants/common'
+import Image from 'next/image'
 
 const ServiceModal = () => {
   const [maxPhotos, setMaxPhotos] = useState(2)
@@ -58,12 +59,14 @@ const ServiceModal = () => {
             </svg>
           </button>
           <div className="w-full max-w-1200px relative mx-auto px-4 py-12 md:py-20 md:px-8 lg:px-0">
-            {/* eslint-disable @next/next/no-img-element*/}
-            <img
-              src={service.photo}
-              alt={service.title}
-              className="mb-14 md:mb-8 lg:mb-16"
-            />
+            <div className="relative mb-14 md:mb-8 lg:mb-16 w-full h-200px md:h-424px md:w-auto mx-auto">
+              <Image
+                src={service.photo}
+                alt={service.title}
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
             <h2 className={classNames('font-Poppins font-bold text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-6 md:mb-8 lg:mb-16', styles.serviceModal_headline)}>
               {service.title}
             </h2>

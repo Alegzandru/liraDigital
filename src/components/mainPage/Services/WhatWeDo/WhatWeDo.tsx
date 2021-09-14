@@ -1,6 +1,8 @@
 import classNames from 'classnames'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useContext } from 'react'
+
 import { SERVICES } from '../../../../constants/services'
 import { ModalContext } from '../../ServiceModal/ServiceModal.context'
 import styles from './WhatWeDo.module.scss'
@@ -48,9 +50,13 @@ const WhatWeDo = () => {
       </div>
       <div className="w-full flex flex-row justify-center items-center">
         <div className="group rounded overflow-hidden">
-          <button className={classNames('relative z-10 mx-auto h-16 px-20 text-ui-white text-lg-button-md font-bold font-Poppins', styles.whatwedo_gradientBorder)}>
-          Learn more
-          </button>
+          <Link href="/project-request">
+            <a>
+              <button className={classNames('relative z-10 mx-auto h-16 px-20 text-ui-white text-lg-button-md font-bold font-Poppins', styles.whatwedo_gradientBorder)}>
+              Learn more
+              </button>
+            </a>
+          </Link>
           <div className={classNames('w-full h-16 -mt-16 relative z-0 opacity-0 group-hover:opacity-100 transition duration-300', styles.whatwedo_gradientBg)}>
           </div>
         </div>

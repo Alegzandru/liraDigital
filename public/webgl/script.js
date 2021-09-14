@@ -179,7 +179,7 @@ function supportRenderTextureFormat (gl, internalFormat, format, type) {
 }
 
 function isMobile () {
-    return /Mobi|Android/i.test(navigator.userAgent);
+  return /Mobi|Android/i.test(navigator.userAgent);
 }
 
 function captureScreenshot () {

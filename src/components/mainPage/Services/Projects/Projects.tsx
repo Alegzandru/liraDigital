@@ -1,10 +1,12 @@
 import classNames from 'classnames'
+import Link from 'next/link'
 import { useState } from 'react'
 import { useEffect } from 'react'
+
 import { SIZES } from '../../../../constants/common'
+import { WEBSITES } from '../../../../constants/projects'
 import Card from './Card'
 import styles from './Projects.module.scss'
-import {WEBSITES} from '../../../../constants/projects'
 
 const Projects = () => {
   const [imageSizes, setImageSizes] = useState({height: 200, width: 316})
@@ -81,10 +83,14 @@ const Projects = () => {
         <button className={classNames(styles.projects_button, 'rounded')}>
           <div className={classNames('h-12 md:h-15 w-full relative z-0 transition duration-300 rounded', styles.projects_button_Bg)}>
           </div>
-          <div className={classNames('h-12 md:h-15 flex flex-row justify-center items-center px-14 text-ui-white text-sm-button-md md:text-md-button-md lg:text-lg-button-md font-bold font-Poppins',
-            '-mt-12 md:-mt-15 relative z-10')}>
-                  See our work
-          </div>
+          <Link href="/projects">
+            <a>
+              <div className={classNames('h-12 md:h-15 flex flex-row justify-center items-center px-14 text-ui-white text-sm-button-md md:text-md-button-md lg:text-lg-button-md font-bold font-Poppins',
+                '-mt-12 md:-mt-15 relative z-10')}>
+                      See our work
+              </div>
+            </a>
+          </Link>
         </button>
       </div>
     </div>
