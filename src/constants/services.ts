@@ -3,6 +3,7 @@
 export const SERVICES = [
   {
     title: 'Social Media Content & Trend analysis',
+    mixBlend: 'exclude',
     photo: '/services/popupCover.png',
     texts: [
       'The relationship between you and your customer is like a marriage. Before becoming close you have to establish the right connection.The one that is based on empathy and sympathy for the brand, so that this relationship could be loyal and long lasting.',
@@ -41,6 +42,7 @@ export const SERVICES = [
   },
   {
     title: 'Brand / Corporate Identity',
+    mixBlend: 'color-dodge',
     photo: '/services/monsterCorp.gif',
     texts: [
       'Every organization is a living, breathing entity, continually  growing, changing, and responding to outside influences. It’s easy to see, therefore, how your organization’s corporate culture is inextricably linked to its branding and strategy.',
@@ -80,6 +82,7 @@ export const SERVICES = [
   },
   {
     title: 'Google Ads & YouTube Ads',
+    mixBlend: 'color-dodge',
     photo: '/services/googleAds.gif',
     texts: [
       'Do you love fast results? Then choose Google Ads. Through this strategy you will be on your clients` sight all along. We can track your customers and their behaviour on your site, thus increasing the revenues and e-commerce conversion rate. Let`s dive into the main types of Google Ads campaigns, to choose the best for your business.',
@@ -127,6 +130,7 @@ export const SERVICES = [
   },
   {
     title: 'Facebook Ads & Sales Funnels',
+    mixBlend: 'color-dodge',
     photo: '/services/facebookAds.gif',
     texts: [
       'Everybody is on Facebook now! Not a surprise!',
@@ -160,6 +164,7 @@ export const SERVICES = [
   },
   {
     title: '360° Digital Marketing',
+    mixBlend: 'color-dodge',
     photo: '/services/cake.gif',
     texts: [
       'Either you come for a piece of cake, or you can have it all!',
@@ -181,6 +186,7 @@ export const SERVICES = [
   },
   {
     title: 'UI/UX & Product Design',
+    mixBlend: 'color-dodge',
     photo: '/services/uiux.gif',
     texts: [
       'The glory of any website depends on how good its web design is. Web design is the most crucial part of your website building. It is the first thing that users and potential customers are going to see, that`s why it must be done cautiously with utmost perfection.',

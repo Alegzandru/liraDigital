@@ -26,6 +26,7 @@ module.exports = {
         mainButtonLBg: '#0D0D0D',
         mainButtonRBg: '#FAA782',
         error: '#E9344A',
+        cardBg: '#151515',
       },
     },
     screens: {

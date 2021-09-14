@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useContext } from 'react'
 
@@ -10,16 +9,17 @@ import styles from './WhatWeDo.module.scss'
 interface CardProps {
   text: string
   index: number
+  mixBlend: string
 }
 
 const Card = ({text, index}: CardProps) => (
-  <div className={classNames('h-200px rounded bg-ui-dark overflow-hidden group transform hover:scale-95 transition duration-300')}>
+  <div className={classNames('h-200px bg-ui-cardBg rounded overflow-hidden group transform hover:scale-95 transition duration-300',)}>
     <div className={classNames('w-full h-full transform group-hover:scale-110 transition duration-300', styles.whatwedo_card)}>
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element*/}
+      <img
         src={`/services/card${index}.png`}
         alt={text}
-        layout="fill"
-        objectFit="cover"
+        className={classNames('w-full h-full', text === 'Google Ads & YouTube Ads' ? 'filter brightness-75' : '')}
       />
     </div>
     <div className={classNames('-mt-200px w-full h-full flex flex-col justify-end items-start p-6 text-ui-white font-Poppins font-bold text-lg-h5-poppins')}>
@@ -44,6 +44,7 @@ const WhatWeDo = () => {
             <Card
               text={service.title}
               index={index+1}
+              mixBlend={service.mixBlend}
             />
           </div>)
         )}

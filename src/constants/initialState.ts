@@ -3,6 +3,7 @@ export const DEFAULT_STATE = {
     show: false,
     service: {
       photo: '',
+      mixBlend: '',
       title: '',
       texts: [''],
       clients: [{
