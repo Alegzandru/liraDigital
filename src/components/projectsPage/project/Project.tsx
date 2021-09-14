@@ -34,21 +34,22 @@ const ProjectComponent = ({
       <h1 className="text-ui-white font-TangoSans text-sm-h1-poppins md:text-md-h1-tangosans lg:text-lg-h1-tangosans mb-10">
         {name}
       </h1>
-      <button className="px-1.5 py-1 flex flex-row justify-start items-center rounded group hover:bg-ui-peach hover:bg-opacity-20 transition-colors duration-300 mt-7 md:mt-0 mb-16">
-        <a
-          className="font-Poppins text-md-links-md lg:text-lg-links-md text-ui-peach font-medium mr-2 group-hover:mr-3 transition-all duration-300"
-          target="blank"
-          href={link}
-        >
-          Visit Website
-        </a>
-        <Image
-          src="/ui/rightArrow.svg"
-          height={20}
-          width={60}
-          alt="Arrow"
-        />
-      </button>
+      <a
+        target="blank"
+        href={link}
+      >
+        <button className="px-1.5 py-1 flex flex-row justify-start items-center rounded group hover:bg-ui-peach hover:bg-opacity-20 transition-colors duration-300 mt-7 md:mt-0 mb-16">
+          <div className="font-Poppins text-md-links-md lg:text-lg-links-md text-ui-peach font-medium mr-2 group-hover:mr-3 transition-all duration-300">
+            Visit Website
+          </div>
+          <Image
+            src="/ui/rightArrow.svg"
+            height={20}
+            width={60}
+            alt="Arrow"
+          />
+        </button>
+      </a>
       {
         main_photo !== '/error' &&
         <div className="w-full relative mb-9 md:mb-28 lg:mb-18">
