@@ -1,0 +1,7 @@
+.about{
+  &_activePhrase{
+    background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

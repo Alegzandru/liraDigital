@@ -1,0 +1,136 @@
+.projects{
+
+  &_button{
+    height: 48px;
+
+    &_Bg{
+      background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
+
+      :hover > &{
+        transform: scale(1.1, 1);
+      }
+    }
+  }
+
+  &_outlineText{
+    -webkit-text-stroke: 1px white;
+  }
+
+  @keyframes fadeUp{
+    0%{
+      margin-top: 0px;
+      opacity: 0;
+    }
+    100%{
+      margin-top: -200px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeDown{
+    0%{
+      margin-top: -200px;
+      opacity: 1;
+    }
+    100%{
+      margin-top: 0px;
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeLeft {
+    0%{
+      margin-left: -100px;
+      opacity: 0;
+    }
+    100%{
+      margin-left: 0px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeRight {
+    0%{
+      margin-right: -100px;
+      opacity: 0;
+    }
+    100%{
+      margin-right: 0px;
+      opacity: 1;
+    }
+  }
+
+  &_container{
+    overflow: hidden;
+
+    &_photo2{
+      animation: fadeDown 0.8s;
+      -webkit-animation-fill-mode: forwards;
+      -moz-animation-fill-mode: forwards;
+      -o-animation-fill-mode: forwards;
+      -ms-animation-fill-mode: forwards;
+      animation-fill-mode: forwards; 
+    }
+
+    &:hover &_photo2{
+      animation: fadeUp 0.8s;
+      -webkit-animation-fill-mode: forwards;
+      -moz-animation-fill-mode: forwards;
+      -o-animation-fill-mode: forwards;
+      -ms-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;         
+    }
+  }
+
+  &_movingButtonLeft{
+    animation: fadeLeft 0.3s ease-in-out;
+  }
+
+  &_movingButtonRight{
+    animation: fadeRight 0.3s ease-in-out;
+  }
+
+  &_button{
+    background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  @keyframes fadeUp{
+    0%{
+      margin-top: 0px;
+      opacity: 0;
+    }
+    100%{
+      margin-top: -332px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeDown{
+    0%{
+      margin-top: -332px;
+      opacity: 1;
+    }
+    100%{
+      margin-top: 0px;
+      opacity: 0;
+    }
+  }
+
+  .projects{
+    &_button{
+      position: absolute;
+      width: 266px;
+      height: 60px;
+  
+      &_Bg{
+        background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
+  
+        :hover > &{
+          transform: scale(1.1, 1);
+        }
+      }
+    }
+  }
+}

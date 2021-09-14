@@ -1,0 +1,26 @@
+.allprojects{
+  &_upper{
+    background-image: url('../../../../public/services/bgRomb.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  &_noScrollbar {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+  }
+  
+  &_noScrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  &_cardHover{
+  }
+
+  &_cardHover:hover{
+    box-shadow: 1px -112px 73px -17px rgba(0,0,0,0.61) inset;
+    -webkit-box-shadow: 1px -112px 73px -17px rgba(0,0,0,0.61) inset;
+    -moz-box-shadow: 1px -112px 73px -17px rgba(0,0,0,0.61) inset;
+  }
+}

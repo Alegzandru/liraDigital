@@ -1,0 +1,41 @@
+.clients{
+  &_h5{
+    background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @keyframes scroll {
+    0%{
+      margin-left: 0px;
+    }
+    100%{
+      margin-left: -2000px;
+    }
+  }
+
+  &_scroller{
+    // 200 * imageNr (11) + 48 * imageNr (11)
+    width: 4000px;
+    animation: scroll 40s infinite linear;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .clients{
+    @keyframes scroll {
+      0%{
+        margin-left: 0px;
+      }
+      100%{
+        margin-left: -2500px;
+      }
+    }
+  
+    &_scroller{
+      // 200 * imageNr (11) + 32 * imageNr (11)
+      width: 5000px;
+      animation: scroll 40s infinite linear;
+    }
+  }
+}
