@@ -5,6 +5,7 @@ export type AnyAction = {
 
 export type Service = {
   photo: string
+  mixBlend: string
   title: string
   texts: string[]
   clients: {
