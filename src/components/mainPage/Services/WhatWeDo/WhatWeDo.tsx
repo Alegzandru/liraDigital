@@ -17,7 +17,7 @@ const Card = ({text, index}: CardProps) => (
     <div className={classNames('w-full h-full transform group-hover:scale-110 transition duration-300', styles.whatwedo_card)}>
       {/* eslint-disable-next-line @next/next/no-img-element*/}
       <img
-        src={`/services/card${index}.png`}
+        src={`/services/card${index}.webp`}
         alt={text}
         className={classNames('w-full h-full', text === 'Google Ads & YouTube Ads' ? 'filter brightness-75' : '')}
       />

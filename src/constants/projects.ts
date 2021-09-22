@@ -58,7 +58,7 @@ export const PROJECT_TYPES = [
 
 export const WEBSITES = [
   {
-    link: 'mrkebab',
+    link: 'mirrors',
     img1: '/projects/project1.png',
     img2: '/projects/project1Hover.png',
     name: 'Mirrors MD',
@@ -66,7 +66,7 @@ export const WEBSITES = [
     border: '#55AB7A',
   },
   {
-    link: 'mirrors',
+    link: 'mrkebab',
     img1: '/projects/project3.png',
     img2: '/projects/project3Hover.png',
     name: 'Mr. Kebab',

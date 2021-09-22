@@ -2,24 +2,40 @@ import { useEffect, useRef, useState } from 'react'
 import styles from './About.module.scss'
 import { gsap } from 'gsap'
 import classNames from 'classnames'
+import { SIZES } from '../../../constants/common'
 
 const About = () => {
   const textRef = useRef(null)
   const [animate, setAnimate] = useState(false)
   const [show, setShow] = useState(false)
+  const [mobile, setMobile] = useState(true)
 
   useEffect(() => {
-    if(!animate){
-      const onScrollHandler = () => {
-        setAnimate(window.pageYOffset > 700)
+    const onScrollHandler = () => {
+      if(window.pageYOffset > 500){
+        setAnimate(true)
       }
-
-      onScrollHandler()
-      window.addEventListener('scroll', onScrollHandler)
-
-      return () => window.removeEventListener('scroll', onScrollHandler)
     }
-  })
+
+    const onResizeHandler = () => {
+      if(window.innerWidth < SIZES.md){
+        setMobile(true)
+      } else{
+        setMobile(false)
+      }
+    }
+
+    onScrollHandler()
+    window.addEventListener('scroll', onScrollHandler)
+
+    onResizeHandler()
+    window.addEventListener('resize', onResizeHandler)
+
+    return () => {
+      window.removeEventListener('scroll', onScrollHandler)
+      window.removeEventListener('resize', onResizeHandler)
+    }
+  }, [])
 
   useEffect(() => {
     if(animate){
@@ -31,10 +47,25 @@ const About = () => {
   return(
     <div className="h-screen w-full bg-ui-black100 flex flex-row justify-center items-center px-container-sm md:px-container-md lg:px-container-lg">
       <h2 className={classNames(`font-Poppins text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins font-bold text-center ${show ? '' : 'opacity-0'}`)}>
-        <div className="animate1" ref={textRef}>We work <span className={styles.about_activePhrase}>together and toward.</span></div>
-        <div className="animate1" ref={textRef}>For today, tomorrow, and beyond.</div>
-        <div className="animate1" ref={textRef}>With intention and meaning.</div>
-        <div className="animate1" ref={textRef}>To bring ideas to life.</div>
+        {
+          mobile ?
+            <div>
+              <div className="animate1" ref={textRef}>A <span className={styles.about_activePhrase}>creative digital agency</span> that</div>
+              <div className="animate1" ref={textRef}>provides the full range</div>
+              <div className="animate1" ref={textRef}>of digital marketing services</div>
+              <div className="animate1" ref={textRef}>based on bold ideas</div>
+              <div className="animate1" ref={textRef}>and experienced techniques</div>
+              <div className="animate1" ref={textRef}>Scroll down to find more reasons to choose us</div>
+            </div>
+            :
+            <div>
+              <div className="animate1" ref={textRef}>A <span className={styles.about_activePhrase}>creative digital agency</span> that provides</div>
+              <div className="animate1" ref={textRef}>the full range of digital marketing</div>
+              <div className="animate1" ref={textRef}>services based on bold ideas</div>
+              <div className="animate1" ref={textRef}>and experienced techniques</div>
+              <div className="animate1" ref={textRef}>Scroll down to find more reasons to choose us</div>
+            </div>
+        }
       </h2>
     </div>
   )
