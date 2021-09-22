@@ -182,61 +182,6 @@ function isMobile () {
   return /Mobi|Android/i.test(navigator.userAgent);
 }
 
-function captureScreenshot () {
-    let res = getResolution(config.CAPTURE_RESOLUTION);
-    let target = createFBO(res.width, res.height, ext.formatRGBA.internalFormat, ext.formatRGBA.format, ext.halfFloatTexType, gl.NEAREST);
-    render(target);
-
-    let texture = framebufferToTexture(target);
-    texture = normalizeTexture(texture, target.width, target.height);
-
-    let captureCanvas = textureToCanvas(texture, target.width, target.height);
-    let datauri = captureCanvas.toDataURL();
-    downloadURI('fluid.png', datauri);
-    URL.revokeObjectURL(datauri);
-}
-
-function framebufferToTexture (target) {
-    gl.bindFramebuffer(gl.FRAMEBUFFER, target.fbo);
-    let length = target.width * target.height * 4;
-    let texture = new Float32Array(length);
-    gl.readPixels(0, 0, target.width, target.height, gl.RGBA, gl.FLOAT, texture);
-    return texture;
-}
-
-function normalizeTexture (texture, width, height) {
-    let result = new Uint8Array(texture.length);
-    let id = 0;
-    for (let i = height - 1; i >= 0; i--) {
-        for (let j = 0; j < width; j++) {
-            let nid = i * width * 4 + j * 4;
-            result[nid + 0] = clamp01(texture[id + 0]) * 255;
-            result[nid + 1] = clamp01(texture[id + 1]) * 255;
-            result[nid + 2] = clamp01(texture[id + 2]) * 255;
-            result[nid + 3] = clamp01(texture[id + 3]) * 255;
-            id += 4;
-        }
-    }
-    return result;
-}
-
-function clamp01 (input) {
-    return Math.min(Math.max(input, 0), 1);
-}
-
-function textureToCanvas (texture, width, height) {
-    let captureCanvas = document.createElement('canvas');
-    let ctx = captureCanvas.getContext('2d');
-    captureCanvas.width = width;
-    captureCanvas.height = height;
-
-    let imageData = ctx.createImageData(width, height);
-    imageData.data.set(texture);
-    ctx.putImageData(imageData, 0, 0);
-
-    return captureCanvas;
-}
-
 class Material {
     constructor (vertexShader, fragmentShaderSource) {
         this.vertexShader = vertexShader;
@@ -1350,18 +1295,8 @@ function correctRadius (radius) {
     return radius;
 }
 
-// canvas.addEventListener('mousedown', e => {
-//     let posX = scaleByPixelRatio(e.offsetX);
-//     let posY = scaleByPixelRatio(e.offsetY);
-//     let pointer = pointers.find(p => p.id == -1);
-//     if (pointer == null)
-//         pointer = new pointerPrototype();
-//     updatePointerDownData(pointer, -1, posX, posY);
-// });
-
 canvas.addEventListener('mousemove', e => {
   let pointer = pointers[0];
-  // if (!pointer.down) return;
   if(pointer === null){
     pointer = new pointerPrototype()
   }
@@ -1373,10 +1308,6 @@ canvas.addEventListener('mousemove', e => {
   let posY = scaleByPixelRatio(e.offsetY);
   updatePointerMoveData(pointer, posX, posY);
 });
-
-// window.addEventListener('mouseup', () => {
-//     updatePointerUpData(pointers[0]);
-// });
 
 canvas.addEventListener('touchstart', e => {
     e.preventDefault();
