@@ -1,59 +1,59 @@
-.hero{
+.hero {
   margin-top: -100vh;
-  -webkit-user-select: none; /* Safari */        
+  -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
 
-  &_activeWord{
-    background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
+  &_activeWord {
+    display: inline-block;
+    background: -webkit-linear-gradient(10.28deg, #fab984 0%, #ff498a 99.79%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  &_mouse{
-    height: 32px; 
+  &_mouse {
+    height: 32px;
     width: 22px;
     position: absolute;
-    top: calc( 100vh - 128px );
+    top: calc(100vh - 128px);
     cursor: pointer;
   }
 
-  &_revealText{
+  &_revealText {
     overflow: hidden;
-    
+
     animation: revealText 0.5s ease-out;
     animation-fill-mode: forwards;
-    // transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);  
   }
 }
 
 @keyframes revealText {
-  0%{
+  0% {
     max-height: 0px;
   }
-  100%{
+  100% {
     max-height: 500px;
   }
 }
 
-.canvas{
+.canvas {
   height: 100vh;
   width: 100%;
 }
 
 @media only screen and (min-width: 640px) {
-  .hero{
-    &_mouse{
-      top: calc( 100vh - 76px );
+  .hero {
+    &_mouse {
+      top: calc(100vh - 76px);
     }
   }
 }
 
 @media only screen and (min-width: 1280px) {
-  .hero{
-    &_mouse{
-      top: calc( 100vh - 96px )
+  .hero {
+    &_mouse {
+      top: calc(100vh - 96px);
     }
   }
 }

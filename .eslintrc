@@ -8,6 +8,9 @@
     "prefer-arrow",
     "@typescript-eslint"
   ],
+  "ignorePatterns": [
+    "*.js"
+  ],
   "rules": {
     "@typescript-eslint/adjacent-overload-signatures": "error",
     "@typescript-eslint/array-type": [
