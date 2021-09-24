@@ -17,6 +17,6 @@ export const benefits = [
   },
   {
     headline: 'Technology',
-    text: 'Use latest TECHNOLOGY - apply rock-solid skills to stay up-dated to the tech world.',
+    text: 'Use latest TECHNOLOGY - apply rock-solid skills to stay up-to-date with the tech world.',
   },
 ]
