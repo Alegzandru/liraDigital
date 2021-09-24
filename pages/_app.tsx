@@ -6,8 +6,6 @@ import { ParallaxProvider } from 'react-scroll-parallax'
 
 import Layout from '../src/components/Layout/Layout'
 import { ModalContextProvider } from '../src/components/mainPage/ServiceModal/ServiceModal.context'
-import TagManager from 'react-gtm-module'
-import { useEffect } from 'react'
 import { appWithTranslation } from 'next-i18next'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -35,11 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   //   }
   // }
 
-  useEffect(() => {
-    TagManager.initialize({ gtmId: 'GTM-PFRDBBC' })
-  }, [])
-
-  return(
+  return (
     <ParallaxProvider>
       <ModalContextProvider>
         <Layout>
