@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import { useEffect, useRef } from 'react'
 
 import pointer from '../../../public/ui/pointer.svg'
+import { GOOGLE_MAPS_ID, GOOGLE_MAPS_KEY } from '../../constants/common'
 import styles from './GoogleMap.module.scss'
 
 const GoogleMap = () => {
@@ -14,7 +15,7 @@ const GoogleMap = () => {
   useEffect(() => {
     (async () => {
       const loader = new Loader({
-        apiKey: 'AIzaSyDOw10hs_UOMVTqL0kP5O4imgj2ZCoGyjo',
+        apiKey: GOOGLE_MAPS_KEY,
         version: 'weekly',
       })
 
@@ -26,7 +27,7 @@ const GoogleMap = () => {
         center: { lat: 47.0004139, lng: 28.803993 },
         zoom: 15,
         streetViewControl: false,
-        mapId: '31731bd48a92f0fb',
+        mapId: GOOGLE_MAPS_ID,
       })
 
       const marker = new google.maps.Marker({
@@ -44,7 +45,7 @@ const GoogleMap = () => {
 
   return (
     <div ref={mapContainerRef} className={classNames(styles.mapContainer, 'w-full pt-16 max-w-screen')}>
-      <div id="map" ref={googleMapRef} className="h-full" />
+      <div id="map" ref={googleMapRef} className="h-full rounded-lg" />
     </div>
   )
 }

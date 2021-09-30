@@ -1,19 +1,9 @@
 .hero {
   margin-top: -100vh;
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
-
-  // &_shadow{
-  //   position: absolute;
-  //   top: calc(100vh - 80px);
-  //   left: 0px;
-  //   height: 80px;
-  //   width: 100%;
-  //   // background: -webkit-linear-gradient(transparent, black);
-  //   background: linear-gradient(rgba(2,0,36,0) 0%, rgba(0,0,0,1) 100%);
-  // }
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   &_activeWord {
     display: inline-block;
@@ -26,7 +16,7 @@
     height: 32px;
     width: 22px;
     position: absolute;
-    top: calc(100vh - 128px);
+    top: calc(100vh - 160px);
     cursor: pointer;
   }
 
@@ -35,6 +25,10 @@
 
     animation: revealText 0.5s ease-out;
     animation-fill-mode: forwards;
+  }
+
+  &_canvas{
+    touch-action: auto;
   }
 }
 
@@ -48,6 +42,7 @@
   background-image : linear-gradient(rgba(255,255,255,0) 80%, rgba(0,0,0,1) 100%);
   width    : 100%;
   height   : 100vh;
+  touch-action: auto;
 }
 
 @keyframes revealText {
@@ -57,11 +52,6 @@
   100% {
     max-height: 500px;
   }
-}
-
-.canvas {
-  height: 100vh;
-  width: 100%;
 }
 
 @media only screen and (min-width: 640px) {

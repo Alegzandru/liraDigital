@@ -1,5 +1,7 @@
+import { GetStaticProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Head from 'next/head'
-import Contacts from '../src/components/contacts/Contacts'
+import Contacts from '../src/components/Contacts/Contacts'
 
 const ContactsPage = () =>
   (
@@ -11,5 +13,11 @@ const ContactsPage = () =>
       <Contacts/>
     </div>
   )
+
+export const getStaticProps: GetStaticProps = async ({locale}) => ({
+  props: {
+    ...(await serverSideTranslations(locale as string, ['common', 'contacts'])),
+  },
+})
 
 export default ContactsPage

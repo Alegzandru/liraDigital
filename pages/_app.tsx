@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ParallaxProvider>
       <ModalContextProvider>
         <Layout>
-          <Component {...pageProps} />
+          <Component {...pageProps}/>
         </Layout>
       </ModalContextProvider>
     </ParallaxProvider>

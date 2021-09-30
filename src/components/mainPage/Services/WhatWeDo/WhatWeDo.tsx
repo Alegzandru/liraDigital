@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import Link from 'next/link'
 import { useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { SERVICES } from '../../../../constants/services'
 import { ModalContext } from '../../ServiceModal/ServiceModal.context'
@@ -33,10 +34,12 @@ const WhatWeDo = () => {
     actions: { showModal },
   } = useContext(ModalContext)
 
+  const {t} = useTranslation('mainPage')
+
   return(
     <div className="w-full pt-30 md:pt-190px lg:pt-250px pb-250px md:pb-320px">
       <h2 className="font-TangoSans font-bold text-sm-h2-tangosans md:text-md-h2-tangosans lg:text-lg-h2-tangosans text-ui-white w-full text-center mb-8 md:mb-10 lg:mb-12">
-      What we do
+        {t('What we do')}
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
         {SERVICES.map((service, index) =>
@@ -53,8 +56,8 @@ const WhatWeDo = () => {
         <div className="group rounded overflow-hidden">
           <Link href="/project-request">
             <a>
-              <button className={classNames('relative z-10 mx-auto h-16 px-20 text-ui-white text-lg-button-md font-bold font-Poppins', styles.whatwedo_gradientBorder)}>
-              Learn more
+              <button className={classNames('relative z-10 mx-auto h-14 mf:h-16 px-20 text-ui-white text-sm-button-md md:text-lg-button-md font-bold font-Poppins', styles.whatwedo_gradientBorder)}>
+                {t('Learn more')}
               </button>
             </a>
           </Link>

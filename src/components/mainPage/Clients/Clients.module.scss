@@ -15,7 +15,6 @@
   }
 
   &_scroller{
-    // 200 * imageNr (11) + 48 * imageNr (11)
     width: 4000px;
     animation: scroll 40s infinite linear;
   }
@@ -33,7 +32,6 @@
     }
   
     &_scroller{
-      // 200 * imageNr (11) + 32 * imageNr (11)
       width: 5000px;
       animation: scroll 40s infinite linear;
     }

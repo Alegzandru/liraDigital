@@ -1,11 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './About.module.scss'
 import { gsap } from 'gsap'
 import classNames from 'classnames'
 import { SIZES } from '../../../constants/common'
 
 const About = () => {
-  const textRef = useRef(null)
   const [animate, setAnimate] = useState(false)
   const [show, setShow] = useState(false)
   const [mobile, setMobile] = useState(true)
@@ -39,7 +38,7 @@ const About = () => {
 
   useEffect(() => {
     if(animate){
-      gsap.from('.animate1', { y: '100%', ease: 'power4.out', skewY: 10, stagger: {amount: 0.8}, opacity: 0, duration: 1.8 })
+      gsap.from('.animate1', { y: '100%', ease: 'Power4.easeOut', skewY: 10, stagger: {amount: 0.4}, opacity: 0, duration: 1.8 })
       setShow(true)
     }
   }, [animate])
@@ -50,20 +49,42 @@ const About = () => {
         {
           mobile ?
             <div>
-              <div className="animate1" ref={textRef}>A <span className={styles.about_activePhrase}>creative digital agency</span> that</div>
-              <div className="animate1" ref={textRef}>provides the full range</div>
-              <div className="animate1" ref={textRef}>of digital marketing services</div>
-              <div className="animate1" ref={textRef}>based on bold ideas</div>
-              <div className="animate1" ref={textRef}>and experienced techniques</div>
-              <div className="animate1" ref={textRef}>Scroll down to find more reasons to choose us</div>
+              <div className="h-7 overflow-hidden">
+                <div className="animate1">A <span className={styles.about_activePhrase}>creative digital agency</span> that</div>
+              </div>
+              <div className="h-7 overflow-hidden">
+                <div className="animate1">provides the full range</div>
+              </div>
+              <div className="h-7 overflow-hidden">
+                <div className="animate1">of digital marketing services</div>
+              </div>
+              <div className="h-7 overflow-hidden">
+                <div className="animate1">based on bold ideas</div>
+              </div>
+              <div className="h-7 overflow-hidden">
+                <div className="animate1">and experienced techniques</div>
+              </div>
+              <div className="h-7 overflow-hidden">
+                <div className="animate1">Scroll down to find more reasons to choose us</div>
+              </div>
             </div>
             :
             <div>
-              <div className="animate1" ref={textRef}>A <span className={styles.about_activePhrase}>creative digital agency</span> that provides</div>
-              <div className="animate1" ref={textRef}>the full range of digital marketing</div>
-              <div className="animate1" ref={textRef}>services based on bold ideas</div>
-              <div className="animate1" ref={textRef}>and experienced techniques</div>
-              <div className="animate1" ref={textRef}>Scroll down to find more reasons to choose us</div>
+              <div className="h-42px lg:h-58px overflow-hidden">
+                <div className="animate1">A <span className={styles.about_activePhrase}>creative digital agency</span> that provides</div>
+              </div>
+              <div className="h-42px lg:h-58px overflow-hidden">
+                <div className="animate1">the full range of digital marketing</div>
+              </div>
+              <div className="h-42px lg:h-58px overflow-hidden">
+                <div className="animate1">services based on <span className={styles.about_activePhrase}>bold ideas</span></div>
+              </div>
+              <div className="h-42px lg:h-58px overflow-hidden">
+                <div className="animate1">and <span className={styles.about_activePhrase}>experienced techniques</span></div>
+              </div>
+              <div className="h-42px lg:h-58px overflow-hidden">
+                <div className="animate1">Scroll down to find more reasons to choose us</div>
+              </div>
             </div>
         }
       </h2>

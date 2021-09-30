@@ -4,9 +4,8 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}',
     './layout/**/*.{js,ts,jsx,tsx}',
     './helpers/**/*.{js,ts,jsx,tsx}',
-    // Add more here
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
     colors: {
       ui: {
@@ -75,7 +74,9 @@ module.exports = {
         '166px': '166px',
         '120px': '120px',
         '100px': '100px',
+        '58px' : '58px',
         '52px': '52px',
+        '42px' : '42px',
         '38px': '38px',
         '22px': '22px',
       },
@@ -172,6 +173,7 @@ module.exports = {
     fontFamily: {
       TangoSans: ['TangoSans', 'sans-serif'],
       Poppins: ['Poppins', 'sans-serif'],
+      Montserrat: ['Montserrat', 'sans-serif']
     },
   },
   variants: {

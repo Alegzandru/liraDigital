@@ -14,33 +14,23 @@ const Benefits = () => {
 
   const {t} = useTranslation('mainPage')
 
+  const nextSlide = (direction: 'left' | 'right') => direction === 'left'
+    ? slide === 0 ? benefits.length - 1 : slide-1
+    : slide === benefits.length - 1 ? 0 : slide+1
+
   const changeSlide = (direction: 'left' | 'right') => {
-    if(direction === 'left'){
-      setFade(true)
-      setTimeout(() =>
-        setSlide(slide === 0 ? benefits.length - 1 : slide-1)
-      , 300)
-      setTimeout(() =>
-        setFade(false)
-      , 1200)
-    } else{
-      setFade(true)
-      setTimeout(() =>
-        setSlide(slide === benefits.length - 1 ? 0 : slide+1)
-      , 300)
-      setTimeout(() =>
-        setFade(false)
-      , 1200)
-    }
+    setFade(true)
+    setTimeout(() =>
+      setSlide(nextSlide(direction))
+    , 300)
+    setTimeout(() =>
+      setFade(false)
+    , 1200)
   }
 
   useEffect(() => {
     const onResizeHandler = () => {
-      if(window.innerWidth < SIZES.md){
-        setParallax(false)
-      } else{
-        setParallax(true)
-      }
+      setParallax(!(window.innerWidth < SIZES.md))
     }
 
     onResizeHandler()

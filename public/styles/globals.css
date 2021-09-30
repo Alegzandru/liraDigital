@@ -35,6 +35,28 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Medium.ttf");
+  font-style: medium;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Bold.ttf");
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+}
+
 .bg404{
   background-image: radial-gradient(circle farthest-corner at 50% 50%, #070509, #121212 85%)
 }
@@ -62,4 +84,3 @@ html{
 .col-span-6{
   grid-column: span 6 / span 6;
 }
-

@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Head from 'next/head'
 
 import AllProjects from '../src/components/projectsPage/AllProjects/AllProjects'
@@ -17,7 +18,7 @@ const Projects = ({services, projects}: {services: ProjectType[]; projects: Proj
     </div>
   )
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({locale}) => {
   const projectsRes = await fetch(`${API_URL}/projects`)
   const projectsUnfiltered = await projectsRes.json()
   const projects: ProjectMinified[] = projectsUnfiltered.map((project: any) => ({
@@ -35,6 +36,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
+      ...(await serverSideTranslations(locale as string, ['common', 'projects'])),
       projects,
       services: [
         {name: 'All Projects'},

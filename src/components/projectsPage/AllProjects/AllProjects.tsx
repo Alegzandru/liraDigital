@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { SIZE_NAMES, SIZES } from '../../../constants/common'
 import { ProjectMinified, ProjectType } from '../../../types'
@@ -16,9 +17,11 @@ const AllProjects = ({services, projects}: {services: ProjectType[]; projects: P
 
   const activeProjects = activeTypes.includes('All Projects') ? projects : getActiveProjects(projects, activeTypes)
 
+  const {t} = useTranslation('projects')
+
   const projectType = ({name}: ProjectType, index: number) => (
     <li
-      key={index} className={`${activeTypes.includes(name) ? 'bg-ui-black80' : 'hover:bg-ui-black80'} px-2 py-2.5 mr-4 lg:ml-10 rounded transition duration-300 group cursor-pointer`}
+      key={index} className={classNames('px-2 py-2.5 mr-4 lg:ml-10 rounded transition duration-300 group cursor-pointer', activeTypes.includes(name) ? 'bg-ui-black80' : 'hover:bg-ui-black80')}
       onClick={() => {
         if(activeTypes.includes(name) && name !== 'All Projects'){
           const newArray = activeTypes.filter((activeType) => activeType !== name)
@@ -38,7 +41,10 @@ const AllProjects = ({services, projects}: {services: ProjectType[]; projects: P
         }
       }}
     >
-      <pre className={`${activeTypes.includes(name) ? 'text-ui-peach' : 'text-ui-grey group-hover:text-ui-white '} font-Poppins h-5 text-sm-links-md md:text-lg-links-md font-medium transition duration-300`}>
+      <pre className={classNames(
+        'font-Poppins h-5 text-sm-links-md md:text-lg-links-md font-medium transition duration-300',
+        activeTypes.includes(name) ? 'text-ui-peach' : 'text-ui-grey group-hover:text-ui-white')}
+      >
         {name}
       </pre>
     </li>
@@ -66,7 +72,7 @@ const AllProjects = ({services, projects}: {services: ProjectType[]; projects: P
     <div>
       <div className={classNames('bg-ui-black100 flex flex-row justify-center items-center h-424px', styles.allprojects_upper)}>
         <h1 className="text-sm-h1-tangosans md:text-md-h1-tangosans lg:text-lg-h1-tangosans font-TangoSans font-bold text-center w-full text-ui-white">
-        Our projects
+          {t('Our projects')}
         </h1>
       </div>
       <div className="w-full bg-ui-black90 px-container-sm md:px-container-md lg:px-container-lg pt-10 md:pt-12 pb-40">
@@ -77,7 +83,7 @@ const AllProjects = ({services, projects}: {services: ProjectType[]; projects: P
           </ul>
           <div className="flex flex-row justify-end items-center md:hidden">
             <div className="text-ui-darkGrey text-sm-links-sm font-Poppins">
-            Scroll for more
+              {t('Scroll for more')}
             </div>
             <svg xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 text-ui-darkGrey" fill="none" viewBox="0 0 24 24" stroke="currentColor">

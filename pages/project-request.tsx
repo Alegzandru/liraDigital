@@ -1,3 +1,5 @@
+import { GetStaticProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Head from 'next/head'
 import ProjectReq from '../src/components/projectReqPage/ProjectReq'
 
@@ -11,5 +13,11 @@ const ProjectRequest = () =>
       <ProjectReq/>
     </div>
   )
+
+export const getStaticProps: GetStaticProps = async ({locale}) => ({
+  props: {
+    ...(await serverSideTranslations(locale as string, ['common', 'project-request'])),
+  },
+})
 
 export default ProjectRequest

@@ -3,6 +3,37 @@ import Image from 'next/image'
 import { Project } from '../../../types'
 import styles from './Project.module.scss'
 
+const process = (processStr: string, index: number) => (
+  processStr &&
+  <div className="h-20 flex flex-row justify-start items-center">
+    <div className="font-Poppins font-bold p-4 rounded bg-ui-black70 text-md-h4-poppins lg:text-md-h3-poppins">
+      <div className={styles.project_gradientText}>
+          0{index}
+      </div>
+    </div>
+    <div className="ml-4">
+      {processStr}
+    </div>
+  </div>
+)
+
+const result = (resultStr: string) => (
+  resultStr &&
+    <div className="h-20 flex flex-row justify-start items-center">
+      <div className="p-4">
+        <Image
+          height={32}
+          width={32}
+          src="/projects/check.svg"
+          alt="Achievement 1"
+        />
+      </div>
+      <div className="ml-4">
+        {resultStr}
+      </div>
+    </div>
+)
+
 const ProjectComponent = ({
   name,
   link,
@@ -162,9 +193,9 @@ const ProjectComponent = ({
         {
           photo1 !== '/error' &&
           /* eslint-disable-next-line @next/next/no-img-element*/
-          <img src={photo1} className="w-auto md:max-w-450px mdAdaptive:max-w-none lg:min-w-690px md:mr-5 lg:mr-16 mb-15 md:mb-0" alt="Mr Kebab adaptive design"></img>
+          <img src={photo1} className="w-auto md:max-w-450px mdAdaptive:max-w-none lg:min-w-690px md:mr-5 lg:mr-16 mb-15 md:mb-0 rounded-lg" alt="Mr Kebab adaptive design"></img>
         }
-        <div className="">
+        <div>
           <h3 className="font-Poppins font-bold text-ui-peach text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins px-2 py-1 mb-2">
             {photo1_heading}
           </h3>
@@ -218,45 +249,9 @@ const ProjectComponent = ({
           What has been done:
         </h3>
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-sm-p2 lg:text-lg-p2 text-ui-grey">
-          {
-            process1 &&
-            <div className="h-20 flex flex-row justify-start items-center">
-              <div className="font-Poppins font-bold p-4 rounded bg-ui-black70 text-md-h4-poppins lg:text-md-h3-poppins">
-                <div className={styles.project_gradientText}>
-                    01
-                </div>
-              </div>
-              <div className="ml-4">
-                {process1}
-              </div>
-            </div>
-          }
-          {
-            process2 &&
-            <div className="h-20 flex flex-row justify-start items-center">
-              <div className="font-Poppins font-bold p-4 rounded bg-ui-black70 text-md-h4-poppins lg:text-md-h3-poppins">
-                <div className={styles.project_gradientText}>
-                    02
-                </div>
-              </div>
-              <div className="ml-4">
-                {process2}
-              </div>
-            </div>
-          }
-          {
-            process3 &&
-            <div className="h-20 flex flex-row justify-start items-center">
-              <div className="font-Poppins font-bold p-4 rounded bg-ui-black70 text-md-h4-poppins lg:text-md-h3-poppins">
-                <div className={styles.project_gradientText}>
-                    03
-                </div>
-              </div>
-              <div className="ml-4">
-                {process3}
-              </div>
-            </div>
-          }
+          {process(process1, 1)}
+          {process(process2, 2)}
+          {process(process3, 3)}
         </div>
       </div>
     }
@@ -283,54 +278,9 @@ const ProjectComponent = ({
           Result we have achieved:
         </h3>
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-sm-p2 lg:text-lg-p2 text-ui-grey">
-          {
-            result1 &&
-            <div className="h-20 flex flex-row justify-start items-center">
-              <div className="p-4">
-                <Image
-                  height={32}
-                  width={32}
-                  src="/projects/check.svg"
-                  alt="Achievement 1"
-                />
-              </div>
-              <div className="ml-4">
-                {result1}
-              </div>
-            </div>
-          }
-          {
-            result2 &&
-            <div className="h-20 flex flex-row justify-start items-center">
-              <div className="p-4">
-                <Image
-                  height={32}
-                  width={32}
-                  src="/projects/check.svg"
-                  alt="Achievement 1"
-                />
-              </div>
-              <div className="ml-4">
-                {result2}
-              </div>
-            </div>
-          }
-          {
-            result3 &&
-            <div className="h-20 flex flex-row justify-start items-center">
-              <div className="p-4">
-                <Image
-                  height={32}
-                  width={32}
-                  src="/projects/check.svg"
-                  alt="Achievement 1"
-                />
-              </div>
-              <div className="ml-4">
-                {result3}
-              </div>
-            </div>
-          }
+          {result(result1)}
+          {result(result2)}
+          {result(result3)}
         </div>
       </div>
     }
