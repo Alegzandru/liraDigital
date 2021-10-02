@@ -1,4 +1,7 @@
+import { GetStaticProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Head from 'next/head'
+
 import About from '../src/components/mainPage/About/About'
 import Benefits from '../src/components/mainPage/Benefits/Benefits'
 import Clients from '../src/components/mainPage/Clients/Clients'
@@ -19,5 +22,12 @@ const MainPage = () =>
       <Clients/>
     </div>
   )
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale as string, ['common', 'mainPage'])),
+  },
+})
+
 
 export default MainPage

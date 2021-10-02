@@ -10,7 +10,7 @@ export const CLIENTS = [
     link: 'https://a1.md/',
   },
   {
-    src: '/clients/logoApius.jpg',
+    src: '/clients/logoApius.png',
     name: 'APIUS',
     link: 'https://www.apius.md/',
   },

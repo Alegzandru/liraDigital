@@ -1,6 +1,10 @@
 import { SizeType } from '../types'
 
 export const API_URL = 'https://lira-digital-backend.herokuapp.com'
+export const GOOGLE_MAPS_ID = '31731bd48a92f0fb'
+export const GOOGLE_MAPS_KEY = 'AIzaSyDOw10hs_UOMVTqL0kP5O4imgj2ZCoGyjo'
+
+export const MONTSERRAT = '"Montserrat", sans-serif'
 
 export const SIZES = {
   sm : 340,
@@ -39,4 +43,16 @@ export const validations = {
   step2 : ['budget'],
   step3 : ['description'],
   step4 : ['name', 'email', 'company', 'phone'],
+}
+
+export const FONTS = {
+  TangoSans: 'font-TangoSans',
+  Poppins: 'font-Poppins',
+  Montserrat: 'font-Montserrat',
+}
+
+export const LANGUAGES = {
+  ro : 'ro',
+  ru : 'ru',
+  en : 'en',
 }

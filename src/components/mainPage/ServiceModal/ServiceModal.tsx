@@ -4,9 +4,9 @@ import { useEffect } from 'react'
 import { useContext } from 'react'
 import { ModalContext } from './ServiceModal.context'
 import styles from './ServiceModal.module.scss'
-import {client} from '../Clients/Clients'
 import { SIZES } from '../../../constants/common'
 import Image from 'next/image'
+import { ClientList } from '../Clients/ClientList'
 
 const ServiceModal = () => {
   const [maxPhotos, setMaxPhotos] = useState(2)
@@ -86,8 +86,10 @@ const ServiceModal = () => {
                 </h4>
               </div>
               <div className={classNames(`flex flex-row ${service.clients.length > maxPhotos ? 'justify-start' : 'justify-center'} items-center`, service.clients.length > maxPhotos ? styles.serviceModal_scroller : '')}>
-                {service.clients.map(client)}
-                {service.clients.length > maxPhotos ? service.clients.map(client) : ''}
+                {/* {service.clients.map(client)}
+                {service.clients.length > maxPhotos ? service.clients.map(client) : ''} */}
+                <ClientList clients={service.clients}/>
+                {service.clients.length > maxPhotos ? <ClientList clients={service.clients}/> : ''}
               </div>
             </div>
           }

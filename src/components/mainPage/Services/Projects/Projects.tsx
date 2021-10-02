@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { SIZES } from '../../../../constants/common'
 import { WEBSITES } from '../../../../constants/projects'
@@ -11,6 +12,8 @@ import styles from './Projects.module.scss'
 const Projects = () => {
   const [imageSizes, setImageSizes] = useState({height: 200, width: 316})
   const [slide, setSlide] = useState(0)
+
+  const {t} = useTranslation('mainPage')
 
   const changeSlide = (direction: 'left' | 'right') => {
     if(direction === 'left'){
@@ -35,7 +38,7 @@ const Projects = () => {
   return(
     <div className="w-full pb-18 md:pb-238px lg:pb-300px">
       <h2 className={classNames('w-full md:text-center lg:text-left font-TangoSans font-bold text-sm-h2-tangosans md:text-md-h2-tangosans lg:text-lg-h2-tangosans mb-4 md:mb-5 lg:mb-14', styles.projects_outlineText)}>
-      We crafted these
+        {t('We crafted these')}
       </h2>
       <div className="w-full flex flex-row justify-start items-center h-200px md:h-332px">
         {
@@ -77,9 +80,6 @@ const Projects = () => {
         </button>
       </div>
       <div className="w-full text-center md:text-left">
-        {/* <button className={classNames('py-5 px-20 text-ui-white text-lg-button-md font-bold font-Poppins rounded transform hover:scale-105 transition duration-300', styles.projects_button)}>
-            See our work
-        </button> */}
         <button className={classNames(styles.projects_button, 'rounded')}>
           <div className={classNames('h-12 md:h-15 w-full relative z-0 transition duration-300 rounded', styles.projects_button_Bg)}>
           </div>
@@ -87,7 +87,7 @@ const Projects = () => {
             <a>
               <div className={classNames('h-12 md:h-15 flex flex-row justify-center items-center px-14 text-ui-white text-sm-button-md md:text-md-button-md lg:text-lg-button-md font-bold font-Poppins',
                 '-mt-12 md:-mt-15 relative z-10')}>
-                      See our work
+                {t('See our work')}
               </div>
             </a>
           </Link>

@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Parallax } from 'react-scroll-parallax'
 
 import { benefits } from '../../../constants/benefits'
@@ -11,33 +12,25 @@ const Benefits = () => {
   const [slide, setSlide] = useState(0)
   const [parallax, setParallax] = useState(true)
 
+  const {t} = useTranslation('mainPage')
+
+  const nextSlide = (direction: 'left' | 'right') => direction === 'left'
+    ? slide === 0 ? benefits.length - 1 : slide-1
+    : slide === benefits.length - 1 ? 0 : slide+1
+
   const changeSlide = (direction: 'left' | 'right') => {
-    if(direction === 'left'){
-      setFade(true)
-      setTimeout(() =>
-        setSlide(slide === 0 ? benefits.length - 1 : slide-1)
-      , 300)
-      setTimeout(() =>
-        setFade(false)
-      , 1200)
-    } else{
-      setFade(true)
-      setTimeout(() =>
-        setSlide(slide === benefits.length - 1 ? 0 : slide+1)
-      , 300)
-      setTimeout(() =>
-        setFade(false)
-      , 1200)
-    }
+    setFade(true)
+    setTimeout(() =>
+      setSlide(nextSlide(direction))
+    , 300)
+    setTimeout(() =>
+      setFade(false)
+    , 1200)
   }
 
   useEffect(() => {
     const onResizeHandler = () => {
-      if(window.innerWidth < SIZES.md){
-        setParallax(false)
-      } else{
-        setParallax(true)
-      }
+      setParallax(!(window.innerWidth < SIZES.md))
     }
 
     onResizeHandler()
@@ -52,7 +45,7 @@ const Benefits = () => {
       <Parallax disabled={!parallax} y={['-100px', '100px']} className="" tagOuter="figure">
         <h2 className={classNames('font-TangoSans font-bold w-full text-center mb-14 text-ui-white md:text-ui-black75 text-sm-h2-tangosans' ,
           styles.benefits_parallaxText)}>
-              Our advantages
+          {t('Our advantages')}
         </h2>
       </Parallax>
       <div className="w-full md:h-480px mdNoZero:h-auto bg-ui-black80 py-10 px-6 flex flex-col md:flex-row-reverse justify-between items-center relative z-10">
@@ -74,10 +67,10 @@ const Benefits = () => {
         >
           <div className={classNames(fade ? styles.benefits_cardText : '', 'h-32 lg:h-200px')}>
             <h3 className="font-Poppins text-sm-h3-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins text-ui-white mb-2 font-bold">
-              {benefits[slide].headline}
+              {t(benefits[slide].headline)}
             </h3>
             <p className="text-ui-grey text-sm-p md:text-md-p lg:text-lg-p font-Poppins mb-8 md:mb-12 lg:mb-18">
-              {benefits[slide].text}
+              {t(benefits[slide].text)}
             </p>
           </div>
           <div className="flex flex-row justify-start items-center">

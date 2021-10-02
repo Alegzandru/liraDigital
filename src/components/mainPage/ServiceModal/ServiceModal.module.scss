@@ -34,7 +34,7 @@
   }
 
   ::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
   }
   
   ::-webkit-scrollbar-track {
@@ -82,6 +82,10 @@
     &_scroller{
       width: 1984px;
       animation: scroll 40s infinite linear;
+    }
+
+    ::-webkit-scrollbar {
+      width: 15px;
     }
   }
 }

@@ -24,7 +24,7 @@ export const SERVICES = [
     ],
     clients: [
       {
-        src: '/clients/logoApius.jpg',
+        src: '/clients/logoApius.png',
         name: 'APIUS',
         link: 'https://www.apius.md/',
       },
@@ -59,7 +59,7 @@ export const SERVICES = [
         link: 'http://refaceacademy.com/',
       },
       {
-        src: '/clients/logoApius.jpg',
+        src: '/clients/logoApius.png',
         name: 'APIUS',
         link: 'https://www.apius.md/',
       },
@@ -97,7 +97,7 @@ export const SERVICES = [
     ],
     clients: [
       {
-        src: '/clients/logoApius.jpg',
+        src: '/clients/logoApius.png',
         name: 'APIUS',
         link: 'https://www.apius.md/',
       },
