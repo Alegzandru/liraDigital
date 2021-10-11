@@ -6,6 +6,9 @@ export const GOOGLE_MAPS_KEY = 'AIzaSyDOw10hs_UOMVTqL0kP5O4imgj2ZCoGyjo'
 
 export const MONTSERRAT = '"Montserrat", sans-serif'
 
+export const HERO_WORDS = ['voice', 'vibe', 'vibrance']
+
+
 export const SIZES = {
   sm : 340,
   md: 640,
@@ -52,7 +55,22 @@ export const FONTS = {
 }
 
 export const LANGUAGES = {
-  ro : 'ro',
-  ru : 'ru',
-  en : 'en',
+  ro : {
+    slug: 'ro',
+    name: 'Română',
+  },
+  // ru : {
+  //   slug: 'ru',
+  //   name: 'Русский',
+  // },
+  en : {
+    slug: 'en',
+    name: 'English',
+  },
 }
+
+// export const LANGUAGES = {
+//   ro: 'Română',
+//   en: 'English',
+//   ru: 'Русский',
+// }

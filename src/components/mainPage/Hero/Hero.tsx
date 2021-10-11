@@ -1,6 +1,9 @@
 import classNames from 'classnames'
 import lottie from 'lottie-web'
+import { useRouter } from 'next/router'
 import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { HERO_WORDS, LANGUAGES } from '../../../constants/common'
 
 import styles from './Hero.module.scss'
 
@@ -9,10 +12,17 @@ const Hero = () => {
   const wordRef = useRef<HTMLSpanElement>(null)
 
   const [wordIndex, setWordIndex] = useState(0)
+  const [isSafari, setIsSafari] = useState(true)
 
-  const words = ['voice', 'vibe', 'vibrance']
+  const {t} = useTranslation('mainPage')
+
+  const router = useRouter()
+  const isRo = router.locale !== LANGUAGES.en.slug
 
   useEffect(() => {
+    if(navigator.userAgent){
+      setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent))
+    }
     (async () => {
       (await import('../../../../public/webgl/min.script.js')).default()
     })();
@@ -58,10 +68,10 @@ const Hero = () => {
   return (
     <div>
       <canvas id="webGLCanvas" className={classNames('h-screen w-full touch-action', styles.hero_canvas)} />
-      <div className={classNames('h-screen w-full flex flex-col justify-center items-center px-container-sm md:px-container-md lg:px-container-lg bg-ui-black90', styles.hero)}>
-        <div className="h-14 md:h-166px lg:h-212px overflow-hidden">
+      <div className={classNames('h-screen w-full flex flex-col justify-center items-center px-container-sm md:px-container-md lg:px-container-lg bg-ui-black90', styles.hero, isSafari ? '' : styles.hero_shadow)}>
+        <div className="h-14 md:h-166px lg:h-212px">
           <h1 className="font-TangoSans font-bold text-ui-white text-sm-h1-tangosans md:text-md-h1-tangosans lg:text-lg-h1-tangosans max-w-792px text-center relative h-14 md:h-166px lg:h-212px">
-            We craft your brand&apos;s <span ref={wordRef} className={classNames(styles.hero_activeWord, 'animate-show-text')}>{words[wordIndex]}</span>
+            {t('We craft your brand`s')} <span ref={wordRef} className={classNames(styles.hero_activeWord, 'animate-show-text')}>{t(HERO_WORDS[wordIndex])}</span>{isRo ? ' brand-ului tău' : ''}
           </h1>
         </div>
         <div className={classNames('hover:-mt-2 transition-all relative z-30', styles.hero_mouse)} ref={lottieRef} onClick={() => scrollDown()} />

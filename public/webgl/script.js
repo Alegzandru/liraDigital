@@ -799,19 +799,21 @@ const webGLAnimation = () => {
 
   update();
 
-  canvas.addEventListener('mousemove', e => {
-    let pointer = pointers[0];
-    if (pointer == null) {
-      pointer = new pointerPrototype();
-    }
-
-    pointer.id = -1;
-    pointer.down = true;
-
-    let posX = scaleByPixelRatio(e.offsetX);
-    let posY = scaleByPixelRatio(e.offsetY);
-    updatePointerMoveData(pointer, posX, posY);
-  });
+  setTimeout(() => {
+    canvas.addEventListener('mousemove', e => {
+      let pointer = pointers[0];
+      if (pointer == null) {
+        pointer = new pointerPrototype();
+      }
+  
+      pointer.id = -1;
+      pointer.down = true;
+  
+      let posX = scaleByPixelRatio(e.offsetX);
+      let posY = scaleByPixelRatio(e.offsetY);
+      updatePointerMoveData(pointer, posX, posY);
+    });
+  }, 200)
 
   canvas.addEventListener('touchstart', e => {
     e.preventDefault();

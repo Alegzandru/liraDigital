@@ -36,11 +36,15 @@ const Projects = () => {
   }, [])
 
   return(
-    <div className="w-full pb-18 md:pb-238px lg:pb-300px">
-      <h2 className={classNames('w-full md:text-center lg:text-left font-TangoSans font-bold text-sm-h2-tangosans md:text-md-h2-tangosans lg:text-lg-h2-tangosans mb-4 md:mb-5 lg:mb-14', styles.projects_outlineText)}>
+    <div className="w-full pb-18 md:pb-238px lg:pb-300px overflow-hidden">
+      <h2 className={classNames('px-container-sm md:px-container-md lg:px-container-lg overflow-hidden w-full md:text-center',
+        'lg:text-left font-TangoSans font-bold text-sm-h2-tangosans md:text-md-h2-tangosans lg:text-lg-h2-tangosans mb-4 md:mb-5 lg:mb-14',
+        styles.projects_outlineText)}
+      >
         {t('We crafted these')}
       </h2>
-      <div className="w-full flex flex-row justify-start items-center h-200px md:h-332px">
+      <div className={classNames('w-full flex flex-row justify-start items-center h-240px md:h-372px overflow-x-scroll md:overflow-x-visible md:ml-container-md lg:ml-container-lg px-6 md:px-0',
+        'md:ml-container-md lg:ml-container-lg', styles.projects_hideScrollbar)}>
         {
           WEBSITES.map((project, index) =>
             (<div key={index} className="h-full w-full">
@@ -59,7 +63,7 @@ const Projects = () => {
           )
         }
       </div>
-      <div className="h-200px md:h-332px -mt-200px md:-mt-332px w-full flex flex-row justify-between items-center mb-14 md:mb-20">
+      <div className="px-container-sm md:px-container-md lg:px-container-lg hidden md:flex h-240px md:h-372px -mt-240px md:-mt-372px w-full flex-row justify-between items-center mb-14 md:mb-20">
         <button
           className={classNames(`${slide !== 0 ? 'opacity-100' : 'opacity-0'} w-12 h-10 md:w-20 md:h-16 bg-ui-dark flex flex-row justify-center items-center rounded-r-lg`,
             'bg-opacity-40 hover:bg-opacity-100 transition duration-300 relative z-20 group', slide !== 0 ? styles.projects_movingButtonLeft : ''
@@ -79,7 +83,7 @@ const Projects = () => {
           </svg>
         </button>
       </div>
-      <div className="w-full text-center md:text-left">
+      <div className="w-full text-center md:text-left px-container-sm md:px-container-md lg:px-container-lg overflow-hidden mt-14 md:mt-0">
         <button className={classNames(styles.projects_button, 'rounded')}>
           <div className={classNames('h-12 md:h-15 w-full relative z-0 transition duration-300 rounded', styles.projects_button_Bg)}>
           </div>
