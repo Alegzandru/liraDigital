@@ -21,7 +21,7 @@ const LanguageSwitcher = () => {
       <div className="max-h-0 group-hover:max-h-40 bg-ui-black75 transition-all duration-300">
         {allLang.filter((lang) => lang !== locale).map((language: string, index: number) =>
           (
-            <Link href={router.pathname} locale={language} key={index}>
+            <Link href={router.asPath} locale={language} key={index}>
               <a>
                 <div className="w-full font-medium text-sm-links-md px-4 py-2 text-ui-darkGrey" key={index}>
                   {LANGUAGES[language as string].name}

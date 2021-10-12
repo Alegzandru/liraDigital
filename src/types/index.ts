@@ -24,20 +24,34 @@ export type ProjectType = {
 export type Project = {
   id: number
   name: string
+  name_ro: string
   link: string
   customer: string
+  customer_ro: string
   initial_data: string
+  initial_data_ro: string
   aims: string
+  aims_ro: string
   description: string
+  description_ro: string
   photo1_heading: string
+  photo1_heading_ro: string
   photo1_subheading: string
+  photo1_subheading_ro: string
   process1: string
+  process1_ro: string
   process2: string
+  process2_ro: string
   process3: string
+  process3_ro: string
   photo3_heading: string
+  photo3_heading_ro: string
   result1: string
+  result1_ro: string
   result2: string
+  result2_ro: string
   result3: string
+  result3_ro: string
   photo1: string
   photo2: string
   photo3: string

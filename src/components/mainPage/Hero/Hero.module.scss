@@ -12,12 +12,15 @@
     -webkit-text-fill-color: transparent;
   }
 
-  &_mouse {
-    height: 32px;
-    width: 22px;
+  &_mouseContainer {
     position: absolute;
     top: calc(100vh - 160px);
     cursor: pointer;
+  }
+
+  &_mouse {
+    height: 32px;
+    width: 22px;
   }
 
   &_revealText {

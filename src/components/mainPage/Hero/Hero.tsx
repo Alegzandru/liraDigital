@@ -69,12 +69,15 @@ const Hero = () => {
     <div>
       <canvas id="webGLCanvas" className={classNames('h-screen w-full touch-action', styles.hero_canvas)} />
       <div className={classNames('h-screen w-full flex flex-col justify-center items-center px-container-sm md:px-container-md lg:px-container-lg bg-ui-black90', styles.hero, isSafari ? '' : styles.hero_shadow)}>
-        <div className="h-14 md:h-166px lg:h-212px">
-          <h1 className="font-TangoSans font-bold text-ui-white text-sm-h1-tangosans md:text-md-h1-tangosans lg:text-lg-h1-tangosans max-w-792px text-center relative h-14 md:h-166px lg:h-212px">
+        <div className="">
+          <h1 className="font-TangoSans font-bold text-ui-white text-sm-h1-tangosans md:text-md-h1-tangosans lg:text-lg-h1-tangosans max-w-792px text-center relative">
             {t('We craft your brand`s')} <span ref={wordRef} className={classNames(styles.hero_activeWord, 'animate-show-text')}>{t(HERO_WORDS[wordIndex])}</span>{isRo ? ' brand-ului tău' : ''}
           </h1>
         </div>
-        <div className={classNames('hover:-mt-2 transition-all relative z-30', styles.hero_mouse)} ref={lottieRef} onClick={() => scrollDown()} />
+        <div className={classNames(styles.hero_mouseContainer, 'relative z-30 flex flex-col justify-center items-center')} onClick={() => scrollDown()}>
+          <div className="text-ui-white text-sm-h5-poppins md:text-md-h5-poppins lg:text-lg-h5-poppins font-Poppins font-medium mb-4">Click to scroll</div>
+          <div className={classNames('hover:-mt-2 transition-all', styles.hero_mouse)} ref={lottieRef} />
+        </div>
       </div>
     </div>
   )

@@ -7,6 +7,7 @@ import styles from './ServiceModal.module.scss'
 import { SIZES } from '../../../constants/common'
 import Image from 'next/image'
 import { ClientList } from '../Clients/ClientList'
+import { useTranslation } from 'react-i18next'
 
 const ServiceModal = () => {
   const [maxPhotos, setMaxPhotos] = useState(2)
@@ -44,6 +45,8 @@ const ServiceModal = () => {
     }
   }, [])
 
+  const {t} = useTranslation('mainPage')
+
   return(
     <div className={classNames(styles.serviceModal)}>
       {showDelayed &&
@@ -72,7 +75,7 @@ const ServiceModal = () => {
             </h2>
             <div className="text-sm-p md:text-md-p lg:text-lg-p text-ui-grey font-Poppins w-full">
               {service.texts && service.texts.map((text, index) =>
-                (<div className="mb-8" key={index} dangerouslySetInnerHTML={{__html: text}}>
+                (<div className="mb-8" key={index} dangerouslySetInnerHTML={{__html: t(text)}}>
                 </div>)
               )}
             </div>
@@ -82,12 +85,10 @@ const ServiceModal = () => {
             <div className="w-full overflow-hidden py-18 md:py-28 lg:py-30 bg-ui-black90">
               <div className="w-full px-container-sm md:px-container-md lg:px-container-lg mb-7">
                 <h4 className="w-full text-center text-ui-white font-Poppins font-bold text-md-h4-poppins lg:text-md-h3-poppins">
-                  We worked with them on this
+                  {t('We worked with them on this')}
                 </h4>
               </div>
               <div className={classNames(`flex flex-row ${service.clients.length > maxPhotos ? 'justify-start' : 'justify-center'} items-center`, service.clients.length > maxPhotos ? styles.serviceModal_scroller : '')}>
-                {/* {service.clients.map(client)}
-                {service.clients.length > maxPhotos ? service.clients.map(client) : ''} */}
                 <ClientList clients={service.clients}/>
                 {service.clients.length > maxPhotos ? <ClientList clients={service.clients}/> : ''}
               </div>
