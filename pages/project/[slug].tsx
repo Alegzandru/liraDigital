@@ -78,11 +78,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const projectsRes = await fetch(`${API_URL}/projects`)
   const projects = await projectsRes.json()
 
-  const paths = projects.map((project: any) => ({
+  const pathsRo = projects.map((project: any) => ({
     params : {
-      slug : project.slug,
+      slug : project.slug, locale: 'ro',
     },
   }))
+
+  const pathsEn = projects.map((project: any) => ({
+    params : {
+      slug : project.slug, locale: 'en',
+    },
+  }))
+
+  const paths = [...pathsRo, ...pathsEn]
 
   return {
     paths,
