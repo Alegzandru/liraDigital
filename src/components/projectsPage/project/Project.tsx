@@ -78,8 +78,8 @@ const ProjectComponent = ({
 }: Project) => {
 
   const {t} = useTranslation('projectPage')
-  const router = useRouter()
 
+  const router = useRouter()
   const isRo = router.locale === LANGUAGES.ro.slug
 
   return(
@@ -172,12 +172,17 @@ const ProjectComponent = ({
             initial_data &&
             <div className="mb-11 md:mb-18">
               <h3 className="font-Poppins font-bold text-ui-peach text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins px-2 py-1">
-                {t('Initial data:')}
+                {t('Initial data')} :
               </h3>
               <ul
                 className="font-Poppins text-sm-p md:text-md-p lg:text-lg-p text-ui-grey mb-2"
                 dangerouslySetInnerHTML={{__html:
-                    initial_data && isRo ? initial_data_ro : initial_data
+                  initial_data && isRo ?
+                    initial_data_ro
+                      .replace(/\#-/g,'<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">')
+                      .replace(/\-#/g,'</li>')
+                    :
+                    initial_data
                       .replace(/\#-/g,'<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">')
                       .replace(/\-#/g,'</li>'),
                 }}
@@ -188,14 +193,19 @@ const ProjectComponent = ({
             aims &&
             <div>
               <h3 className="font-Poppins font-bold text-ui-peach text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins px-2 py-1">
-                {t('Aims:')}
+                {t('Aims')} :
               </h3>
               <ul
                 className="font-Poppins text-sm-p md:text-md-p lg:text-lg-p text-ui-grey mb-2"
                 dangerouslySetInnerHTML={{__html:
-                  aims && isRo ? aims_ro : aims
-                    .replace(/\#-/g,'<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">')
-                    .replace(/\-#/g,'</li>'),
+                  aims && isRo ?
+                    aims_ro
+                      .replace(/\#-/g,'<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">')
+                      .replace(/\-#/g,'</li>')
+                    :
+                    aims
+                      .replace(/\#-/g,'<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">')
+                      .replace(/\-#/g,'</li>'),
                 }}
               >
               </ul>
@@ -231,26 +241,26 @@ const ProjectComponent = ({
 
       {
         platforms && platforms.length !== 0 &&
-      <div className="pt-20 md:pt-30 pb-100px md:pb-32 w-full bg-ui-black75 px-container-sm md:px-container-md lg:px-container-lg">
-        <h3 className="font-Poppins font-bold text-ui-white text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins mb-8 md:mb-10 lg:mb-8">
-          {t('Platforms we worked with:')}
-        </h3>
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 text-sm-links-sm md:text-md-links-sm lg:text-lg-links-sm text-ui-grey">
-          {platforms && platforms.map((platform, index) =>
-            (<div className="rounded-lg bg-ui-black90 h-20 p-6 flex flex-row justify-start items-center" key={index}>
-              <Image
-                height={32}
-                width={32}
-                src={platform.image.url}
-                alt="Google"
-              />
-              <div className="ml-4">
-                {platform.name}
-              </div>
-            </div>)
-          )}
+        <div className="pt-20 md:pt-30 pb-100px md:pb-32 w-full bg-ui-black75 px-container-sm md:px-container-md lg:px-container-lg">
+          <h3 className="font-Poppins font-bold text-ui-white text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins mb-8 md:mb-10 lg:mb-8">
+            {t('Platforms we worked with')} :
+          </h3>
+          <div className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 text-sm-links-sm md:text-md-links-sm lg:text-lg-links-sm text-ui-grey">
+            {platforms && platforms.map((platform, index) =>
+              (<div className="rounded-lg bg-ui-black90 h-20 p-6 flex flex-row justify-start items-center" key={index}>
+                <Image
+                  height={32}
+                  width={32}
+                  src={platform.image.url}
+                  alt="Google"
+                />
+                <div className="ml-4">
+                  {platform.name}
+                </div>
+              </div>)
+            )}
+          </div>
         </div>
-      </div>
       }
 
       {
@@ -269,7 +279,7 @@ const ProjectComponent = ({
         (process1 || process2 || process3) &&
       <div className="pt-20 md:pt-30 pb-100px md:pb-32 w-full bg-ui-black75 px-container-sm md:px-container-md lg:px-container-lg">
         <h3 className="font-Poppins font-bold text-ui-white text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins mb-8 md:mb-10 lg:mb-8">
-          {t('What has been done:')}
+          {t('What has been done')} :
         </h3>
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-sm-p2 lg:text-lg-p2 text-ui-grey">
           {process(isRo ? process1_ro : process1, 1)}
@@ -298,7 +308,7 @@ const ProjectComponent = ({
         (result1 || result2 || result3) &&
       <div className="pt-20 md:pt-30 pb-100px md:pb-32 w-full bg-ui-black75 px-container-sm md:px-container-md lg:px-container-lg">
         <h3 className="font-Poppins font-bold text-ui-white text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins mb-8 md:mb-10 lg:mb-8">
-          {t('Result we have achieved:')}
+          {t('Result we have achieved')} :
         </h3>
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-sm-p2 lg:text-lg-p2 text-ui-grey">
           {result(isRo ? result1_ro : result1)}
@@ -312,7 +322,7 @@ const ProjectComponent = ({
         <div className={classNames('w-full flex flex-row justify-start items-start md:grid grid-cols-2 gap-6 overflow-x-scroll', styles.project_noScrollbar)}>
           <div className="ml-6 md:ml-0">
             <h3 className="font-Poppins font-bold text-ui-white text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins mb-8">
-              {t('Before :')}
+              {t('Before')} :
             </h3>
             <div className="w-300px h-300px md:w-full md:h-484px lg:h-516px relative">
               <Image
@@ -326,7 +336,7 @@ const ProjectComponent = ({
           </div>
           <div className="mr-6 md:mr-0">
             <h3 className="font-Poppins font-bold text-ui-white text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins mb-8">
-              {t('After :')}
+              {t('After')} :
             </h3>
             <div className="w-300px h-300px md:w-full md:h-484px lg:h-516px relative">
               <Image
