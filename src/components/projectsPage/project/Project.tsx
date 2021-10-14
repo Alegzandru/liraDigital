@@ -23,10 +23,10 @@ const process = (processStr: string, index: number) => (
 const result = (resultStr: string) => (
   resultStr &&
     <div className="h-20 flex flex-row justify-start items-center">
-      <div className="p-4">
+      <div className="p-4 w-8 h-8 relative">
         <Image
-          height={32}
-          width={32}
+          layout="fill"
+          objectFit="contain"
           src="/projects/check.svg"
           alt="Achievement 1"
         />
