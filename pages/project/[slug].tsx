@@ -80,14 +80,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const pathsRo = projects.map((project: any) => ({
     params : {
-      slug : project.slug, locale: 'ro',
+      slug : project.slug,
     },
+    locale: 'ro',
   }))
 
   const pathsEn = projects.map((project: any) => ({
     params : {
-      slug : project.slug, locale: 'en',
+      slug : project.slug,
     },
+    locale: 'en',
   }))
 
   const paths = [...pathsRo, ...pathsEn]
