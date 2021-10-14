@@ -37,7 +37,7 @@ const WhatWeDo = () => {
   const {t} = useTranslation('mainPage')
 
   return(
-    <div className="w-full pt-30 md:pt-190px lg:pt-250px pb-250px md:pb-320px">
+    <div className="w-full pt-30 md:pt-190px lg:pt-250px pb-250px md:pb-320px px-container-sm md:px-container-md lg:px-container-lg overflow-hidden">
       <h2 className="font-TangoSans font-bold text-sm-h2-tangosans md:text-md-h2-tangosans lg:text-lg-h2-tangosans text-ui-white w-full text-center mb-8 md:mb-10 lg:mb-12">
         {t('What we do')}
       </h2>

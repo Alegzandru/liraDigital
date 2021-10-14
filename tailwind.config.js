@@ -58,6 +58,7 @@ module.exports = {
         '480px': '480px',
         '424px': '424px',
         '384px': '384px',
+        '372px': '372px',
         '356px': '356px',
         '348px': '348px',
         '316px': '316px',
@@ -66,6 +67,7 @@ module.exports = {
         '300px': '300px',
         '256px': '256px',
         '250px': '250px',
+        '240px': '240px',
         '238px': '238px',
         '220px': '220px',
         '212px': '212px',
@@ -93,6 +95,7 @@ module.exports = {
       maxHeight: {
         '720px': '720px',
         '528px': '528px',
+        '40' : '160px',
         '53px': '53px',
       },
       minHeight: {
@@ -183,6 +186,7 @@ module.exports = {
       padding: ['hover'],
       grayscale: ['hover'],
       borderWidth: ['hover'],
+      maxHeight: ['group-hover']
     },
   },
   plugins: [],

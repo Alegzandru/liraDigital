@@ -16,11 +16,11 @@ const Layout = ({ children }: Props) =>{
   } = useContext(ModalContext)
 
   const router = useRouter()
-  const isRu = router.locale === LANGUAGES.ru
+  const isntEn = router.locale !== LANGUAGES.en.slug
 
   useEffect(() => {
     const handleRouteChange = () => {
-      if(isRu){
+      if(isntEn){
         const allElems = Array.from(document.querySelectorAll('*') as NodeListOf<HTMLElement>)
         allElems.forEach(function(userItem) {
           userItem.style.fontFamily = MONTSERRAT

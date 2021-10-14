@@ -94,6 +94,16 @@
   &_button{
     background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
   }
+
+  &_hideScrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  &_hideScrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
 }
 
 @media only screen and (min-width: 640px) {

@@ -3,6 +3,7 @@ import styles from './About.module.scss'
 import { gsap } from 'gsap'
 import classNames from 'classnames'
 import { SIZES } from '../../../constants/common'
+import { useTranslation } from 'react-i18next'
 
 const About = () => {
   const [animate, setAnimate] = useState(false)
@@ -43,6 +44,8 @@ const About = () => {
     }
   }, [animate])
 
+  const {t} = useTranslation('mainPage')
+
   return(
     <div className="h-screen w-full bg-ui-black100 flex flex-row justify-center items-center px-container-sm md:px-container-md lg:px-container-lg">
       <h2 className={classNames(`font-Poppins text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins font-bold text-center ${show ? '' : 'opacity-0'}`)}>
@@ -50,40 +53,40 @@ const About = () => {
           mobile ?
             <div>
               <div className="h-7 overflow-hidden">
-                <div className="animate1">A <span className={styles.about_activePhrase}>creative digital agency</span> that</div>
+                <div className="animate1">{t('A')} <span className={styles.about_activePhrase}>{t('creative digital agency')}</span> {t('that')}</div>
               </div>
               <div className="h-7 overflow-hidden">
-                <div className="animate1">provides the full range</div>
+                <div className="animate1">{t('provides the full range')}</div>
               </div>
               <div className="h-7 overflow-hidden">
-                <div className="animate1">of digital marketing services</div>
+                <div className="animate1">{t('of digital marketing services')}</div>
               </div>
               <div className="h-7 overflow-hidden">
-                <div className="animate1">based on bold ideas</div>
+                <div className="animate1">{t('based on')} <span className={styles.about_activePhrase}>{t('bold ideas')}</span></div>
               </div>
               <div className="h-7 overflow-hidden">
-                <div className="animate1">and experienced techniques</div>
+                <div className="animate1">{t('and')} <span className={styles.about_activePhrase}>{t('experienced techniques')}</span></div>
               </div>
               <div className="h-7 overflow-hidden">
-                <div className="animate1">Scroll down to find more reasons to choose us</div>
+                <div className="animate1">{t('Scroll down to find more reasons to choose us')}</div>
               </div>
             </div>
             :
             <div>
               <div className="h-42px lg:h-58px overflow-hidden">
-                <div className="animate1">A <span className={styles.about_activePhrase}>creative digital agency</span> that provides</div>
+                <div className="animate1">{t('A')} <span className={styles.about_activePhrase}>{t('creative digital agency')}</span> {t('that provides')}</div>
               </div>
               <div className="h-42px lg:h-58px overflow-hidden">
-                <div className="animate1">the full range of digital marketing</div>
+                <div className="animate1">{t('the full range of digital marketing')}</div>
               </div>
               <div className="h-42px lg:h-58px overflow-hidden">
-                <div className="animate1">services based on <span className={styles.about_activePhrase}>bold ideas</span></div>
+                <div className="animate1">{t('services based on')} <span className={styles.about_activePhrase}>{t('bold ideas')}</span></div>
               </div>
               <div className="h-42px lg:h-58px overflow-hidden">
-                <div className="animate1">and <span className={styles.about_activePhrase}>experienced techniques</span></div>
+                <div className="animate1">{t('and')} <span className={styles.about_activePhrase}>{t('experienced techniques')}</span></div>
               </div>
               <div className="h-42px lg:h-58px overflow-hidden">
-                <div className="animate1">Scroll down to find more reasons to choose us</div>
+                <div className="animate1">{t('Scroll down to find more reasons to choose us')}</div>
               </div>
             </div>
         }

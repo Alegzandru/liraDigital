@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 import { routes, SIZES } from '../../constants/common'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher'
 
 const Header = () => {
   const router = useRouter()
@@ -63,8 +64,8 @@ const Header = () => {
     <div>
       <header className={classNames(`w-full md:h-18 rounded fixed ${show ? '-top-18' : 'top-0'} z-50 font-Poppins transition-all duration-500`,
         top ? mobileOpen ? styles.headerBgMobile : '' : styles.header)}>
-        <div className="px-container-sm md:px-container-md lg:px-container-lg h-full flex flex-col md:flex-row justify-between items-center">
-          <div className="w-full md:w-auto flex flex-row justify-between items-center h-16">
+        <div className="px-container-sm md:px-container-md lg:px-container-lg h-full flex flex-col md:flex-row justify-between items-start">
+          <div className="w-full md:w-auto flex flex-row justify-between items-start h-16 pt-3 md:pt-2">
             <Link href="/">
               <a>
                 <Image
@@ -75,14 +76,19 @@ const Header = () => {
                 />
               </a>
             </Link>
-            <button className="md:hidden flex flex-row justify-between items-center" onClick={() => setMobileOpen(!mobileOpen)}>
-              <div className={styles.header_hamburgerBox}>
-                <div className={mobileOpen ? styles.header_hamburgerInner_active : styles.header_hamburgerInner}/>
+            <div className="flex flex-row justify-start items-start">
+              <div className="pr-6 md:hidden relative z-40">
+                {mobileOpen && <LanguageSwitcher/>}
               </div>
-            </button>
+              <button className="md:hidden flex flex-row justify-between items-center pt-1" onClick={() => setMobileOpen(!mobileOpen)}>
+                <div className={styles.header_hamburgerBox}>
+                  <div className={mobileOpen ? styles.header_hamburgerInner_active : styles.header_hamburgerInner}/>
+                </div>
+              </button>
+            </div>
           </div>
-          <div className={classNames('w-full md:w-auto overflow-hidden', mobileOpen ? styles.header_expanding : styles.header_narrowing)}>
-            <ul className={classNames('flex flex-col md:flex-row justify-start md:justify-end items-start md:items-center w-full md:w-auto pt-6 pb-12 md:py-0')}>
+          <div className={classNames('w-full md:w-auto overflow-hidden flex flex-row justify-between items-start ', mobileOpen ? styles.header_expanding : styles.header_narrowing)}>
+            <ul className={classNames('flex flex-col md:flex-row justify-start md:justify-end items-start md:items-center w-full md:w-auto pt-6 pb-12 md:pt-4')}>
               {routes.map((route, index) =>
                 (
                   <Link href={route.link} key={index}>
@@ -103,6 +109,9 @@ const Header = () => {
                 )
               )}
             </ul>
+            <div className="pt-4 ml-4 hidden md:block">
+              <LanguageSwitcher/>
+            </div>
           </div>
         </div>
       </header>
