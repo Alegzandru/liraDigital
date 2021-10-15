@@ -134,7 +134,7 @@ export const SERVICES = [
     photo: '/services/facebookAds.gif',
     texts: [
       'Everybody is on Facebook now! Not a surprise!',
-      'But wasting money and getting 0 results is what shocks and gets everyone mad! Not us, and not you anymore, if you choose us. We know it sounds like a cliche because it is :). However you already know that you need a correct, client and sales oriented Facebook and Instagram ads strategy for your business.',
+      'But wasting money and getting 0 results is what shocks and gets everyone mad! Not us, and not you anymore, if you choose us. We know it sounds like a cliche because it is. However you already know that you need a correct, client and sales oriented Facebook and Instagram ads strategy for your business.',
       'At Lira Digital Agency, we believe that every brand can sell on Facebook. We use a carefully considered combination of organic posts and Facebook Ads to lead potential customers through the sales funnel.',
       'All of our work begins with a well thought out strategy, from which we develop campaigns that speak to your audience at a lower cost per conversion.',
       'In the past month, our social media gurus have led home design, e-commerce, and parquet production, beauty salons and other companies to a 239%, 1264%, and 1656% return in ad spend respectively.',

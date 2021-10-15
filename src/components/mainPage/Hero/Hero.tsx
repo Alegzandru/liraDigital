@@ -28,7 +28,7 @@ const Hero = () => {
     })();
 
     (async () => {
-      const lottieJson = await import('../../../../public/hero/mouse.json')
+      const lottieJson = await import('../../../../public/hero/arrowDown.json')
 
       lottie.loadAnimation({
         container: lottieRef.current as HTMLDivElement,
@@ -70,12 +70,12 @@ const Hero = () => {
       <canvas id="webGLCanvas" className={classNames('h-screen w-full touch-action', styles.hero_canvas)} />
       <div className={classNames('h-screen w-full flex flex-col justify-center items-center px-container-sm md:px-container-md lg:px-container-lg bg-ui-black90', styles.hero, isSafari ? '' : styles.hero_shadow)}>
         <div className="">
-          <h1 className="font-TangoSans font-bold text-ui-white text-sm-h1-tangosans md:text-md-h1-tangosans lg:text-lg-h1-tangosans max-w-792px text-center relative">
-            {t('We craft your brand`s')} <span ref={wordRef} className={classNames(styles.hero_activeWord, 'animate-show-text')}>{t(HERO_WORDS[wordIndex])}</span>{isRo ? ' brand-ului tău' : ''}
+          <h1 className="font-TangoSans font-bold text-ui-white text-sm-h1-tangosans md:text-md-h1-tangosans lg:text-lg-h1-tangosans max-w-900px text-center relative">
+            {t('We craft your brand\'s')} <span ref={wordRef} className={classNames(styles.hero_activeWord, 'animate-show-text')}>{t(HERO_WORDS[wordIndex])}</span>{isRo ? ' brand-ului tău' : ''}
           </h1>
         </div>
         <div className={classNames(styles.hero_mouseContainer, 'relative z-30 flex flex-col justify-center items-center')} onClick={() => scrollDown()}>
-          <div className="text-ui-white text-sm-h5-poppins md:text-md-h5-poppins lg:text-lg-h5-poppins font-Poppins font-medium mb-4">Click to scroll</div>
+          <div className="text-ui-white text-sm-h5-poppins md:text-md-h5-poppins lg:text-lg-h5-poppins font-Poppins font-medium">{t('Click to scroll')}</div>
           <div className={classNames('hover:-mt-2 transition-all', styles.hero_mouse)} ref={lottieRef} />
         </div>
       </div>
