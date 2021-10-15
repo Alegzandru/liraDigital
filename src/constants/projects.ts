@@ -61,7 +61,7 @@ export const WEBSITES = [
     link: 'mirrors',
     img1: '/projects/project1.png',
     img2: '/projects/project1Hover.png',
-    name: 'Mirrors MD',
+    name: 'Mirrors.md',
     shadow: '0px 56px 80px rgba(30, 202, 37, 0.16)',
     border: '#55AB7A',
   },

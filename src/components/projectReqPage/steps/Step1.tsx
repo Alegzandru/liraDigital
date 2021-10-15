@@ -29,7 +29,7 @@ const Step1 = ({register, watch, errors}: Props) => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
         {choices.map((choice: string, index) =>
           (<div key={index}>
-            <ChoiceContainer register={register} text={choice} name={'services'} checkboxValue={watch('services')}/>
+            <ChoiceContainer errors={errors} register={register} text={choice} name={'services'} checkboxValue={watch('services')}/>
           </div>))}
       </div>
       <ErrorBlock errors={errors} name={'services'}/>

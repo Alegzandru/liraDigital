@@ -197,7 +197,7 @@ export const SERVICES = [
     ],
     clients: [
       {
-        src: '/clients/logoMirrors.svg',
+        src: '/clients/logoMirrors.png',
         name: 'Mirrors MD',
         link: 'https://www.mirrors.md/',
       },
