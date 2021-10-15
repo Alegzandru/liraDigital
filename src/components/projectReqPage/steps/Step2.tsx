@@ -26,7 +26,7 @@ const Step2 = ({register, errors, watch}: Props) => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
         {choices.map((choice: string, index) =>
           (<div key={index}>
-            <ChoiceContainer asRadio={true} radioValue={watch('budget')} register={register} text={choice} name={'budget'}/>
+            <ChoiceContainer errors={errors} asRadio={true} radioValue={watch('budget')} register={register} text={choice} name={'budget'}/>
           </div>))}
       </div>
       <ErrorBlock errors={errors} name="budget"/>

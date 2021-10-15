@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { RegisterOptions, UseFormRegister } from 'react-hook-form'
+import { DeepMap, FieldError, RegisterOptions, UseFormRegister } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { VALIDATIONS } from '../../../constants/validations'
 import { ProjectReqInputs } from '../../../types'
@@ -11,9 +11,10 @@ type Props = {
   asRadio?: boolean
   radioValue?: string
   checkboxValue?: string[]
+  errors: DeepMap<ProjectReqInputs, FieldError>
 }& RegisterOptions
 
-const ChoiceContainer = ({text, name, asRadio, radioValue, checkboxValue, register}: Props) => {
+const ChoiceContainer = ({text, name, asRadio, radioValue, checkboxValue, register, errors}: Props) => {
 
   const isActive = () => asRadio && radioValue === text || checkboxValue && checkboxValue.includes(text)
 
@@ -23,7 +24,7 @@ const ChoiceContainer = ({text, name, asRadio, radioValue, checkboxValue, regist
     <label
       className={classNames('w-full bg-ui-black90 h-20 md:h-28 flex flex-row justify-between items-center px-4 md:px-6 lg:pl-10 lg:pr-6 rounded group',
         'border hover:border-4 hover:border-ui-black70 hover:bg-ui-black80 transition-all duration-300 cursor-pointer',
-        isActive() ? 'border-ui-darkGrey' : 'border-ui-black70')}
+        errors && errors[name] ? 'border-ui-error' :  isActive() ? 'border-ui-darkGrey' : 'border-ui-black70')}
     >
       <div className={classNames('font-Poppins text-sm-links-sm md:text-md-links-sm lg:text-lg-links-sm transition-colors duration-300', isActive() ? 'text-ui-white' : 'text-ui-grey')}>
         {t(text)}
