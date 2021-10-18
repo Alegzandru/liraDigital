@@ -14,7 +14,7 @@
 
   &_mouseContainer {
     position: absolute;
-    top: calc(100vh - 160px);
+    top: calc(100vh - 200px);
     cursor: pointer;
   }
 
@@ -57,18 +57,22 @@
   }
 }
 
-@media only screen and (min-width: 640px) {
-  .hero {
-    &_mouse {
-      top: calc(100vh - 76px);
-    }
-  }
-}
+// @media only screen and (min-width: 640px) {
+//   .hero {
+//     &_mouseContainer {
+//       position: absolute;
+//       top: calc(100vh - 200px);
+//       cursor: pointer;
+//     }
+//   }
+// }
 
 @media only screen and (min-width: 1280px) {
   .hero {
-    &_mouse {
-      top: calc(100vh - 96px);
+    &_mouseContainer {
+      position: absolute;
+      top: calc(100vh - 120px);
+      cursor: pointer;
     }
   }
 }
