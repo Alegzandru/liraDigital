@@ -7,9 +7,9 @@ export const ErrorBlock = ({errors, name}: {errors: DeepMap<ProjectReqInputs, Fi
 
   if(errors && errors[name]){
     return(
-      <p className="text-ui-error text-sm-p mt-4 font-Poppins font-medium">
+      <div className="text-ui-error text-sm-p mt-4 font-Poppins font-medium">
       *{t((errors[name] as any).message)}
-      </p>
+      </div>
     )
   } else{
     return <p></p>
