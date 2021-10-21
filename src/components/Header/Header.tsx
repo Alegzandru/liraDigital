@@ -17,6 +17,7 @@ const Header = () => {
 
   const [top, setTop] = useState(true)
   const [showSaleModal, setShowSaleModal] = useState(false)
+  const [mobile, setMobile] = useState(false)
 
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -35,7 +36,7 @@ const Header = () => {
     if(!localStorage.getItem('closedModal')){
       setTimeout(() => {
         setShowSaleModal(true)
-      }, 30000)
+      }, 25000)
     }
 
     const onScrollHandler = () => {
@@ -44,7 +45,11 @@ const Header = () => {
 
     const onResizeHandler = () => {
       if(window.innerWidth >= SIZES.md){
+        setMobile(false)
         setMobileOpen(true)
+      } else{
+        setMobile(true)
+        setMobileOpen(false)
       }
     }
 
@@ -86,6 +91,8 @@ const Header = () => {
     }
   }, [showSaleModal])
 
+  const initialRender = useRef(false)
+
   return(
     <div>
       <header className={classNames(`w-full md:h-18 rounded fixed ${show || showSaleModal ? '-top-18' : 'top-0'} z-50 font-Poppins transition-all duration-500`,
@@ -106,14 +113,19 @@ const Header = () => {
               <div className="pr-6 md:hidden relative z-40">
                 {mobileOpen && <LanguageSwitcher/>}
               </div>
-              <button className="md:hidden flex flex-row justify-between items-center pt-1" onClick={() => setMobileOpen(!mobileOpen)}>
+              <button className="md:hidden flex flex-row justify-between items-center pt-1" onClick={() => {
+                setMobileOpen(!mobileOpen)
+                initialRender.current = true
+              }}>
                 <div className={styles.header_hamburgerBox}>
                   <div className={mobileOpen ? styles.header_hamburgerInner_active : styles.header_hamburgerInner}/>
                 </div>
               </button>
             </div>
           </div>
-          <div className={classNames('w-full md:w-auto overflow-hidden flex flex-row justify-between items-start ', mobileOpen ? styles.header_expanding : styles.header_narrowing)}>
+          <div className={classNames('w-full md:w-auto overflow-hidden flex flex-row justify-between items-start', mobileOpen ? styles.header_expanding : styles.header_narrowing,
+            !initialRender.current && mobile? 'hidden' : ''
+          )}>
             <ul className={classNames('flex flex-col md:flex-row justify-start md:justify-end items-start md:items-center w-full md:w-auto pt-6 pb-12 md:pt-4')}>
               {routes.map((route, index) =>
                 (

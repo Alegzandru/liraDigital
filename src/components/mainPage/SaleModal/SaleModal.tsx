@@ -52,10 +52,10 @@ const SaleModal = ({show, close}: {show: boolean; close: MouseEventHandler<HTMLB
             </button>
 
             <div className={classNames('md:w-424px lg:w-512px', styles.saleModal_modalText)}>
-              <h5 className="font-Poppins text-sm-h5-poppins md:text-md-h5-poppins lg:text-lg-h5-poppins text-ui-darkGrey mb-6 md:mb-12 lg:mb-18 font-bold">
+              <h5 className="font-Poppins text-sm-h5-poppins md:text-md-h5-poppins lg:text-lg-h5-poppins text-ui-darkGrey mb-4 md:mb-12 lg:mb-18 font-bold">
                 {t('We see you are enjoying it 👀')}
               </h5>
-              <h3 className="font-TangoSans md:font-Poppins text-sm-h2-tangosans md:text-md-h3-poppins lg:text-lg-h3-poppins text-ui-black100 font-bold mb-12 md:mb-14 lg:mb-22">
+              <h3 className="font-TangoSans md:font-Poppins text-sm-h2-tangosans md:text-md-h3-poppins lg:text-lg-h3-poppins text-ui-black100 font-bold mb-8 md:mb-14 lg:mb-22">
                 {t('Do not miss the opportunity to get 100€ discount for your 1st month for our services')}
               </h3>
               <div className="flex flex-col md:flex-row justify-start items-center font-Poppins text-sm-button-md md:text-md-button-md lg:text-lg-button-md">
@@ -64,7 +64,7 @@ const SaleModal = ({show, close}: {show: boolean; close: MouseEventHandler<HTMLB
                     className="w-full md:w-auto"
                   >
                     <button
-                      className="w-full md:w-auto text-ui-white md:px-10 lg:px-18 py-5 bg-ui-pink rounded-md font-bold md:mr-8 mb-4 md:mb-0"
+                      className="w-full md:w-auto text-ui-white md:px-10 lg:px-18 py-4 md:py-5 bg-ui-pink rounded-md font-bold md:mr-8 mb-4 md:mb-0"
                       onClick={close}
                     >
                       {t('Complete the form')}
@@ -76,7 +76,7 @@ const SaleModal = ({show, close}: {show: boolean; close: MouseEventHandler<HTMLB
                   className="w-full md:w-auto"
                 >
                   <button
-                    className="text-ui-black100 font-bold py-5 w-full border-2 border-ui-pink rounded-md md:py-0 md:w-auto md:border-0 mb-20 md:mb-0"
+                    className="text-ui-black100 font-bold py-4 w-full border-2 border-ui-pink rounded-md md:py-0 md:w-auto md:border-0 mb-14 md:mb-0 box-border"
                     onClick={close}
                   >
                     <span className="hidden md:block">{t('or')}</span> <span className="text-ui-pink md:underline">{t('Make a call')}</span>
