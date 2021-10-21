@@ -24,6 +24,7 @@ const showModal = (state: ModalState, payload: Record<string, any>): ModalState 
   show: true,
   ...payload,
 })
+
 const closeModal = (state: ModalState): ModalState => ({
   ...state,
   show: false,

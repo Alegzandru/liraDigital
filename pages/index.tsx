@@ -1,20 +1,27 @@
 import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import Head from 'next/head'
+import { useRouter } from 'next/router'
 
+import { HeadWithMeta } from '../src/components/Layout/HeadWithMeta'
 import About from '../src/components/mainPage/About/About'
 import Benefits from '../src/components/mainPage/Benefits/Benefits'
 import Clients from '../src/components/mainPage/Clients/Clients'
 import Hero from '../src/components/mainPage/Hero/Hero'
 import Services from '../src/components/mainPage/Services/Services'
+import { META } from '../src/constants/meta'
 
-const MainPage = () =>
-  (
+const MainPage = () =>{
+  const router = useRouter()
+  const locale = router.locale as string
+
+  return(
     <div>
-      <Head>
-        <title>Lira Digital Agency</title>
-        <link rel="shortcut icon" href="/liraFavicon.svg"/>
-      </Head>
+      <HeadWithMeta
+        title={META.index[locale].title}
+        description={META.index[locale].description}
+        index={true}
+        img={''}
+      />
       <Hero/>
       <About/>
       <Benefits/>
@@ -22,6 +29,7 @@ const MainPage = () =>
       <Clients/>
     </div>
   )
+}
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {

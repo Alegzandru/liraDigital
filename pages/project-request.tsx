@@ -1,18 +1,27 @@
 import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import Head from 'next/head'
-import ProjectReq from '../src/components/projectReqPage/ProjectReq'
+import { useRouter } from 'next/router'
 
-const ProjectRequest = () =>
-  (
+import { HeadWithMeta } from '../src/components/Layout/HeadWithMeta'
+import ProjectReq from '../src/components/projectReqPage/ProjectReq'
+import { META } from '../src/constants/meta'
+
+const ProjectRequest = () =>{
+  const router = useRouter()
+  const locale = router.locale as string
+
+  return(
     <div>
-      <Head>
-        <title>Project Request | Lira Digital Agency</title>
-        <link rel="shortcut icon" href="/liraFavicon.svg"/>
-      </Head>
+      <HeadWithMeta
+        title={META.projectReq[locale].title}
+        description={META.projectReq[locale].description}
+        index={true}
+        img={''}
+      />
       <ProjectReq/>
     </div>
   )
+}
 
 export const getStaticProps: GetStaticProps = async ({locale}) => ({
   props: {
