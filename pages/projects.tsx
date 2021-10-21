@@ -1,22 +1,30 @@
 import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import Head from 'next/head'
+import { useRouter } from 'next/router'
 
+import { HeadWithMeta } from '../src/components/Layout/HeadWithMeta'
 import AllProjects from '../src/components/projectsPage/AllProjects/AllProjects'
 import { API_URL } from '../src/constants/common'
+import { META } from '../src/constants/meta'
 import { ProjectMinified, ProjectType } from '../src/types'
 import { getAvailablePhoto } from '../src/utils/projects'
 
-const Projects = ({services, projects}: {services: ProjectType[]; projects: ProjectMinified[]}) =>
-  (
+const Projects = ({services, projects}: {services: ProjectType[]; projects: ProjectMinified[]}) => {
+  const router = useRouter()
+  const locale = router.locale as string
+
+  return(
     <div>
-      <Head>
-        <title>Projects | Lira Digital Agency</title>
-        <link rel="shortcut icon" href="/liraFavicon.svg"/>
-      </Head>
+      <HeadWithMeta
+        title={META.projectReq[locale].title}
+        description={META.projectReq[locale].description}
+        index={true}
+        img={''}
+      />
       <AllProjects services={services} projects={projects}/>
     </div>
   )
+}
 
 export const getStaticProps: GetStaticProps = async ({locale}) => {
   const projectsRes = await fetch(`${API_URL}/projects`)

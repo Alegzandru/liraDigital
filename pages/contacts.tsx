@@ -1,18 +1,27 @@
 import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import Head from 'next/head'
-import Contacts from '../src/components/contacts/Contacts'
+import { useRouter } from 'next/router'
 
-const ContactsPage = () =>
-  (
+import Contacts from '../src/components/contacts/Contacts'
+import { HeadWithMeta } from '../src/components/Layout/HeadWithMeta'
+import { META } from '../src/constants/meta'
+
+const ContactsPage = () =>{
+  const router = useRouter()
+  const locale = router.locale as string
+
+  return(
     <div>
-      <Head>
-        <title>Contacts | Lira Digital Agency</title>
-        <link rel="shortcut icon" href="/liraFavicon.svg"/>
-      </Head>
+      <HeadWithMeta
+        title={META.contacts[locale].title}
+        description={META.contacts[locale].description}
+        index={true}
+        img={''}
+      />
       <Contacts/>
     </div>
   )
+}
 
 export const getStaticProps: GetStaticProps = async ({locale}) => ({
   props: {

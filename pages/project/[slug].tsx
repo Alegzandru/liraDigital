@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import Head from 'next/head'
+
+import { HeadWithMeta } from '../../src/components/Layout/HeadWithMeta'
 import ProjectComponent from '../../src/components/projectsPage/project/Project'
 import { API_URL } from '../../src/constants/common'
 import { Project } from '../../src/types'
@@ -8,14 +9,17 @@ import { getAvailablePhoto } from '../../src/utils/projects'
 
 const DynamicProject = (project: Project) => (
   <div>
-    <Head>
-      <title>{project.name} | Lira Digital Agency</title>
-      <link rel="shortcut icon" href="/liraFavicon.svg"/>
-    </Head>
+    <HeadWithMeta
+      title={''}
+      description={''}
+      index={false}
+      img={''}
+    />
     <ProjectComponent
       {...project}
     ></ProjectComponent>
-  </div>)
+  </div>
+)
 
 export const getStaticProps: GetStaticProps = async ({params, locale}) => {
   const slug = params?.slug
