@@ -97,7 +97,7 @@ const AllProjects = ({services, projects}: {services: ProjectType[]; projects: P
               <div className="w-full h-full relative z-10">
                 <Image
                   src={project.main_photo}
-                  alt="Service 1"
+                  alt={project.name}
                   layout="fill"
                   objectFit="cover"
                 />
