@@ -28,7 +28,7 @@ const result = (resultStr: string) => (
           layout="fill"
           objectFit="contain"
           src="/projects/check.svg"
-          alt="Achievement 1"
+          alt="Achievement"
         />
       </div>
       <div className="ml-4">
@@ -252,7 +252,7 @@ const ProjectComponent = ({
                   height={32}
                   width={32}
                   src={platform.image.url}
-                  alt="Google"
+                  alt={platform.name}
                 />
                 <div className="ml-4">
                   {platform.name}
@@ -299,7 +299,7 @@ const ProjectComponent = ({
         <img
           src={photo3}
           className="w-full rounded-lg"
-          alt="Photo 1"
+          alt="Photo 3"
         />
       </div>
       }
