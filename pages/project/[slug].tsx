@@ -10,7 +10,7 @@ import { getAvailablePhoto } from '../../src/utils/projects'
 const DynamicProject = (project: Project) => (
   <div>
     <HeadWithMeta
-      title={''}
+      title={`${project.name} | Lira Digital Agency`}
       description={''}
       index={false}
       img={''}
