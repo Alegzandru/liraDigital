@@ -16,8 +16,8 @@ const Projects = ({services, projects}: {services: ProjectType[]; projects: Proj
   return(
     <div>
       <HeadWithMeta
-        title={META.projectReq[locale].title}
-        description={META.projectReq[locale].description}
+        title={META.projects[locale].title}
+        description={META.projects[locale].description}
         index={true}
         img={''}
       />
