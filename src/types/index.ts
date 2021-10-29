@@ -71,6 +71,7 @@ export type ProjectMinified = {
   services: {name: string}[]
   main_photo: string
   slug: string
+  order: number
 }
 
 export type ProjectReqInputs = {

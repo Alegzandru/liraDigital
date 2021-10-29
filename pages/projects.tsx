@@ -34,6 +34,7 @@ export const getStaticProps: GetStaticProps = async ({locale}) => {
     services: project.services,
     main_photo: getAvailablePhoto(project, 'main_photo'),
     slug: project.slug,
+    order: project.order,
   }))
 
   const servicesRes = await fetch(`${API_URL}/services`)

@@ -92,32 +92,42 @@ const AllProjects = ({services, projects}: {services: ProjectType[]; projects: P
           </div>
         </div>
         <div className="w-full grid grid-cols-6 gap-6 grid-flow-row">
-          {activeProjects.map((project: ProjectMinified, index: number) => (
-            <div className={classNames('rounded overflow-hidden relative h-256px md:h-384px', getColSpan(index, screenSize))} key={index}>
-              <div className="w-full h-full relative z-10">
-                <Image
-                  src={project.main_photo}
-                  alt={project.name}
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
-              <Link href={`/project/${project.slug}`}>
-                <a>
-                  <div className={classNames('h-full w-full flex flex-col justify-end items-start p-6 relative -mt-256px md:-mt-384px z-20 transition-all duration-300 ', styles.allprojects_cardHover)}>
-                    <h5 className="text-lg-h5-poppins font-Poppins font-bold text-ui-white mb-1">
-                      {project.name}
-                    </h5>
-                    <div className="font-Poppins text-sm-p text-ui-peach">
-                      {project.services.map((service, index2) => (
-                        <span key={index2}>{service.name}{project.services.length === 0 ? '': index2 === project.services.length - 1 ? '':', '}</span>)
-                      )}
+          {activeProjects
+            .sort((a, b) => {
+              if (a.order > b.order) {
+                return 1
+              }
+              if (a.order < b.order) {
+                return -1
+              }
+              return 0
+            })
+            .map((project: ProjectMinified, index: number) => (
+              <div className={classNames('rounded overflow-hidden relative h-256px md:h-384px', getColSpan(index, screenSize))} key={index}>
+                <div className="w-full h-full relative z-10">
+                  <Image
+                    src={project.main_photo}
+                    alt={project.name}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+                <Link href={`/project/${project.slug}`}>
+                  <a>
+                    <div className={classNames('h-full w-full flex flex-col justify-end items-start p-6 relative -mt-256px md:-mt-384px z-20 transition-all duration-300 ', styles.allprojects_cardHover)}>
+                      <h5 className="text-lg-h5-poppins font-Poppins font-bold text-ui-white mb-1">
+                        {project.name}
+                      </h5>
+                      <div className="font-Poppins text-sm-p text-ui-peach">
+                        {project.services.map((service, index2) => (
+                          <span key={index2}>{service.name}{project.services.length === 0 ? '': index2 === project.services.length - 1 ? '':', '}</span>)
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </a>
-              </Link>
-            </div>
-          ))}
+                  </a>
+                </Link>
+              </div>
+            ))}
         </div>
       </div>
 
