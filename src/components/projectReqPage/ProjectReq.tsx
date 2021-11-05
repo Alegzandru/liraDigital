@@ -7,8 +7,8 @@ import classNames from 'classnames'
 import Step2 from './steps/Step2'
 import Step3 from './steps/Step3'
 import Step4 from './steps/Step4'
-import Done from './steps/Done'
 import { useTranslation } from 'react-i18next'
+import { useRouter } from 'next/router'
 
 const ProjectReq = () => {
   const [step, setStep] = useState(0)
@@ -16,6 +16,8 @@ const ProjectReq = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm<ProjectReqInputs>()
 
   const {t} = useTranslation('project-request')
+
+  const router = useRouter()
 
   const backButton = () => (
     <div onClick={() => step !== 0 ? setStep(step-1) : null} className={classNames('flex flex-row justify-between items-center px-1 hover:bg-ui-black80 rounded h-7 cursor-pointer', step !== 0 ? '' : 'opacity-0')}>
@@ -69,12 +71,12 @@ const ProjectReq = () => {
     }
   }
 
-  const onSubmit: SubmitHandler<ProjectReqInputs> = (data) => {
+  const onSubmit: SubmitHandler<ProjectReqInputs> = async (data) => {
     if(step !== 3) {
       setStep(step+1)
     } else{
-      sendMailBrief(data)
-      setStep(step+1)
+      await sendMailBrief(data)
+      router.push('thank-you')
     }
   }
 
@@ -84,13 +86,11 @@ const ProjectReq = () => {
       case 1 : return <Step2 register={register} watch={watch} errors={errors}/>
       case 2 : return <Step3 register={register} errors={errors}/>
       case 3 : return <Step4 register={register} errors={errors}/>
-      case 4 : return <Done/>
       default : return 'Default return'
     }
   }
   return(
     <div className={classNames('pt-32 md:pt-40 pb-36 md:pb-40 lg:pb-200px w-full bg-ui-black90 px-container-sm md:px-container-md lg:px-container-lg', styles.projectReq_bg)}>
-      {step !== 4 &&
       <div>
         <div className="flex flex-row justify-start items-center w-full">
           <div className={classNames('w-1/4 h-1', step >= 0 ? 'bg-ui-peach' : 'bg-ui-black70')}/>
@@ -102,12 +102,11 @@ const ProjectReq = () => {
           {`0${step+1}/04`}
         </div>
       </div>
-      }
       <form onSubmit={handleSubmit(onSubmit)} className="max-w-1000px mx-auto">
         <div className="w-full md:h-384px">
           {showStep()}
         </div>
-        {step !== 4 && <div className="flex flex-row justify-between items-end mt-14 lg:mt-20">
+        <div className="flex flex-row justify-between items-end mt-14 lg:mt-20">
           {backButton()}
           {
             step === 3 ?
@@ -115,7 +114,7 @@ const ProjectReq = () => {
               :
               nextButton()
           }
-        </div>}
+        </div>
       </form>
     </div>
   )
