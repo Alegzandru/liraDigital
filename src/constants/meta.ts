@@ -39,4 +39,12 @@ export const META = {
       description: 'See our projects from different fields of digital marketing like: google ads, youtube ads, ui / ux & product design and others.',
     },
   },
+  thankyou: {
+    ro: {
+      title : 'Vă mulțumim!',
+    },
+    en: {
+      title : 'Thank you!',
+    },
+  },
 }
