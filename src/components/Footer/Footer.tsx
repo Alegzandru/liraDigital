@@ -36,8 +36,8 @@ const Footer = () => {
           </div>
           <div className="mt-12 font-Poppins font-medium text-sm-links-md md:text-md-links-md lg:text-lg-links-md text-ui-grey">
             <div>
-              <a href="tel:+37368356821" className="p-1 hover:text-ui-white hover:underline hover:bg-ui-black75 rounded transition-all duration-300">
-            +373 (68) 356 821
+              <a href="tel:+37360191000" className="p-1 hover:text-ui-white hover:underline hover:bg-ui-black75 rounded transition-all duration-300">
+              +373 (60) 191 000
               </a>
             </div>
             <div className="mt-4 md:mt-5 lg:mt-7">
