@@ -12,7 +12,7 @@ export const META = {
   contacts: {
     ro: {
       title : 'Contacte | Lira Digital Agency',
-      description: 'Lira Digital Agency | Agenție de Digital Marketing Full Service | Chisinau. Str. Pietrarilor 2/1. Ne puteti contacta la nr. +37368356821 sau pe office@lira.md.',
+      description: 'Lira Digital Agency | Agenție de Digital Marketing Full Service | Chisinau. Str. Pietrarilor 2/1. Ne puteti contacta la nr. +37360191000 sau pe office@lira.md.',
     },
     en: {
       title : 'Contacts | Lira Digital Agency',

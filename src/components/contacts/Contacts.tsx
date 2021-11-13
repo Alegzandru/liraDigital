@@ -28,10 +28,10 @@ const Contacts = () => {
           </div>
           <a
             className="font-Poppins font-medium text-sm-links-md md:text-md-links-md lg:text-lg-links-md text-ui-white hover:underline"
-            href="tel:+37368356821"
+            href="tel:+37360191000"
             target="blank"
           >
-          +373 (68) 356 821
+          +373 (60) 191 000
           </a>
         </div>
         <div className="mb-8 md:mr-18 md:mb-0">

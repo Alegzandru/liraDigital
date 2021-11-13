@@ -48,7 +48,7 @@ const Error: React.FC = () => {
         )}>
         Because we are crafting your brands&#39;s voice!
         </p>
-        <a href="tel::+37368356821">
+        <a href="tel:+37360191000">
           <button className={classNames(
             'outline-none text-smallest-button md:text-lg-button px-12 py-4 rounded-sm font-Poppins font-bold text-ui-white gradientButton transform hover:scale-105 transition duration-300',
             styles.button
