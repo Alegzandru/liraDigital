@@ -1,54 +1,68 @@
 import classNames from 'classnames'
 import Link from 'next/link'
-import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { SERVICES } from '../../../../constants/services'
-import { ModalContext } from '../../ServiceModal/ServiceModal.context'
+import { SERVICES2 } from '../../../../constants/services'
 import styles from './WhatWeDo.module.scss'
+
 
 interface CardProps {
   text: string
   index: number
   mixBlend: string
+  img: string
 }
 
-const Card = ({text, index}: CardProps) => (
-  <div className={classNames('h-200px bg-ui-cardBg rounded overflow-hidden group transform hover:scale-95 transition duration-300',)}>
-    <div className={classNames('w-full h-full transform group-hover:scale-110 transition duration-300', styles.whatwedo_card)}>
+const Card = ({text, img, mixBlend}: CardProps) => (
+  <div className={classNames('h-200px rounded overflow-hidden group transform hover:scale-95 transition duration-300',)}>
+    <div className={classNames('w-full h-full transform group-hover:scale-110 transition duration-300 bg-ui-cardBg', styles.whatwedo_card)}>
       {/* eslint-disable-next-line @next/next/no-img-element*/}
       <img
-        src={`/services/card${index}.webp`}
+        src={img}
         alt={text}
-        className={classNames('w-full h-full', text === 'Google Ads & YouTube Ads' ? 'filter brightness-75' : '')}
+        className={classNames('w-full h-full', `mix-blend-${mixBlend}`)}
       />
     </div>
-    <div className={classNames('-mt-200px w-full h-full flex flex-col justify-end items-start p-6 text-ui-white font-Poppins font-bold text-lg-h5-poppins')}>
+    <div className={classNames('-mt-200px group-hover:-mt-238px w-full h-full flex flex-col justify-end items-start',
+      'p-6 group-hover:pb-2.5  text-ui-white font-Poppins font-bold text-lg-h5-poppins transition-all duration-300')}>
       {text}
+    </div>
+    <div className="text-ui-peach pl-6 font-Poppins text-md-button-md flex flex-row justify-start items-center">
+      <div className="mr-2">
+        Learn more
+      </div>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/ui/rightArrow3.svg"
+        className="w-4 h-4"
+        alt="Arrow"
+      />
     </div>
   </div>
 )
 
 const WhatWeDo = () => {
-  const {
-    actions: { showModal },
-  } = useContext(ModalContext)
 
   const {t} = useTranslation('mainPage')
 
   return(
-    <div className="w-full pt-30 md:pt-190px lg:pt-250px pb-250px md:pb-320px px-container-sm md:px-container-md lg:px-container-lg overflow-hidden">
+    <div className="w-full pt-30 md:pt-166px pb-30 md:pb-190px px-container-sm md:px-container-md lg:px-container-lg overflow-hidden">
       <h2 className="font-TangoSans font-bold text-sm-h2-tangosans md:text-md-h2-tangosans lg:text-lg-h2-tangosans text-ui-white w-full text-center mb-8 md:mb-10 lg:mb-12">
         {t('What we do')}
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-        {SERVICES.map((service, index) =>
-          (<div key={index} onClick={() => showModal(service)} className="cursor-pointer">
-            <Card
-              text={service.title}
-              index={index+1}
-              mixBlend={service.mixBlend}
-            />
+        {SERVICES2.map((service, index) =>
+          (<div key={index}>
+            <Link href={`/services#${service.section}`}>
+              <a>
+                <Card
+                  text={service.name}
+                  index={index+1}
+                  mixBlend={service.mixBlend}
+                  img={service.coverImg}
+                />
+              </a>
+            </Link>
           </div>)
         )}
       </div>

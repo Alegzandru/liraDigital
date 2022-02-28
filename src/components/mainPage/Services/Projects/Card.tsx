@@ -17,6 +17,30 @@ type Props = {
   staticSlide: number
   dynamicSlide: number
 }
+
+const generateMargin = ({dynamicSlide, staticSlide}: {dynamicSlide: number; staticSlide: number}) => {
+  switch(dynamicSlide){
+    case 0 :
+      return 'ml-0'
+    case 1 :
+      if(staticSlide === 0){
+        return ''
+      } else if(staticSlide === 1){
+        return styles.projects_move_11
+      } else if(staticSlide === 2){
+        return styles.projects_move_12
+      }
+    case 2 :
+      if(staticSlide === 0){
+        return ''
+      } else if(staticSlide === 1){
+        return styles.projects_move_21
+      } else if(staticSlide === 2){
+        return styles.projects_move_22
+      }
+  }
+}
+
 const Card = ({height, width, link, img1, img2, name, shadow, border, dynamicSlide, staticSlide}: Props) => {
   const [mobile, setMobile] = useState(false)
 
@@ -33,7 +57,7 @@ const Card = ({height, width, link, img1, img2, name, shadow, border, dynamicSli
   }, [])
 
   return(
-    <div className={classNames(`${dynamicSlide >= staticSlide && staticSlide !== 0? '-ml-316px md:-ml-568px' : 'ml-0'} mr-6 h-full transition-all duration-300`)}>
+    <div className={classNames(`${generateMargin({dynamicSlide, staticSlide})} mr-6 h-full transition-all duration-300`)}>
       <Link href={`/project/${link}`}>
         <a className="">
           <div

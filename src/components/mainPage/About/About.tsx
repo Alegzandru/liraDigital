@@ -47,7 +47,7 @@ const About = () => {
   const {t} = useTranslation('mainPage')
 
   return(
-    <div className="h-screen w-full bg-ui-black100 flex flex-row justify-center items-center px-container-sm md:px-container-md lg:px-container-lg">
+    <div className="py-120px md:py-166px lg:py-240px w-full bg-ui-black100 flex flex-row justify-center items-center px-container-sm md:px-container-md lg:px-container-lg">
       <h2 className={classNames(`font-Poppins text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins font-bold text-center ${show ? '' : 'opacity-0'}`)}>
         {
           mobile ?
