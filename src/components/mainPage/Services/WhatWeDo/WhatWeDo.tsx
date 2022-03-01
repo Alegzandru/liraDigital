@@ -13,33 +13,38 @@ interface CardProps {
   img: string
 }
 
-const Card = ({text, img, mixBlend}: CardProps) => (
-  <div className={classNames('h-200px rounded overflow-hidden group transform hover:scale-95 transition duration-300',)}>
-    <div className={classNames('w-full h-full transform group-hover:scale-110 transition duration-300 bg-ui-cardBg', styles.whatwedo_card)}>
-      {/* eslint-disable-next-line @next/next/no-img-element*/}
-      <img
-        src={img}
-        alt={text}
-        className={classNames('w-full h-full', `mix-blend-${mixBlend}`)}
-      />
-    </div>
-    <div className={classNames('-mt-200px group-hover:-mt-238px w-full h-full flex flex-col justify-end items-start',
-      'p-6 group-hover:pb-2.5  text-ui-white font-Poppins font-bold text-lg-h5-poppins transition-all duration-300')}>
-      {text}
-    </div>
-    <div className="text-ui-peach pl-6 font-Poppins text-md-button-md flex flex-row justify-start items-center">
-      <div className="mr-2">
-        Learn more
+const Card = ({text, img, mixBlend}: CardProps) => {
+
+  const {t} = useTranslation('services')
+
+  return(
+    <div className={classNames('h-200px rounded overflow-hidden group transform hover:scale-95 transition duration-300',)}>
+      <div className={classNames('w-full h-full transform group-hover:scale-110 transition duration-300 bg-ui-cardBg', styles.whatwedo_card)}>
+        {/* eslint-disable-next-line @next/next/no-img-element*/}
+        <img
+          src={img}
+          alt={text}
+          className={classNames('w-full h-full', `mix-blend-${mixBlend}`)}
+        />
       </div>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/ui/rightArrow3.svg"
-        className="w-4 h-4"
-        alt="Arrow"
-      />
+      <div className={classNames('-mt-200px group-hover:-mt-238px w-full h-full flex flex-col justify-end items-start',
+        'p-6 group-hover:pb-2.5  text-ui-white font-Poppins font-bold text-lg-h5-poppins transition-all duration-300')}>
+        {text}
+      </div>
+      <div className="text-ui-peach pl-6 font-Poppins text-md-button-md flex flex-row justify-start items-center">
+        <div className="mr-2">
+          {t('Learn more')}
+        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/ui/rightArrow3.svg"
+          className="w-4 h-4"
+          alt="Arrow"
+        />
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 const WhatWeDo = () => {
 

@@ -87,7 +87,7 @@ export const SERVICES2: SERVICE[] = [
   },
   {
     name: 'Facebook Ads & Sales Funnels',
-    description: 'The pulse of every great brand.',
+    description: 'With proper targeting you can get your business to new heights.',
     section: 'facebook',
     currentSection: '',
     img: '/services/facebook.png',
@@ -103,7 +103,7 @@ export const SERVICES2: SERVICE[] = [
   },
   {
     name: '360° Digital Marketing',
-    description: 'The pulse of every great brand.',
+    description: 'A complex approach for an easy solution.',
     section: 'digital-marketing',
     currentSection: '',
     img: '/services/digitalMarketing.png',
@@ -124,7 +124,7 @@ export const SERVICES2: SERVICE[] = [
   },
   {
     name: 'UI/UX & Product Design',
-    description: 'The pulse of every great brand.',
+    description: 'Choose a smooth interaction with your product.',
     section: 'ui-ux',
     currentSection: '',
     img: '/services/uiux.png',
