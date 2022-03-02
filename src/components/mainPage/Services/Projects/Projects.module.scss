@@ -104,6 +104,21 @@
     scrollbar-width: none;
   }
 
+  &_move{
+    &_11{
+      transform: translateX(-568px);
+    }
+    &_12{
+      transform: translateX(-568px);
+    }
+    &_21{
+      transform: translateX(-568px);
+    }
+    &_22{
+      transform: translateX(-1100px);
+    }
+  }
+
 }
 
 @media only screen and (min-width: 640px) {
@@ -141,6 +156,16 @@
         :hover > &{
           transform: scale(1.1, 1);
         }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .projects{
+    &_move{
+      &_22{
+        transform: translateX(-1000px);
       }
     }
   }

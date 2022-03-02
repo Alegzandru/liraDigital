@@ -28,6 +28,10 @@ export const routes = [
     link: '/',
   },
   {
+    name: 'Services',
+    link: '/services',
+  },
+  {
     name: 'Our work',
     link: '/projects',
   },

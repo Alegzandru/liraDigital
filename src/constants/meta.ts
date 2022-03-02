@@ -47,4 +47,14 @@ export const META = {
       title : 'Thank you!',
     },
   },
+  services: {
+    ro: {
+      title: 'Servicii | Lira Digital Agency',
+      description: 'Oferim o gama larga de servicii de marketing adaptate obiectivelor afacerii voastre: Social Media, Google, Youtube si alte tipuri de reclame.',
+    },
+    en: {
+      title: 'Services | Lira Digital Agency',
+      description: 'We offer a wide array of marketing services tailored to fit your business needs: Social Media, Google, Youtube and others types of advertisement',
+    },
+  },
 }

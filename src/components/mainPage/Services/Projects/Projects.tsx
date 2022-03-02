@@ -36,7 +36,7 @@ const Projects = () => {
   }, [])
 
   return(
-    <div className="w-full pb-18 md:pb-238px lg:pb-300px overflow-hidden">
+    <div className="w-full pb-18 md:pb-166px lg:pb-238px overflow-hidden">
       <h2 className={classNames('px-container-sm md:px-container-md lg:px-container-lg overflow-hidden w-full md:text-center',
         'lg:text-left font-TangoSans font-bold text-sm-h2-tangosans md:text-md-h2-tangosans lg:text-lg-h2-tangosans mb-4 md:mb-5 lg:mb-14',
         styles.projects_outlineText)}
@@ -47,7 +47,7 @@ const Projects = () => {
         'md:ml-container-md lg:ml-container-lg', styles.projects_hideScrollbar)}>
         {
           WEBSITES.map((project, index) =>
-            (<div key={index} className="h-full w-full">
+            (<div key={index} className="h-full">
               <Card
                 height={imageSizes.height} width={imageSizes.width}
                 link={project.link}

@@ -26,7 +26,7 @@ module.exports = {
         error: '#E9344A',
         cardBg: '#151515',
         popupBg: '#F2F2F2',
-        quitButton: 'rgba(202, 30, 44, 0.06)'
+        quitButton: 'rgba(202, 30, 44, 0.06)',
       },
     },
     screens: {
@@ -50,6 +50,7 @@ module.exports = {
         '18': '72px',
         '15': '60px',
         'screenH' : '100vh',
+        '1000px' : '1000px',
         '720px': '720px',
         '690px': '690px',
         '620px': '620px',
@@ -160,11 +161,13 @@ module.exports = {
       'md-digits': ['388px', '388px'],
       'md-advantages': ['130px', '180px'],
       'sm-h1-tangosans': ['24px', '28px'],
+      'sm-h1-tangosans-2': ['42px', '50px'],
       'sm-h1-poppins': ['36px', '120%'],
       'sm-h1-error': ['48px', '48px'],
       'sm-h2-poppins': ['20px', '28px'],
       'sm-h2-tangosans': ['28px', '34px'],
       'sm-h3-poppins': ['18px', '22px'],
+      'sm-h4-poppins': ['16px', '19px'],
       'sm-h3-tangosans': ['18px', '22px'],
       'sm-h5-poppins': ['14px', '18px'],
       'sm-links-sm': ['12px', '15px'],
@@ -189,7 +192,7 @@ module.exports = {
     extend: {
       margin: ['hover', 'focus', 'group-hover'],
       scale: ['group-hover'],
-      padding: ['hover'],
+      padding: ['hover', 'group-hover'],
       grayscale: ['hover'],
       borderWidth: ['hover'],
       maxHeight: ['group-hover']

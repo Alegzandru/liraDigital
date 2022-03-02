@@ -98,9 +98,9 @@ const Header = () => {
       <header className={classNames(`w-full md:h-18 rounded fixed ${show || showSaleModal ? '-top-18' : 'top-0'} z-50 font-Poppins transition-all duration-500`,
         top ? mobileOpen ? styles.headerBgMobile : '' : styles.header)}>
         <div className="px-container-sm md:px-container-md lg:px-container-lg h-full flex flex-col md:flex-row justify-between items-start">
-          <div className="w-full md:w-auto flex flex-row justify-between items-start h-16 pt-3 md:pt-2">
+          <div className="w-full md:w-auto flex flex-row justify-between items-start md:items-center h-16 pt-3 md:pt-2">
             <Link href="/">
-              <a>
+              <a className="flex flex-row justify-start items-start md:items-center">
                 <Image
                   src="/branding/logoLira.svg"
                   height={40}

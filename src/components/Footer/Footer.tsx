@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="w-full lg:max-w-792px mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full">
             <h2 className="font-TangoSans font-bold text-ui-white text-sm-h2-tangosans md:text-md-h2-tangosans lg:text-lg-h2-tangosans">
-              {t('Hello. Let`s talk.')}
+              {t('Hello. Let\'s talk.')}
             </h2>
             <Link href="/project-request">
               <a className="px-1.5 py-1 flex flex-row justify-start items-center rounded group hover:bg-ui-peach hover:bg-opacity-20 transition-colors duration-300 mt-7 md:mt-0">
@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="font-Poppins text-ui-darkGrey text-copyright py-4 w-full text-center bg-ui-black">
-        {t('All rights reserved 2021 © Lira Digital')}
+        {t('All rights reserved 2022 © Lira Digital')}
       </div>
     </footer>
   )

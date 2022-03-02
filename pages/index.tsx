@@ -33,7 +33,7 @@ const MainPage = () =>{
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale as string, ['common', 'mainPage'])),
+    ...(await serverSideTranslations(locale as string, ['common', 'mainPage', 'services'])),
   },
 })
 
