@@ -10,7 +10,7 @@ export const CLIENTS = [
     link: 'https://inoxplus.md/',
   },
   {
-    src: '/clients/peachfilms.webp',
+    src: '/clients/peachFilms.webp',
     name: 'Peach Films',
     link: 'https://www.facebook.com/peachfilms.connect/',
   },

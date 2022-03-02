@@ -24,7 +24,7 @@ const Card = ({text, img, mixBlend}: CardProps) => {
         <img
           src={img}
           alt={text}
-          className={classNames('w-full h-full', `mix-blend-${mixBlend}`)}
+          className={classNames('w-full h-full object-cover', `mix-blend-${mixBlend}`)}
         />
       </div>
       <div className={classNames('-mt-200px group-hover:-mt-238px w-full h-full flex flex-col justify-end items-start',

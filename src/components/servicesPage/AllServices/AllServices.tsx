@@ -40,7 +40,7 @@ const AllServices = () => {
         <h3 className="text-sm-h3-tangosans md:text-md-h3-tangosans lg:text-lg-h3-tangosans font-TangoSans text-ui-white mb-6 lg:mb-10 w-full text-center">
           {t('The things we do')}
         </h3>
-        <h1 className={classNames('text-sm-h1-tangosans-2 md:text-md-h1-tangosans lg:text-lg-h1-tangosans font-TangoSans text-ui-white mb-10 w-full text-center', styles.allServices_gradient)}>
+        <h1 className={classNames('font-bold text-sm-h1-tangosans-2 md:text-md-h1-tangosans lg:text-lg-h1-tangosans font-TangoSans text-ui-white mb-10 w-full text-center', styles.allServices_gradient)}>
           {t('Full service marketing')}
         </h1>
         <p className="max-w-792px mx-auto text-center text-sm-p2 md:text-md-p2 lg:text-lg-p2 font-Poppins text-ui-grey">

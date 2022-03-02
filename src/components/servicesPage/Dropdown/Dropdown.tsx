@@ -1,11 +1,11 @@
 import classNames from 'classnames'
-import styles from './Dropdown.module.scss'
-import ClosedArrows from './closedArrows'
-import {useState} from 'react'
-import OpenArrows from './openArrows'
-import Image from 'next/image'
-import { Content, SERVICE } from '../../../constants/services'
 import { useTranslation } from 'next-i18next'
+import { useState } from 'react'
+
+import { Content, SERVICE } from '../../../constants/services'
+import ClosedArrows from './closedArrows'
+import styles from './Dropdown.module.scss'
+import OpenArrows from './openArrows'
 
 const returnElement = (type: string, texts: string[]) => {
   switch(type){
@@ -47,7 +47,7 @@ const Dropdown = ({name, description, img, content, section, currentSection}: SE
   return (
     <div className="w-full">
       <div
-        className="w-full pl-4 pr-2 py-7 md:py-14 flex flex-row justify-between items-center group cursor-pointer"
+        className="w-full pl-4 pr-2 py-7 md:py-14 flex flex-row justify-between items-start group cursor-pointer"
         onClick={() => setOpen(!open)}
       >
         <div className="w-full font-Poppins">
@@ -70,12 +70,12 @@ const Dropdown = ({name, description, img, content, section, currentSection}: SE
         </div>
       </div>
       <div className={classNames('w-full px-4 flex flex-col md:flex-row justify-between items-start pb-16', open ? styles.dropdown_open : styles.dropdown_closed)}>
-        <div className="w-full h-256px md:w-480px md:h-516px relative mr-12 mb-10 md:mb-0">
-          <Image
+        <div className="w-full md:w-480px relative mr-12 mb-10 md:mb-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src={img}
-            layout="fill"
-            objectFit="contain"
             alt="social media"
+            className="w-full rounded-lg"
           />
         </div>
         <div className={classNames('w-full transition-all duration-300 text-sm-p2 md:text-md-p lg:text-lg-p2')}>

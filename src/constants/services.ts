@@ -22,8 +22,8 @@ export const SERVICES2: SERVICE[] = [
     description: 'Create, attract, retain, sell. Repeat.',
     section: 'social-media',
     currentSection: '',
-    img: '/services/social.png',
-    coverImg: 'services/socialmedia.webp',
+    img: '/services/socialFull.webp',
+    coverImg: '/services/socialmedia.webp',
     mixBlend: 'lighten',
     content: [
       {texts: ['We know social media. It’s the foundation upon how we built our business, and it’s a critical component to your foundational marketing and growth strategy.'], type: 'pbold'},
@@ -47,7 +47,7 @@ export const SERVICES2: SERVICE[] = [
     description: 'The pulse of every great brand.',
     section: 'brand-corporate-identity',
     currentSection: '',
-    img: '/services/brand.png',
+    img: '/services/brandFull.webp',
     coverImg: '/services/brand.webp',
     mixBlend: 'color-dodge',
     content: [
@@ -67,8 +67,8 @@ export const SERVICES2: SERVICE[] = [
     description: 'Focus on people who know what they want.',
     section: 'google-youtube',
     currentSection: '',
-    img: '/services/youtube.png',
-    coverImg: '/services/youtube.webp',
+    img: '/services/youtube.webp',
+    coverImg: '/services/youtubeFull.webp',
     mixBlend: 'lighten',
     content: [
       {texts: ['Do you love fast results? Then choose Google Ads. Through this strategy you will be on your clients` sight all along. We can track your customers and their behaviour on your site, thus increasing the revenues and e-commerce conversion rate. Let`s dive into the main types of Google Ads campaigns, to choose the best for your business.'], type: 'pbold'},
@@ -90,8 +90,8 @@ export const SERVICES2: SERVICE[] = [
     description: 'With proper targeting you can get your business to new heights.',
     section: 'facebook',
     currentSection: '',
-    img: '/services/facebook.png',
-    coverImg: '/services/facebook.webp',
+    img: '/services/facebook.webp',
+    coverImg: '/services/facebookFull.webp',
     mixBlend: 'screen',
     content: [
       {texts: ['Everybody is on Facebook now! Not a surprise!'], type: 'pbold'},
@@ -106,7 +106,7 @@ export const SERVICES2: SERVICE[] = [
     description: 'A complex approach for an easy solution.',
     section: 'digital-marketing',
     currentSection: '',
-    img: '/services/digitalMarketing.png',
+    img: '/services/digitalMarketingFull.webp',
     coverImg: '/services/digitalMarketing.webp',
     mixBlend: 'color-dodge',
     content: [
@@ -127,7 +127,7 @@ export const SERVICES2: SERVICE[] = [
     description: 'Choose a smooth interaction with your product.',
     section: 'ui-ux',
     currentSection: '',
-    img: '/services/uiux.png',
+    img: '/services/uiuxFull.webp',
     coverImg: '/services/uiux.webp',
     mixBlend: 'lighten',
     content: [
