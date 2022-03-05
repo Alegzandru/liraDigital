@@ -46,7 +46,15 @@ export const getStaticProps: GetStaticProps = async ({locale}) => {
   return {
     props: {
       ...(await serverSideTranslations(locale as string, ['common', 'projects'])),
-      projects,
+      projects: [
+        {
+          name: 'Custom',
+          services: [...services],
+          main_photo: '/projects/yourProject.png',
+          slug: '/project-request',
+          order: 100,
+        }
+        , ...projects],
       services: [
         {name: 'All Projects'},
         ...services,

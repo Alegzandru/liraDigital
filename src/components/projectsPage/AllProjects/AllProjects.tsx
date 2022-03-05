@@ -112,20 +112,44 @@ const AllProjects = ({services, projects}: {services: ProjectType[]; projects: P
                     objectFit="cover"
                   />
                 </div>
-                <Link href={`/project/${project.slug}`}>
-                  <a>
-                    <div className={classNames('h-full w-full flex flex-col justify-end items-start p-6 relative -mt-256px md:-mt-384px z-20 transition-all duration-300 ', styles.allprojects_cardHover)}>
-                      <h5 className="text-lg-h5-poppins font-Poppins font-bold text-ui-white mb-1">
-                        {project.name}
-                      </h5>
-                      <div className="font-Poppins text-sm-p text-ui-peach">
-                        {project.services.map((service, index2) => (
-                          <span key={index2}>{service.name}{project.services.length === 0 ? '': index2 === project.services.length - 1 ? '':', '}</span>)
-                        )}
-                      </div>
+                {
+                  project.name === 'Custom' ?
+                    <div className={classNames('h-full w-full flex flex-col px-4 py-6 relative -mt-256px md:-mt-384px z-20 transition-all duration-300 ', styles.allprojects_cardHover,
+                      project.name === 'Custom' ? 'justify-center items-center' : 'justify-end items-start')
+                    }>
+                      <h3 className="text-lg-h5-poppins md:text-md-h3-poppins lg:text-lg-h4-poppins font-Poppins font-bold text-ui-white mb-4 text-center">
+                        {t('Here could be your project!')}
+                      </h3>
+                      <Link href="/project-request">
+                        <a className="px-1.5 py-1 flex flex-row justify-start items-center rounded group hover:bg-ui-peach hover:bg-opacity-20 transition-colors duration-300">
+                          <div className="font-Poppins text-md-links-md lg:text-lg-links-md text-ui-peach font-medium mr-2 group-hover:mr-3 transition-all duration-300">
+                            {t('Project request')}
+                          </div>
+                          <svg xmlns="http://www.w3.org/2000/svg"
+                            className="h-8 w-8 text-ui-peach group-hover:-mr-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </a>
+                      </Link>
                     </div>
-                  </a>
-                </Link>
+                    :
+                    <Link href={project.name === 'Custom' ? project.slug : `/project/${project.slug}`}>
+                      <a>
+                        <div className={classNames('h-full w-full flex flex-col p-6 relative -mt-256px md:-mt-384px z-20 transition-all duration-300 ', styles.allprojects_cardHover,
+                          project.name === 'Custom' ? 'justify-center items-center' : 'justify-end items-start')
+                        }>
+                          <h5 className="text-lg-h5-poppins font-Poppins font-bold text-ui-white mb-1">
+                            {project.name}
+                          </h5>
+                          <div className="font-Poppins text-sm-p text-ui-peach">
+                            {project.services.map((service, index2) => (
+                              <span key={index2}>{service.name}{project.services.length === 0 ? '': index2 === project.services.length - 1 ? '':', '}</span>)
+                            )}
+                          </div>
+                        </div>
+                      </a>
+                    </Link>
+                }
               </div>
             ))}
         </div>
