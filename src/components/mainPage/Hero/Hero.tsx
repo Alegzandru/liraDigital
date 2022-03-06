@@ -70,7 +70,7 @@ const Hero = () => {
       <canvas id="webGLCanvas" className={classNames('h-screen w-full touch-action', styles.hero_canvas)} />
       <div className={classNames('h-screen w-full flex flex-col justify-center items-center px-container-sm md:px-container-md lg:px-container-lg bg-ui-black90', styles.hero, isSafari ? '' : styles.hero_shadow)}>
         <div className="">
-          <h1 className="font-TangoSans font-bold text-ui-white text-sm-h1-tangosans md:text-md-h1-tangosans lg:text-lg-h1-tangosans max-w-900px text-center relative">
+          <h1 className="font-TangoSans font-bold text-ui-white text-md-h2-tangosans md:text-md-h1-tangosans lg:text-lg-h1-tangosans max-w-900px text-center relative">
             <div>{t('We craft your brand\'s')} <span ref={wordRef} className={classNames(styles.hero_activeWord, 'animate-show-text')}>{t(HERO_WORDS[wordIndex])}</span></div><div>{isRo ? ' brandului tău' : ''}</div>
           </h1>
         </div>
