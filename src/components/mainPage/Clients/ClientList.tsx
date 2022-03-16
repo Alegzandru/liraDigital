@@ -10,7 +10,7 @@ export const ClientList = ({clients}: {clients: ClientProps[]}) => (
   <div className="flex flex-row justify-start items-center">
     {clients.map((client, index) =>
       (<div className="mr-8 md:mr-12" key={index}>
-        <a href={client.link} className="filter grayscale hover:grayscale-0 transition-all duration-300">
+        <a href={client.link || '#clients'} className="filter grayscale hover:grayscale-0 transition-all duration-300">
           <Image
             src={client.src}
             alt={client.name}
