@@ -47,9 +47,9 @@ export const SERVICES2: SERVICE[] = [
     description: 'The pulse of every great brand.',
     section: 'brand-corporate-identity',
     currentSection: '',
-    img: '/services/brandFull.webp',
+    img: '/services/brand.webp',
     coverImg: '/services/brand.webp',
-    mixBlend: 'color-dodge',
+    mixBlend: 'normal',
     content: [
       {texts: ['Every organization is a living, breathing entity, continually  growing, changing, and responding to outside influences. It’s easy to see, therefore, how your organization’s corporate culture is inextricably linked to its branding and strategy.'], type: 'pbold'},
       {texts: ['In today’s competitive marketplace, it’s vital for organizations of all sizes, missions, and purposes to establish a corporate identity manual, brand style guide, principles, and tone of voice. Here are four reasons why.'], type:'p'},
@@ -106,9 +106,9 @@ export const SERVICES2: SERVICE[] = [
     description: 'A complex approach for an easy solution.',
     section: 'digital-marketing',
     currentSection: '',
-    img: '/services/digitalMarketingFull.webp',
+    img: '/services/digitalMarketing.webp',
     coverImg: '/services/digitalMarketing.webp',
-    mixBlend: 'color-dodge',
+    mixBlend: 'normal',
     content: [
       {texts: ['Either you come for a piece of cake, or you can have it all!'], type: 'pbold'},
       {texts: ['It means taking a holistic approach to marketing so you can avoid leaving any gaps. Implementing such a plan means maintaining a solid presence across multiple online channels to get closer to your clients.'], type: 'p'},

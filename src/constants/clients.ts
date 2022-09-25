@@ -40,9 +40,9 @@ export const CLIENTS = [
     link: 'https://dansicons.md/',
   },
   {
-    src: '/clients/logoMirrors.webp',
-    name: 'Mirrors MD',
-    link: 'https://www.mirrors.md/',
+    src: '/clients/logoMillory.webp',
+    name: 'Millory',
+    link: 'https://www.onemillory.md/',
   },
   {
     src: '/clients/logoMrKebab.webp',
@@ -55,9 +55,9 @@ export const CLIENTS = [
     link: 'https://onx.md/',
   },
   {
-    src: '/clients/logoST.svg',
-    name: 'Stock Textil',
-    link: 'https://stocktextil.md/en/',
+    src: '/clients/logoA1.webp',
+    name: 'A1',
+    link: 'https://a1.md/',
   },
   {
     src: '/clients/logoTopgun.webp',

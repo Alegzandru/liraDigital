@@ -10,7 +10,6 @@ import { routes, SIZES } from '../../constants/common'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher'
-import SaleModal from '../mainPage/SaleModal/SaleModal'
 
 const Header = () => {
   const router = useRouter()
@@ -26,10 +25,6 @@ const Header = () => {
   const {
     state: { show },
   } = useContext(ModalContext)
-
-  const closeSaleModal = () => {
-    setShowSaleModal(false)
-  }
 
   useEffect(() => {
 
@@ -154,7 +149,6 @@ const Header = () => {
         </div>
       </header>
       <ServiceModal/>
-      <SaleModal show={showSaleModal} close={closeSaleModal}/>
     </div>
   )
 }
