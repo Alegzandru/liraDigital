@@ -1,6 +1,6 @@
 import { Loader } from '@googlemaps/js-api-loader'
 import classNames from 'classnames'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import pointer from '../../../public/ui/pointer.svg'
 import { GOOGLE_MAPS_ID, GOOGLE_MAPS_KEY } from '../../constants/common'
@@ -11,6 +11,17 @@ const GoogleMap = () => {
   const mapContainerRef = useRef<HTMLDivElement>(null)
 
   const mapRef = useRef<google.maps.Map>()
+
+  const [isRo, setIsRo] = useState(false)
+
+  useEffect(() => {
+    if (window.location.hostname === 'liradigital') {
+      setIsRo(true)
+    }
+  }, [])
+
+  const lat = isRo ? 44.49144732519042 : 47.01550468760293
+  const lng = isRo ? 26.087278593455085 : 28.844118761270973
 
   useEffect(() => {
     (async () => {
@@ -24,14 +35,14 @@ const GoogleMap = () => {
       const google = window.google
 
       mapRef.current = new google.maps.Map(googleMapRef.current as Element, {
-        center: { lat: 47.0004139, lng: 28.803993 },
+        center: { lat, lng },
         zoom: 15,
         streetViewControl: false,
         mapId: GOOGLE_MAPS_ID,
       })
 
       const marker = new google.maps.Marker({
-        position: new google.maps.LatLng({lat: 47.0004139, lng: 28.803993}),
+        position: new google.maps.LatLng({lat, lng}),
         icon: pointer.src,
         map: mapRef.current,
       })
@@ -41,7 +52,7 @@ const GoogleMap = () => {
         mapRef.current?.panTo(marker.getPosition() as google.maps.LatLng)
       })
     })()
-  }, [])
+  }, [isRo])
 
   return (
     <div ref={mapContainerRef} className={classNames(styles.mapContainer, 'w-full pt-16 max-w-screen')}>

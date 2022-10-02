@@ -1,8 +1,21 @@
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import GoogleMap from './GoogleMap'
 
 const Contacts = () => {
   const {t} = useTranslation('contacts')
+  const [isRo, setIsRo] = useState(false)
+
+  useEffect(() => {
+    if (window.location.hostname === 'liradigital') {
+      setIsRo(true)
+    }
+  }, [])
+
+  const addressText = isRo ? 'Alexandru Șerbanescu nr 87, biroul 121, București' : 'Chisinau, Ismail 31 street'
+  const phoneText = isRo ? '+40 (746) 061 722' : '+373 (60) 191 000'
+  const phoneLink = isRo ? 'tel:+40746061722' : 'tel:+37360191000'
+  const addressLink = isRo ? 'https://goo.gl/maps/Tp5s8WkNSo2aQsdb7' : 'https://goo.gl/maps/zy6WyYamaGMr4T4M8'
 
   return(
     <div className="pt-190px pb-100px md:pt-220px md:pb-40 lg:pt-256px lg:pb-36 w-full bg-ui-black90 px-container-sm md:px-container-md lg:px-container-lg">
@@ -28,10 +41,10 @@ const Contacts = () => {
           </div>
           <a
             className="font-Poppins font-medium text-sm-links-md md:text-md-links-md lg:text-lg-links-md text-ui-white hover:underline"
-            href="tel:+37360191000"
+            href={phoneLink}
             target="blank"
           >
-          +373 (60) 191 000
+            {phoneText}
           </a>
         </div>
         <div className="mb-8 md:mr-18 md:mb-0">
@@ -40,10 +53,10 @@ const Contacts = () => {
           </div>
           <a
             className="font-Poppins font-medium text-sm-links-md md:text-md-links-md lg:text-lg-links-md text-ui-white hover:underline"
-            href="https://goo.gl/maps/AoG6qsZxPJrS585K9"
+            href={addressLink}
             target="blank"
           >
-            {t('Chisinau, Pietrarilor 2/1 street')}
+            {t(addressText)}
           </a>
         </div>
       </div>
