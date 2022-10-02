@@ -58,12 +58,12 @@ export const PROJECT_TYPES = [
 
 export const WEBSITES = [
   {
-    link: 'mirrors',
-    img1: '/projects/project1 (1).webp',
-    img2: '/projects/project1Hover (1).webp',
-    name: 'Mirrors.md',
-    shadow: '0px 56px 80px rgba(30, 202, 37, 0.16)',
-    border: '#55AB7A',
+    link: 'millory',
+    img1: '/projects/millory.webp',
+    img2: '/projects/milloryHover.webp',
+    name: 'Millory',
+    shadow: '0px 56px 80px rgba(81, 92, 174, 0.16)',
+    border: '#515CAE',
   },
   {
     link: 'mrkebab',
@@ -74,11 +74,11 @@ export const WEBSITES = [
     border: '#F6C1C5',
   },
   {
-    link: 'bwp',
-    img1: '/projects/project2 (1).webp',
-    img2: '/projects/project2Hover (1).webp',
-    name: 'Belvedere Wood',
-    shadow: '0px 56px 80px rgba(120, 120, 120, 0.24)',
-    border: '#EEEEEE',
+    link: 'peach-films',
+    img1: '/projects/peach.webp',
+    img2: '/projects/peachHover.webp',
+    name: 'Peach Films',
+    shadow: '0px 56px 80px rgba(234, 120, 90, 0.24)',
+    border: '#EA785A',
   },
 ]
