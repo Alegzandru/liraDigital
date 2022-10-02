@@ -7,7 +7,7 @@ const Contacts = () => {
   const [isRo, setIsRo] = useState(false)
 
   useEffect(() => {
-    if (window.location.hostname === 'liradigital') {
+    if (window.location.hostname === 'www.liradigital.ro') {
       setIsRo(true)
     }
   }, [])
