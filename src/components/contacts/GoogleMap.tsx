@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { useEffect, useRef, useState } from 'react'
 
 import pointer from '../../../public/ui/pointer.svg'
-import { GOOGLE_MAPS_ID, GOOGLE_MAPS_KEY } from '../../constants/common'
+import { GOOGLE_MAPS_ID, GOOGLE_MAPS_KEY, ROHOST } from '../../constants/common'
 import styles from './GoogleMap.module.scss'
 
 const GoogleMap = () => {
@@ -15,7 +15,7 @@ const GoogleMap = () => {
   const [isRo, setIsRo] = useState(false)
 
   useEffect(() => {
-    if (window.location.hostname === 'liradigital') {
+    if (window.location.hostname === ROHOST) {
       setIsRo(true)
     }
   }, [])
