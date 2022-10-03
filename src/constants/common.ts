@@ -78,3 +78,5 @@ export const LANGUAGES = {
 //   en: 'English',
 //   ru: 'Русский',
 // }
+
+export const ROHOST = 'www.liradigital.ro'

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { ROHOST } from '../../constants/common'
 import GoogleMap from './GoogleMap'
 
 const Contacts = () => {
@@ -7,7 +8,7 @@ const Contacts = () => {
   const [isRo, setIsRo] = useState(false)
 
   useEffect(() => {
-    if (window.location.hostname === 'www.liradigital.ro') {
+    if (window.location.hostname === ROHOST) {
       setIsRo(true)
     }
   }, [])
@@ -16,6 +17,7 @@ const Contacts = () => {
   const phoneText = isRo ? '+40 (746) 061 722' : '+373 (60) 191 000'
   const phoneLink = isRo ? 'tel:+40746061722' : 'tel:+37360191000'
   const addressLink = isRo ? 'https://goo.gl/maps/Tp5s8WkNSo2aQsdb7' : 'https://goo.gl/maps/zy6WyYamaGMr4T4M8'
+  const email = isRo ? 'office@liradigital.ro' : 'office@lira.md'
 
   return(
     <div className="pt-190px pb-100px md:pt-220px md:pb-40 lg:pt-256px lg:pb-36 w-full bg-ui-black90 px-container-sm md:px-container-md lg:px-container-lg">
@@ -29,10 +31,10 @@ const Contacts = () => {
           </div>
           <a
             className="font-Poppins font-medium text-sm-links-md md:text-md-links-md lg:text-lg-links-md text-ui-white hover:underline"
-            href="mailto:office@lira.md"
+            href={`mailto:${email}`}
             target="blank"
           >
-          office@lira.md
+            {email}
           </a>
         </div>
         <div className="mb-8 md:mr-18 md:mb-0">
