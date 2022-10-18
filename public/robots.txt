@@ -1,5 +1,5 @@
 Sitemap: https://www.lira.md/sitemapmd.xml
-Sitemap: https://www.lira.md/sitemapro.xml
+Sitemap: https://www.liradigital.ro/sitemapro.xml
 
 User-agent: *
 Allow: /*
