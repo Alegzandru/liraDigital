@@ -61,7 +61,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="font-Poppins text-ui-darkGrey text-copyright py-4 w-full text-center bg-ui-black">
-        {t('All rights reserved 2022 © Lira Digital')}
+        {t('All rights reserved 2024 © Lira Digital')}
       </div>
     </footer>
   )
