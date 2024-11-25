@@ -13,10 +13,10 @@ const Contacts = () => {
     }
   }, [])
 
-  const addressText = isRo ? 'Alexandru Șerbanescu nr 87, biroul 121, București' : 'Chișinau, Șoseaua Hâncești 43, oficiul 303'
-  const phoneText = isRo ? '+40 (746) 061 722' : '+373 (60) 191 000'
-  const phoneLink = isRo ? 'tel:+40746061722' : 'tel:+37360191000'
-  const addressLink = isRo ? 'https://goo.gl/maps/Tp5s8WkNSo2aQsdb7' : 'https://maps.app.goo.gl/MW7FnBpbsJVwxsAj9'
+  const addressText = isRo ? 'Alexandru Șerbanescu nr 87, biroul 121, București' : 'Chișinau, strada Puskin 60'
+  const phoneText = isRo ? '+40 (746) 061 722' : '+373 (68) 356 821'
+  const phoneLink = isRo ? 'tel:+40746061722' : 'tel:+37368356821'
+  const addressLink = isRo ? 'https://goo.gl/maps/Tp5s8WkNSo2aQsdb7' : 'https://maps.app.goo.gl/K3R54BEiWixYxQWeA'
   const email = isRo ? 'office@liradigital.ro' : 'office@lira.md'
 
   return(

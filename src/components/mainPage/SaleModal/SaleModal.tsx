@@ -72,7 +72,7 @@ const SaleModal = ({show, close}: {show: boolean; close: MouseEventHandler<HTMLB
                   </a>
                 </Link>
                 <a
-                  href="tel:+37360191000"
+                  href="tel:+37368356821"
                   className="w-full md:w-auto"
                 >
                   <button

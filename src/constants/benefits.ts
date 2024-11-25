@@ -1,22 +1,22 @@
 export const benefits = [
   {
     headline: 'Value',
-    text: 'We unlock brand VALUE — polish the brand identity to make it brighter.',
+    text: 'We shape the VALUE of your brand. We highlight its uniqueness and turn it into a competitive advantage..',
   },
   {
-    headline: 'Wow',
-    text: 'Design to WOW — craft outstanding visuals in every pixel.',
+    headline: 'Impact',
+    text: 'Design with IMPACT. Every pixel tells a story. We create visuals that impress and stay memorable.',
   },
   {
     headline: 'Data',
-    text: 'Humanize the DATA — treat data as a counselor, not an enemy.',
+    text: 'DATA turned into solutions. We transform information into clear decisions and effective strategies based on results.',
   },
   {
-    headline: 'Clients',
-    text: 'Partner with our CLIENTS - we know you know more about your brand.',
+    headline: 'Partnership',
+    text: 'We believe in authentic collaborations, where our expertise complements your vision for brand success.',
   },
   {
-    headline: 'Technology',
-    text: 'Use latest TECHNOLOGY - apply rock-solid skills to stay up-to-date with the tech world.',
+    headline: 'Innovation',
+    text: 'AI-powered automation for fast performance. We apply AI to streamline every step, delivering fast and impactful results.',
   },
 ]

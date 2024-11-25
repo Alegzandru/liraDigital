@@ -15,8 +15,8 @@ const Footer = () => {
     }
   }, [])
 
-  const phoneText = isRo ? '+40 (746) 061 722' : '+373 (60) 191 000'
-  const phoneLink = isRo ? 'tel:+40746061722' : 'tel:+37360191000'
+  const phoneText = isRo ? '+40 (746) 061 722' : '+373 (68) 356 821'
+  const phoneLink = isRo ? 'tel:+40746061722' : 'tel:+37368356821'
   const email = isRo ? 'office@liradigital.ro' : 'office@lira.md'
 
   const {
