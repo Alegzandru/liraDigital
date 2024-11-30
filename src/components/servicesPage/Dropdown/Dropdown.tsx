@@ -11,25 +11,25 @@ const returnElement = (type: string, texts: string[]) => {
   switch(type){
     case 'p' :
       return texts.map((text: string, index: number) =>
-        (<p className="text-ui-grey font-Poppins mb-10" key={index}>
+        (<p className="text-ui-grey font-Poppins mb-5" key={index}>
           {text}
         </p>)
       )
     case 'pbold' :
       return texts.map((text: string, index: number) =>
-        (<p className="text-ui-grey font-Poppins font-bold mb-10" key={index}>
+        (<p className="text-ui-grey font-Poppins font-bold mb-2" key={index}>
           {text}
         </p>)
       )
     case 'h1' :
       return texts.map((text: string, index: number) => (
-        <p className="text-ui-peach font-Poppins font-bold mb-4" key={index}>
+        <p className="text-ui-peach font-Poppins font-bold mb-2" key={index}>
           {text}
         </p>
       ))
     case 'list' :
       return (
-        <ul className="text-ui-grey font-Poppins list-disc list-inside pl-2">
+        <ul className="text-ui-grey font-Poppins list-disc list-inside pl-2 mb-5">
           {texts.map((text: string, index: number) => (
             <li key={index} dangerouslySetInnerHTML={{__html: text}}>
             </li>
