@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import lottie from 'lottie-web'
 import { useTranslation } from 'react-i18next'
 
 const Done = () => {
@@ -10,6 +9,7 @@ const Done = () => {
   useEffect(() => {
     (
       async () => {
+        const lottie = (await import('lottie-web')).default
         const lottieJson = await import('../../../../public/briefEnd.json')
 
         lottie.loadAnimation({

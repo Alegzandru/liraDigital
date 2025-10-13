@@ -1,6 +1,6 @@
 import { SizeType } from '../types'
 
-export const API_URL = 'https://lira-digital-backend.herokuapp.com'
+export const API_URL = 'https://lira-digital-admin-c79dc1fbfc46.herokuapp.com'
 export const GOOGLE_MAPS_ID = '31731bd48a92f0fb'
 export const GOOGLE_MAPS_KEY = 'AIzaSyDOw10hs_UOMVTqL0kP5O4imgj2ZCoGyjo'
 

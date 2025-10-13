@@ -1,6 +1,5 @@
 import classNames from 'classnames'
 import Image from 'next/image'
-import lottie from 'lottie-web'
 import { useEffect, useRef } from 'react'
 
 import logo from '../../../public/branding/logoLira.svg'
@@ -13,6 +12,7 @@ const Error: React.FC = () => {
   useEffect(() => {
     (
       async () => {
+        const lottie = (await import('lottie-web')).default
         const lottieJson = await import('../../../public/404Animation.json')
 
         lottie.loadAnimation({

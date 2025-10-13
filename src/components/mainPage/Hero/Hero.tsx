@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import lottie from 'lottie-web'
 import { useRouter } from 'next/router'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -28,6 +27,7 @@ const Hero = () => {
     })();
 
     (async () => {
+      const lottie = (await import('lottie-web')).default
       const lottieJson = await import('../../../../public/hero/arrowDown.json')
 
       lottie.loadAnimation({
