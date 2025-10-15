@@ -10,9 +10,9 @@ import { getAvailablePhoto } from '../../src/utils/projects'
 const DynamicProject = (project: Project) => (
   <div>
     <HeadWithMeta
-      title={`${project.name} | Lira Digital Agency`}
-      description={''}
-      index={false}
+      title={project.metatitle}
+      description={project.metadescription}
+      index={true}
       img={''}
     />
     <ProjectComponent
@@ -65,6 +65,8 @@ export const getStaticProps: GetStaticProps = async ({params, locale}) => {
     services : project[0].services,
     tools : project[0].tools,
     platforms : project[0].platforms,
+    metatitle: project[0].metatitle,
+    metadescription: project[0].metadescription,
   }
 
   return {

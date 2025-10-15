@@ -64,6 +64,8 @@ export type Project = {
     name: string
     image: {url: string}
   }[]
+  metatitle: string
+  metadescription: string
 }
 
 export type ProjectMinified = {
