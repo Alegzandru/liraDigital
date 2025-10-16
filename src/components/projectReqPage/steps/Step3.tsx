@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { DeepMap, FieldError, RegisterOptions, UseFormRegister } from 'react-hook-form'
+import { FieldErrors, RegisterOptions, UseFormRegister } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { VALIDATIONS } from '../../../constants/validations'
 import { ProjectReqInputs } from '../../../types'
@@ -7,7 +7,7 @@ import { ErrorBlock } from '../../../utils/general'
 
 type Props = {
   register: UseFormRegister<ProjectReqInputs>
-  errors: DeepMap<ProjectReqInputs, FieldError>
+  errors: FieldErrors<ProjectReqInputs>
 }& RegisterOptions
 
 const Step3 = ({register, errors}: Props) => {

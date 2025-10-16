@@ -8,10 +8,11 @@ import { API_URL } from '../src/constants/common'
 import { META } from '../src/constants/meta'
 import { ProjectMinified, ProjectType } from '../src/types'
 import { getAvailablePhoto } from '../src/utils/projects'
+import { Locale } from '../src/types/locale'
 
 const Projects = ({services, projects}: {services: ProjectType[]; projects: ProjectMinified[]}) => {
   const router = useRouter()
-  const locale = router.locale as string
+  const locale = router.locale as Locale
 
   return(
     <div>

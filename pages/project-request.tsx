@@ -5,10 +5,11 @@ import { useRouter } from 'next/router'
 import { HeadWithMeta } from '../src/components/Layout/HeadWithMeta'
 import ProjectReq from '../src/components/projectReqPage/ProjectReq'
 import { META } from '../src/constants/meta'
+import { Locale } from '../src/types/locale'
 
 const ProjectRequest = () =>{
   const router = useRouter()
-  const locale = router.locale as string
+  const locale = router.locale as Locale
 
   return(
     <div>

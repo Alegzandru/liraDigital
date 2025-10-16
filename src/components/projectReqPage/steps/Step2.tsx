@@ -1,4 +1,4 @@
-import { DeepMap, FieldError, RegisterOptions, UseFormRegister, UseFormWatch } from 'react-hook-form'
+import { FieldErrors, RegisterOptions, UseFormRegister, UseFormWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { ProjectReqInputs } from '../../../types'
 import { ErrorBlock } from '../../../utils/general'
@@ -11,7 +11,7 @@ const choices: string[] = [
 type Props = {
   register: UseFormRegister<ProjectReqInputs>
   watch: UseFormWatch<ProjectReqInputs>
-  errors: DeepMap<ProjectReqInputs, FieldError>
+  errors: FieldErrors<ProjectReqInputs>
 }& RegisterOptions
 
 const Step2 = ({register, errors, watch}: Props) => {

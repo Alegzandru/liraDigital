@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { DeepMap, FieldError, RegisterOptions, UseFormRegister } from 'react-hook-form'
+import { FieldErrors, RegisterOptions, UseFormRegister } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { VALIDATIONS } from '../../../constants/validations'
 import { ProjectReqInputs } from '../../../types'
@@ -11,7 +11,7 @@ type Props = {
   asRadio?: boolean
   radioValue?: string
   checkboxValue?: string[]
-  errors: DeepMap<ProjectReqInputs, FieldError>
+  errors: FieldErrors<ProjectReqInputs>
 }& RegisterOptions
 
 const ChoiceContainer = ({text, name, asRadio, radioValue, checkboxValue, register, errors}: Props) => {

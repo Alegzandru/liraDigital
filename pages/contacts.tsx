@@ -5,12 +5,13 @@ import { useRouter } from 'next/router'
 import Contacts from '../src/components/contacts/Contacts'
 import { HeadWithMeta } from '../src/components/Layout/HeadWithMeta'
 import { META } from '../src/constants/meta'
+import { Locale } from '../src/types/locale'
 
 const ContactsPage = () =>{
   const router = useRouter()
-  const locale = router.locale as string
+  const locale = router.locale as Locale
 
-  return(
+  return (
     <div>
       <HeadWithMeta
         title={META.contacts[locale].title}
@@ -18,7 +19,7 @@ const ContactsPage = () =>{
         index={true}
         img={''}
       />
-      <Contacts/>
+      <Contacts />
     </div>
   )
 }

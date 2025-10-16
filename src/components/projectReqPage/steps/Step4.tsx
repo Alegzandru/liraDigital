@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { DeepMap, FieldError, RegisterOptions, UseFormRegister } from 'react-hook-form'
+import { FieldErrors, RegisterOptions, UseFormRegister } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { VALIDATIONS } from '../../../constants/validations'
 import { ProjectReqInputs } from '../../../types'
@@ -7,14 +7,14 @@ import { ErrorBlock } from '../../../utils/general'
 
 type Props = {
   register: UseFormRegister<ProjectReqInputs>
-  errors: DeepMap<ProjectReqInputs, FieldError>
-}& RegisterOptions
+  errors: FieldErrors<ProjectReqInputs>
+} & RegisterOptions
 
 const Step4 = ({register, errors}: Props) => {
 
   const {t} = useTranslation('project-request')
 
-  const hasError = (name: string) => errors && errors[name]
+  const hasError = (name: keyof ProjectReqInputs) => errors && errors[name]
 
   return(
     <div className="w-full mx-auto">

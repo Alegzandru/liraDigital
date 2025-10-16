@@ -34,7 +34,7 @@ const GoogleMap = () => {
 
       const google = window.google
 
-      mapRef.current = new google.maps.Map(googleMapRef.current as Element, {
+      mapRef.current = new google.maps.Map(googleMapRef.current as HTMLElement, {
         center: { lat, lng },
         zoom: 15,
         streetViewControl: false,

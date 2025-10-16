@@ -8,6 +8,7 @@ export const getActiveProjects = (projects: ProjectMinified[], activeTypes: stri
 }
 
 export const getAvailablePhoto = (project: Project, name: string) => {
-  const photo = project[name] ? project[name].url : '/error'
+  const photo = (project as Record<string, any>)[name]?.url ?? '/error'
   return photo
 }
+

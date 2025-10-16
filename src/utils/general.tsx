@@ -1,8 +1,8 @@
-import { DeepMap, FieldError } from 'react-hook-form'
+import { FieldErrors } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { ProjectReqInputs } from '../types'
 
-export const ErrorBlock = ({errors, name}: {errors: DeepMap<ProjectReqInputs, FieldError>; name: string}) => {
+export const ErrorBlock = ({errors, name}: {errors: FieldErrors<ProjectReqInputs>; name: keyof ProjectReqInputs}) => {
   const {t} = useTranslation('project-request')
 
   if(errors && errors[name]){

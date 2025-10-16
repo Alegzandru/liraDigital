@@ -1,7 +1,17 @@
-Sitemap: https://www.lira.md/sitemapmd.xml
-Sitemap: https://www.liradigital.ro/sitemapro.xml
-
+# *
 User-agent: *
-Allow: /*
+Allow: /
 
-Disallow: /api/*
+# Googlebot-Image
+User-agent: Googlebot-Image
+Allow: /
+
+# BadBot
+User-agent: BadBot
+Disallow: /
+
+# Host
+Host: https://www.lira.md
+
+# Sitemaps
+Sitemap: https://www.lira.md/sitemap.xml

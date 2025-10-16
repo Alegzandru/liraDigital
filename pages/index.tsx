@@ -9,24 +9,25 @@ import Clients from '../src/components/mainPage/Clients/Clients'
 import Hero from '../src/components/mainPage/Hero/Hero'
 import Services from '../src/components/mainPage/Services/Services'
 import { META } from '../src/constants/meta'
+import { Locale } from '../src/types/locale'
 
 const MainPage = () =>{
   const router = useRouter()
-  const locale = router.locale as string
+  const locale = router.locale as Locale
 
-  return(
+  return (
     <div>
       <HeadWithMeta
-        title={META.index[locale].title}
-        description={META.index[locale].description}
+        title={META.contacts[locale].title}
+        description={META.contacts[locale].description}
         index={true}
         img={''}
       />
-      <Hero/>
-      <About/>
-      <Benefits/>
-      <Services/>
-      <Clients/>
+      <Hero />
+      <About />
+      <Benefits />
+      <Services />
+      <Clients />
     </div>
   )
 }
