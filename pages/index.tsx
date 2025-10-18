@@ -25,9 +25,9 @@ const MainPage = () =>{
       />
       <Hero />
       <About />
+      <Clients />
       <Benefits />
       <Services />
-      <Clients />
     </div>
   )
 }
