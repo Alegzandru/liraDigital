@@ -11,7 +11,7 @@ import Services from '../src/components/mainPage/Services/Services'
 import { META } from '../src/constants/meta'
 import { Locale } from '../src/types/locale'
 
-const MainPage = () =>{
+const MainPage = () => {
   const router = useRouter()
   const locale = router.locale as Locale
 
@@ -25,18 +25,21 @@ const MainPage = () =>{
       />
       <Hero />
       <About />
-      <Clients />
       <Benefits />
       <Services />
+      <Clients />
     </div>
   )
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale as string, ['common', 'mainPage', 'services'])),
+    ...(await serverSideTranslations(locale as string, [
+      'common',
+      'mainPage',
+      'services',
+    ])),
   },
 })
-
 
 export default MainPage
