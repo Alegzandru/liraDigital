@@ -18,8 +18,8 @@ const MainPage = () => {
   return (
     <div>
       <HeadWithMeta
-        title={META.contacts[locale].title}
-        description={META.contacts[locale].description}
+        title={META.index[locale].title}
+        description={META.index[locale].description}
         index={true}
         img={''}
       />
