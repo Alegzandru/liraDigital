@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
@@ -7,104 +8,135 @@ import { API_URL } from '../../src/constants/common'
 import { Project } from '../../src/types'
 import { getAvailablePhoto } from '../../src/utils/projects'
 
-const DynamicProject = (project: Project) => (
-  <div>
-    <HeadWithMeta
-      title={project.metatitle}
-      description={project.metadescription}
-      index={true}
-      img={''}
-    />
-    <ProjectComponent
-      {...project}
-    ></ProjectComponent>
-  </div>
-)
-
-export const getStaticProps: GetStaticProps = async ({params, locale}) => {
-  const slug = params?.slug
-  const projectRes = await fetch(`${API_URL}/projects?slug_eq=${slug}`)
-  const project = await projectRes.json()
-
-  const props = {
-    id : project[0].id,
-    name : project[0].name,
-    name_ro : project[0].name_ro,
-    link : project[0].link,
-    customer : project[0].customer,
-    initial_data : project[0].initial_data,
-    initial_data_ro : project[0].initial_data_ro,
-    aims : project[0].aims,
-    aims_ro : project[0].aims_ro,
-    description : project[0].description,
-    description_ro : project[0].description_ro,
-    photo1_heading : project[0].photo1_heading,
-    photo1_heading_ro : project[0].photo1_heading_ro,
-    photo1_subheading : project[0].photo1_subheading,
-    photo1_subheading_ro : project[0].photo1_subheading_ro,
-    process1 : project[0].process1,
-    process1_ro : project[0].process1_ro,
-    process2 : project[0].process2,
-    process2_ro : project[0].process2_ro,
-    process3 : project[0].process3,
-    process3_ro : project[0].process3_ro,
-    photo3_heading : project[0].photo3_heading,
-    photo3_heading_ro : project[0].photo3_heading_ro,
-    result1 : project[0].result1,
-    result1_ro : project[0].result1_ro,
-    result2 : project[0].result2,
-    result2_ro : project[0].result2_ro,
-    result3 : project[0].result3,
-    result3_ro : project[0].result3_ro,
-    photo1 : getAvailablePhoto(project[0], 'photo1'),
-    photo2 : getAvailablePhoto(project[0], 'photo2'),
-    photo3 : getAvailablePhoto(project[0], 'photo3'),
-    before_photo : getAvailablePhoto(project[0], 'before_photo'),
-    after_photo : getAvailablePhoto(project[0], 'after_photo'),
-    main_photo : getAvailablePhoto(project[0], 'main_photo'),
-    services : project[0].services,
-    tools : project[0].tools,
-    platforms : project[0].platforms,
-    metatitle: project[0].metatitle,
-    metadescription: project[0].metadescription,
+const DynamicProject = (project: Project) => {
+  if (!project || !project.id) {
+    return <div>Project not found</div>
   }
 
-  return {
-    props: {
-      ...props,
-      key: slug,
-      ...(await serverSideTranslations(locale as string, ['common', 'projectPage'])),
-    },
-    revalidate : 10,
+  return (
+    <div>
+      <HeadWithMeta
+        title={project.metatitle || 'Project'}
+        description={project.metadescription || ''}
+        index={true}
+        img=""
+      />
+      <ProjectComponent {...project} />
+    </div>
+  )
+}
+
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+  const slug = params?.slug
+
+  try {
+    const projectRes = await fetch(`${API_URL}/projects?slug_eq=${slug}`)
+
+    if (!projectRes.ok) {
+      throw new Error(`Failed to fetch project for slug: ${slug}`)
+    }
+
+    const project = await projectRes.json()
+
+    if (!project?.length) {
+      return { notFound: true }
+    }
+
+    const p = project[0]
+
+    const props = {
+      id: p.id,
+      name: p.name,
+      name_ro: p.name_ro,
+      link: p.link,
+      customer: p.customer,
+      initial_data: p.initial_data,
+      initial_data_ro: p.initial_data_ro,
+      aims: p.aims,
+      aims_ro: p.aims_ro,
+      description: p.description,
+      description_ro: p.description_ro,
+      photo1_heading: p.photo1_heading,
+      photo1_heading_ro: p.photo1_heading_ro,
+      photo1_subheading: p.photo1_subheading,
+      photo1_subheading_ro: p.photo1_subheading_ro,
+      process1: p.process1,
+      process1_ro: p.process1_ro,
+      process2: p.process2,
+      process2_ro: p.process2_ro,
+      process3: p.process3,
+      process3_ro: p.process3_ro,
+      photo3_heading: p.photo3_heading,
+      photo3_heading_ro: p.photo3_heading_ro,
+      result1: p.result1,
+      result1_ro: p.result1_ro,
+      result2: p.result2,
+      result2_ro: p.result2_ro,
+      result3: p.result3,
+      result3_ro: p.result3_ro,
+      photo1: getAvailablePhoto(p, 'photo1'),
+      photo2: getAvailablePhoto(p, 'photo2'),
+      photo3: getAvailablePhoto(p, 'photo3'),
+      before_photo: getAvailablePhoto(p, 'before_photo'),
+      after_photo: getAvailablePhoto(p, 'after_photo'),
+      main_photo: getAvailablePhoto(p, 'main_photo'),
+      services: p.services,
+      tools: p.tools,
+      platforms: p.platforms,
+      metatitle: p.metatitle,
+      metadescription: p.metadescription,
+    }
+
+    return {
+      props: {
+        ...props,
+        key: slug,
+        ...(await serverSideTranslations(locale as string, [
+          'common',
+          'projectPage',
+        ])),
+      },
+      revalidate: 10,
+    }
+  } catch (error) {
+    console.error('❌ Error in getStaticProps:', error)
+    console.error('❌ Slug:', slug)
+    return {
+      notFound: true, // avoids breaking the build
+    }
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  try {
+    const projectsRes = await fetch(`${API_URL}/projects`)
+    if (!projectsRes.ok) {
+      throw new Error('Failed to fetch project list')
+    }
 
-  const projectsRes = await fetch(`${API_URL}/projects`)
-  const projects = await projectsRes.json()
+    const projects = await projectsRes.json()
 
-  const pathsRo = projects.map((project: any) => ({
-    params : {
-      slug : project.slug,
-    },
-    locale: 'ro',
-  }))
+    const pathsRo = projects.map((project: any) => ({
+      params: { slug: project.slug },
+      locale: 'ro',
+    }))
 
-  const pathsEn = projects.map((project: any) => ({
-    params : {
-      slug : project.slug,
-    },
-    locale: 'en',
-  }))
+    const pathsEn = projects.map((project: any) => ({
+      params: { slug: project.slug },
+      locale: 'en',
+    }))
 
-  const paths = [...pathsRo, ...pathsEn]
-
-  return {
-    paths,
-    fallback: true,
+    return {
+      paths: [...pathsRo, ...pathsEn],
+      fallback: true,
+    }
+  } catch (error) {
+    console.error('⚠️ Error in getStaticPaths:', error)
+    return {
+      paths: [], // safe fallback
+      fallback: true,
+    }
   }
-
 }
 
 export default DynamicProject
