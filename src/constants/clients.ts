@@ -20,7 +20,7 @@ export const CLIENTS = [
   //   link: 'https://ontop.md/',
   // },
   {
-    src: '/clients/logoSublime.webp',
+    src: '/clients/logoSublimeWhite.webp',
     name: 'Sublime',
     link: 'https://sublime.md/',
   },

@@ -17,9 +17,10 @@ export const ClientList = ({ clients }: { clients: ClientProps[] }) => (
           <Image
             src={client.src}
             alt={client.name}
-            width={200}
-            height={150}
-            objectFit="contain"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-32 h-18 object-contain"
           />
         </a>
       </div>
