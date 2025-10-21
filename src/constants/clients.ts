@@ -100,7 +100,7 @@ export const CLIENTS = [
     link: 'https://alc.md/',
   },
   {
-    src: '',
+    src: '/clients/logoAC.webp',
     name: 'American Council',
     link: 'https://www.americancouncils.org/',
   },
