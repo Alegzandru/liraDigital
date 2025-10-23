@@ -1,0 +1,147 @@
+<html>
+  <head>
+    <title>New project request</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&ampdisplay=swap"
+      rel="stylesheet"
+    />
+    <style>
+      table,
+      th,
+      td {
+        border-collapse: collapse;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body
+    style="
+      background-color: #f4f4f6;
+      padding: 40px 10px 40px 10px;
+      font-family: 'Red Hat Display', sans-serif;
+    "
+  >
+    <table
+      style="
+        width: 100%;
+        background-color: #ffffff;
+        padding: 16px;
+        border: 1px solid #d9d9ec;
+        box-sizing: border-box;
+        border-radius: 4px;
+        font-size: 14px;
+        line-height: 18px;
+        table-layout: fixed;
+        border: 0px;
+        border-spacing: 0px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      "
+    >
+      <tr
+        style="
+          box-shadow: inset 0px -1px 0px #d9d9ec;
+          font-weight: 700;
+          background-color: #f9f9f9;
+          border: 0px;
+        "
+      >
+        <th style="text-align: left; padding: 16px; border: 0px">
+          About the client :
+        </th>
+        <th style="border: 0px"></th>
+      </tr>
+      <tr style="">
+        <td style="font-weight: 500; padding: 16px; text-align: left">Name:</td>
+        <td style="font-weight: 400; padding: 16px; text-align: left">
+          {{{name}}}
+        </td>
+      </tr>
+      <tr style="">
+        <td style="font-weight: 500; padding: 16px; text-align: left">
+          Email:
+        </td>
+        <td style="font-weight: 400; padding: 16px; text-align: left">
+          {{{email}}}
+        </td>
+      </tr>
+      <tr style="">
+        <td style="font-weight: 500; padding: 16px; text-align: left">
+          Company:
+        </td>
+        <td style="font-weight: 400; padding: 16px; text-align: left">
+          {{{company}}}
+        </td>
+      </tr>
+      <tr style="">
+        <td style="font-weight: 500; width: 50%; padding: 16px">
+          Phone number:
+        </td>
+        <td style="width: 50%; padding: 16px">{{{phone}}}</td>
+      </tr>
+      <tr style="">
+        <td style="font-weight: 500; width: 50%; padding: 16px">
+          Description:
+        </td>
+        <td style="width: 50%; padding: 16px">{{{description}}}</td>
+      </tr>
+
+      <tr
+        style="
+          background-color: #f9f9f9;
+          box-shadow: inset 0px -1px 0px #d9d9ec;
+          font-weight: 700;
+        "
+      >
+        <th style="padding: 16px; text-align: left">Rezumat :</th>
+        <th style="padding: 16px; text-align: left"></th>
+      </tr>
+      <tr style="padding: 16px">
+        <td style="font-weight: 500; padding: 16px">Budget:</td>
+        <td style="font-weight: 400; padding: 16px">{{{budget}}}</td>
+      </tr>
+      <tr style="padding: 16px">
+        <td style="font-weight: 500; padding: 16px">Services:</td>
+        <td style="font-weight: 400; padding: 16px">{{{services}}}</td>
+      </tr>
+    </table>
+
+    <div
+      data-role="module-unsubscribe"
+      class="module"
+      role="module"
+      data-type="unsubscribe"
+      style="
+        color: #444444;
+        font-size: 12px;
+        line-height: 20px;
+        padding: 16px 16px 16px 16px;
+        text-align: Center;
+      "
+      data-muid="4e838cf3-9892-4a6d-94d6-170e474d21e5"
+    >
+      <p style="font-size: 12px; line-height: 20px">
+        <a
+          class="Unsubscribe--unsubscribeLink"
+          href="{{{unsubscribe}}}"
+          target="_blank"
+          style="font-family: sans-serif; text-decoration: none"
+        >
+          Unsubscribe
+        </a>
+        -
+        <a
+          href="{{{unsubscribe_preferences}}}"
+          target="_blank"
+          class="Unsubscribe--unsubscribePreferences"
+          style="font-family: sans-serif; text-decoration: none"
+        >
+          Unsubscribe Preferences
+        </a>
+      </p>
+    </div>
+  </body>
+</html>

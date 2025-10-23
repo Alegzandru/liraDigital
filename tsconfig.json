@@ -33,5 +33,5 @@
     "**/*.ts",
     "**/*.tsx",
     "src/utils/projects.ts"
-  ]
+, "pages/api/sendMail.js"  ]
 }
