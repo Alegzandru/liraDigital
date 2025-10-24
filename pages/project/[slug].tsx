@@ -30,7 +30,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const slug = params?.slug
 
   try {
-    const projectRes = await fetch(`${API_URL}/projects?slug_eq=${slug}`)
+    const projectRes = await fetch(`${API_URL}/projects?slug=${slug}`)
 
     if (!projectRes.ok) {
       throw new Error(`Failed to fetch project for slug: ${slug}`)

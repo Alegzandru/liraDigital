@@ -198,33 +198,31 @@ const AllProjects = ({
                         : `/project/${project.slug}`
                     }
                   >
-                    <a>
-                      <div
-                        className={classNames(
-                          'h-full w-full flex flex-col p-6 relative -mt-256px md:-mt-384px z-20 transition-all duration-300 ',
-                          styles.allprojects_cardHover,
-                          project.name === 'Custom'
-                            ? 'justify-center items-center'
-                            : 'justify-end items-start',
-                        )}
-                      >
-                        <h5 className="text-lg-h5-poppins font-Poppins font-bold text-ui-white mb-1">
-                          {project.name}
-                        </h5>
-                        <div className="font-Poppins text-sm-p text-ui-peach">
-                          {project.services.map((service, index2) => (
-                            <span key={index2}>
-                              {service.name}
-                              {project.services.length === 0
+                    <div
+                      className={classNames(
+                        'h-full w-full flex flex-col p-6 relative -mt-256px md:-mt-384px z-20 transition-all duration-300 ',
+                        styles.allprojects_cardHover,
+                        project.name === 'Custom'
+                          ? 'justify-center items-center'
+                          : 'justify-end items-start',
+                      )}
+                    >
+                      <h5 className="text-lg-h5-poppins font-Poppins font-bold text-ui-white mb-1">
+                        {project.name}
+                      </h5>
+                      <div className="font-Poppins text-sm-p text-ui-peach">
+                        {project.services.map((service, index2) => (
+                          <span key={index2}>
+                            {service.name}
+                            {project.services.length === 0
+                              ? ''
+                              : index2 === project.services.length - 1
                                 ? ''
-                                : index2 === project.services.length - 1
-                                  ? ''
-                                  : ', '}
-                            </span>
-                          ))}
-                        </div>
+                                : ', '}
+                          </span>
+                        ))}
                       </div>
-                    </a>
+                    </div>
                   </Link>
                 )}
               </div>
