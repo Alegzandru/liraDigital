@@ -126,6 +126,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
       locale: 'en',
     }))
 
+    console.log('API_URL:', API_URL)
+    console.log('Projects fetched:', projects.length)
+
     return {
       paths: [...pathsRo, ...pathsEn],
       fallback: true,
