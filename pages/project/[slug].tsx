@@ -90,7 +90,6 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     return {
       props: {
         ...props,
-        key: slug,
         ...(await serverSideTranslations(locale as string, [
           'common',
           'projectPage',
@@ -107,7 +106,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   }
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async ({ locales = [] }) => {
   try {
     const projectsRes = await fetch(`${API_URL}/projects`)
     if (!projectsRes.ok) {
@@ -116,28 +115,25 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     const projects = await projectsRes.json()
 
-    const pathsRo = projects.map((project: any) => ({
-      params: { slug: project.slug },
-      locale: 'ro',
-    }))
-
-    const pathsEn = projects.map((project: any) => ({
-      params: { slug: project.slug },
-      locale: 'en',
-    }))
+    const allPaths = projects.flatMap((project: any) =>
+      locales.map((locale: any) => ({
+        params: { slug: project.slug },
+        locale,
+      })),
+    )
 
     console.log('API_URL:', API_URL)
     console.log('Projects fetched:', projects.length)
 
     return {
-      paths: [...pathsRo, ...pathsEn],
+      paths: allPaths,
       fallback: true,
     }
   } catch (error) {
     console.error('⚠️ Error in getStaticPaths:', error)
     return {
       paths: [], // safe fallback
-      fallback: true,
+      fallback: 'blocking',
     }
   }
 }
