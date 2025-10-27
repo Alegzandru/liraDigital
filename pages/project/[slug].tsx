@@ -127,7 +127,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales = [] }) => {
 
     return {
       paths: allPaths,
-      fallback: true,
+      fallback: 'blocking',
     }
   } catch (error) {
     console.error('⚠️ Error in getStaticPaths:', error)
