@@ -34,10 +34,7 @@ const Card = ({ text, img, mixBlend }: CardProps) => {
           className={classNames(
             'w-full h-full object-cover',
             `mix-blend-${mixBlend}`,
-            text === 'Facebook Ads & Sales Funnels' ||
-              text === 'Google Ads & YouTube Ads'
-              ? 'filter brightness-50'
-              : '',
+            'filter brightness-50',
           )}
         />
       </div>
