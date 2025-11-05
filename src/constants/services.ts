@@ -22,7 +22,7 @@ export const SERVICES2: SERVICE[] = [
     description: 'We turn your social media presence into a competitive advantage.',
     section: 'social-media',
     currentSection: '',
-    img: '/services/socialMedia.png',
+    img: '/services/socialMediaNew.webp',
     coverImg: '/services/socialMediaNew.webp',
     mixBlend: 'lighten',
     content: [
@@ -46,8 +46,8 @@ export const SERVICES2: SERVICE[] = [
     description: 'The pulse of a successful brand.',
     section: 'brand-corporate-identity',
     currentSection: '',
-    img: '/services/brandCorporate.png',
-    coverImg: '/services/brandCorporate.png',
+    img: '/services/brandCorporate.webp',
+    coverImg: '/services/brandCorporate.webp',
     mixBlend: 'normal',
     content: [
       { texts: ['In an ever-changing world, every company has its own DNA that defines it - internal culture, values, vision, and the way it interacts with the outside world. Corporate identity is not just about a logo or colors but about how your brand presents itself and connects with the audience consistently. In this competitive environment, a clear and coherent identity is essential for success.'], type: 'p' },
@@ -68,8 +68,8 @@ export const SERVICES2: SERVICE[] = [
     description: 'We put your brand in direct contact with those who need it.',
     section: 'google-youtube',
     currentSection: '',
-    img: '/services/youtubeGoogleAds.png',
-    coverImg: '/services/youtubeGoogleAds.png',
+    img: '/services/youtubeGoogleAds.webp',
+    coverImg: '/services/youtubeGoogleAds.webp',
     mixBlend: 'lighten',
     content: [
       { texts: ['If you want to achieve fast and precise results, Google Ads and YouTube Ads are the ideal solutions to reach the audience that knows what they want. These platforms allow you to focus on active users, increase visibility, and optimize conversions through well-targeted campaigns. Every click and every view is an opportunity to attract customers and maximize your ROI.'], type: 'p' },
