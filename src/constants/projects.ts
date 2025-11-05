@@ -58,7 +58,7 @@ export const PROJECT_TYPES = [
 
 export const WEBSITES = [
   {
-    link: 'millory',
+    link: 'milloryoglinzi',
     img1: '/projects/millory.webp',
     img2: '/projects/milloryHover.webp',
     name: 'Millory',
@@ -74,7 +74,7 @@ export const WEBSITES = [
     border: '#F6C1C5',
   },
   {
-    link: 'peach-films',
+    link: 'peachfilms',
     img1: '/projects/peach.webp',
     img2: '/projects/peachHover.webp',
     name: 'Peach Films',
