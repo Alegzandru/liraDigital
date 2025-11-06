@@ -1,8 +1,11 @@
 'use client'
+import { HeadWithMeta } from '../src/components/Layout/HeadWithMeta'
+
 
 export default function PrivacyPolicy() {
   return (
     <main className="bg-ui-black text-ui-grey px-container-sm md:px-container-md lg:px-container-lg py-30">
+      <HeadWithMeta title={'Privacy Policy | Lira Digital'} description={''} index={false} img={''} />
       <div className="max-w-1200px mx-auto">
         {/* Title */}
         <h1 className="font-Poppins text-lg-h2-poppins md:text-lg-h1-poppins font-semibold mb-18 bg-clip-text text-ui-peach">
