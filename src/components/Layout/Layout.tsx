@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 import { ModalContext } from '../mainPage/ServiceModal/ServiceModal.context'
 import {MONTSERRAT} from '../../constants/common'
+import CookieBanner from '../cookie/CookieBanner'
 
 type Props = PropsWithChildren<unknown>
 
@@ -41,6 +42,7 @@ const Layout = ({ children }: Props) =>{
     <div>
       <div>
         <Header />
+        <CookieBanner />
         <main className={classNames('transform-all duration-500', show ? 'filter brightness-50' : '')}>
           {children}
         </main>

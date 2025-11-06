@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import { Dot } from 'lucide-react'
 import Link from 'next/link'
 import { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -59,7 +60,7 @@ const Footer = () => {
               </svg>
             </Link>
           </div>
-          <div className="mt-12 font-Poppins font-medium text-sm-links-md md:text-md-links-md lg:text-lg-links-md text-ui-grey">
+          <div className="flex flex-col mt-12 font-Poppins font-medium text-sm-links-md md:text-md-links-md lg:text-lg-links-md text-ui-grey">
             <div>
               <a
                 href={phoneLink}
@@ -76,11 +77,28 @@ const Footer = () => {
                 {email}
               </a>
             </div>
+            <Link
+              href="/cookie-policy"
+              className="visible md:invisible mt-4 mb-2"
+            >
+              Cookie Policy
+            </Link>
+            <Link href="/privacy-policy" className="visible md:invisible">
+              Privacy Policy
+            </Link>
           </div>
         </div>
       </div>
-      <div className="font-Poppins text-ui-darkGrey text-copyright py-4 w-full text-center bg-ui-black">
-        {t('All rights reserved 2025 © Lira Digital')}
+      <div className="flex justify-center items-center gap-3 font-Poppins text-ui-darkGrey text-copyright py-4 w-full text-center bg-ui-black">
+        <Link href="/cookie-policy" className="invisible md:visible">
+          Cookie Policy
+        </Link>
+        <Dot className="w-3 h-3 text-ui-grey invisible md:visible" />
+        <p className="w-full md:w-auto">All rights reserved 2025 © Lira Digital</p>
+        <Dot className="w-3 h-3 text-ui-grey invisible md:visible" />
+        <Link href="/privacy-policy" className="invisible md:visible">
+          Privacy Policy
+        </Link>
       </div>
     </footer>
   )
