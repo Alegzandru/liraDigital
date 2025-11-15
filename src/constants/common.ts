@@ -6,17 +6,17 @@ export const GOOGLE_MAPS_KEY = 'AIzaSyDOw10hs_UOMVTqL0kP5O4imgj2ZCoGyjo'
 
 export const MONTSERRAT = '"Montserrat", sans-serif'
 
-export const HERO_WORDS = ['voice', 'vibe', 'vibrance']
+export const HERO_WORDS = ['voice', 'strategy', 'presence', 'authority']
 
 
 export const SIZES = {
-  sm : 340,
+  sm: 340,
   md: 640,
   lg: 1280,
   xl: 1920,
 }
 
-export const SIZE_NAMES: SizeType= {
+export const SIZE_NAMES: SizeType = {
   sm: 'sm',
   md: 'md',
   lg: 'lg',
@@ -40,16 +40,16 @@ export const routes = [
     link: '/project-request',
   },
   {
-    name:'Contacts',
+    name: 'Contacts',
     link: '/contacts',
   },
 ]
 
 export const validations = {
-  step1 : ['services'],
-  step2 : ['budget'],
-  step3 : ['description'],
-  step4 : ['name', 'email', 'company', 'phone'],
+  step1: ['services'],
+  step2: ['budget'],
+  step3: ['description'],
+  step4: ['name', 'email', 'company', 'phone'],
 }
 
 export const FONTS = {
@@ -59,7 +59,7 @@ export const FONTS = {
 }
 
 export const LANGUAGES = {
-  ro : {
+  ro: {
     slug: 'ro',
     name: 'Română',
   },
@@ -67,7 +67,7 @@ export const LANGUAGES = {
   //   slug: 'ru',
   //   name: 'Русский',
   // },
-  en : {
+  en: {
     slug: 'en',
     name: 'English',
   },
