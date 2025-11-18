@@ -155,7 +155,7 @@ export const SERVICES2: SERVICE[] = [
     ],
   },
   {
-    name: 'UI/UX & Product Design',
+    name: 'IT Products & Web Development',
     description: 'Creating experiences that captivate and convert.',
     section: 'ui-ux',
     currentSection: '',

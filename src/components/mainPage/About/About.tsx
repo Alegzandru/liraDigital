@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
-import styles from './About.module.scss'
-import { gsap } from 'gsap'
 import classNames from 'classnames'
-import { SIZES } from '../../../constants/common'
+import { gsap } from 'gsap'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { SIZES } from '../../../constants/common'
+import styles from './About.module.scss'
 
 const About = () => {
   const [animate, setAnimate] = useState(false)
@@ -12,15 +12,15 @@ const About = () => {
 
   useEffect(() => {
     const onScrollHandler = () => {
-      if(window.pageYOffset > 500){
+      if (window.pageYOffset > 500) {
         setAnimate(true)
       }
     }
 
     const onResizeHandler = () => {
-      if(window.innerWidth < SIZES.md){
+      if (window.innerWidth < SIZES.md) {
         setMobile(true)
-      } else{
+      } else {
         setMobile(false)
       }
     }
@@ -38,58 +38,92 @@ const About = () => {
   }, [])
 
   useEffect(() => {
-    if(animate){
-      gsap.from('.animate1', { y: '100%', ease: 'Power4.easeOut', skewY: 10, stagger: {amount: 0.4}, opacity: 0, duration: 1.8 })
+    if (animate) {
+      gsap.from('.animate1', {
+        y: '100%',
+        ease: 'Power4.easeOut',
+        skewY: 10,
+        stagger: { amount: 0.4 },
+        opacity: 0,
+        duration: 1.8,
+      })
       setShow(true)
     }
   }, [animate])
 
-  const {t} = useTranslation('mainPage')
+  const { t } = useTranslation('mainPage')
 
-  return(
+  return (
     <div className="py-120px md:py-166px lg:py-240px w-full bg-ui-black100 flex flex-row justify-center items-center px-container-sm md:px-container-md lg:px-container-lg">
-      <h2 className={classNames(`font-Poppins text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins font-bold text-center ${show ? '' : 'opacity-0'}`)}>
-        {
-          mobile ?
-            <div>
-              <div className="h-7 overflow-hidden">
-                <div className="animate1">{t('A')} <span className={styles.about_activePhrase}>{t('creative digital agency')}</span> {t('that')}</div>
-              </div>
-              <div className="h-7 overflow-hidden">
-                <div className="animate1">{t('provides the full range')}</div>
-              </div>
-              <div className="h-7 overflow-hidden">
-                <div className="animate1">{t('of digital marketing services')}</div>
-              </div>
-              <div className="h-7 overflow-hidden">
-                <div className="animate1">{t('based on')} <span className={styles.about_activePhrase}>{t('bold ideas')}</span></div>
-              </div>
-              <div className="h-7 overflow-hidden">
-                <div className="animate1">{t('and')} <span className={styles.about_activePhrase}>{t('experienced techniques')}</span></div>
-              </div>
-              <div className="h-7 overflow-hidden">
-                <div className="animate1">{t('Scroll down to find more reasons to choose us')}</div>
+      <h2
+        className={classNames(
+          `font-Poppins text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins font-bold text-center ${
+            show ? '' : 'opacity-0'
+          }`,
+        )}
+      >
+        {mobile ? (
+          <div>
+            <div className="h-7 overflow-hidden">
+              <div className="animate1">
+                {t('Lira Means')}{' '}
+                <span className={styles.about_activePhrase}>
+                  {t('marketing')}
+                </span>
               </div>
             </div>
-            :
-            <div>
-              <div className="h-42px lg:h-58px overflow-hidden">
-                <div className="animate1">{t('A')} <span className={styles.about_activePhrase}>{t('creative digital agency')}</span> {t('that provides')}</div>
-              </div>
-              <div className="h-42px lg:h-58px overflow-hidden">
-                <div className="animate1">{t('the full range of digital marketing')}</div>
-              </div>
-              <div className="h-42px lg:h-58px overflow-hidden">
-                <div className="animate1">{t('services based on')} <span className={styles.about_activePhrase}>{t('bold ideas')}</span></div>
-              </div>
-              <div className="h-42px lg:h-58px overflow-hidden">
-                <div className="animate1">{t('and')} <span className={styles.about_activePhrase}>{t('experienced techniques')}</span></div>
-              </div>
-              <div className="h-42px lg:h-58px overflow-hidden">
-                <div className="animate1">{t('Scroll down to find more reasons to choose us')}</div>
+            <div className="h-7 overflow-hidden">
+              <div className="animate1">
+                <span className={styles.about_activePhrase}>
+                  {t('digital')}
+                </span>{' '}
+                <span className="animate1">{t('thought as system')}</span>
               </div>
             </div>
-        }
+            <div className="h-7 overflow-hidden">
+              <div className="animate1">{t('we offer')}</div>
+            </div>
+            <div className="h-7 overflow-hidden">
+              <div className="animate1">{t('campaign that works')}</div>
+            </div>
+            <div className="h-7 overflow-hidden">
+              <div className="animate1">
+                <span className={styles.about_activePhrase}>
+                  {t('toghether')}
+                </span>
+                {'.'}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div>
+            <div className="h-42px lg:h-58px overflow-hidden">
+              <div className="animate1">
+                {t('Lira Means')}{' '}
+                <span className={styles.about_activePhrase}>
+                  {t('digital marketing')}
+                </span>
+              </div>
+            </div>
+            <div className="h-42px lg:h-58px overflow-hidden">
+              <div className="animate1">{t('thought as system')}</div>
+            </div>
+            <div className="h-42px lg:h-58px overflow-hidden">
+              <div className="animate1">{t('we offer')}</div>
+            </div>
+            <div className="h-42px lg:h-58px overflow-hidden">
+              <div className="animate1">{t('campaign that works')}</div>
+            </div>
+            <div className="h-42px lg:h-58px overflow-hidden">
+              <div className="animate1">
+                <span className={styles.about_activePhrase}>
+                  {t('toghether')}
+                </span>
+                {'.'}
+              </div>
+            </div>
+          </div>
+        )}
       </h2>
     </div>
   )
