@@ -80,3 +80,4 @@ export const LANGUAGES = {
 // }
 
 export const ROHOST = 'www.liradigital.ro'
+export const MDHOST = 'https://lira.md'
