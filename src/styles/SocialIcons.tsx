@@ -9,7 +9,7 @@ export default function SocialIcons() {
   return (
     <div
       id="social-links"
-      className="flex gap-5 my-5 ml-3 md:ml-0 md:my-0 md:mr-12 text-sm-h2-poppins md:text-lg-h4-poppins"
+      className="flex space-x-5 my-5 ml-3 md:ml-0 md:my-0 md:mr-12 text-sm-h2-poppins md:text-lg-h4-poppins"
     >
       <Link href={facebookLink} rel="noopener noreferrer" target="_blank">
         <Image
