@@ -58,19 +58,21 @@ export type Project = {
   before_photo: string
   after_photo: string
   main_photo: string
-  services: {name: string}[]
-  tools: {name: string}[]
+  services: { name: string }[]
+  tools: { name: string }[]
   platforms: {
     name: string
-    image: {url: string}
+    image: { url: string }
   }[]
   metatitle: string
   metadescription: string
+  metatitle_ro: string
+  metadescription_ro: string
 }
 
 export type ProjectMinified = {
   name: string
-  services: {name: string}[]
+  services: { name: string }[]
   main_photo: string
   slug: string
   order: number
