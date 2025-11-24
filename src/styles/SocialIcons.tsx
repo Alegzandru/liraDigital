@@ -20,7 +20,6 @@ export default function SocialIcons() {
           alt="Facebook"
           width={24}
           height={24}
-          className="h-6 w-auto"
         />
       </Link>
       <Link href={instagramLink} rel="noopener noreferrer" target="_blank">
@@ -29,7 +28,6 @@ export default function SocialIcons() {
           alt="Instagram"
           width={24}
           height={24}
-          className="h-6 w-auto"
         />
       </Link>
       <Link href={linkedinLink} rel="noopener noreferrer" target="_blank">
@@ -38,7 +36,6 @@ export default function SocialIcons() {
           alt="Linkedin"
           width={24}
           height={24}
-          className="h-6 w-auto"
         />
       </Link>
     </div>
