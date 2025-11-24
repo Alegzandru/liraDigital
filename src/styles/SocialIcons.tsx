@@ -1,8 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import FacebookLogo from '../../public/footer/Facebook.svg'
-import InstagramLogo from '../../public/footer/Instagram.svg'
-import LikedinLogo from '../../public/footer/LinkedIn.svg'
 
 const facebookLink = 'https://www.facebook.com/LiraDigitalAgency/'
 const instagramLink = 'https://www.instagram.com/liradigital_agency/'
@@ -16,26 +13,29 @@ export default function SocialIcons() {
     >
       <Link href={facebookLink} rel="noopener noreferrer" target="_blank">
         <Image
-          src={FacebookLogo}
+          src="/footer/Facebook.svg"
           alt="Facebook"
           width={24}
           height={24}
+          className="w-6 h-6"
         />
       </Link>
       <Link href={instagramLink} rel="noopener noreferrer" target="_blank">
         <Image
-          src={InstagramLogo}
+          src="/footer/Instagram.svg"
           alt="Instagram"
           width={24}
           height={24}
+          className="w-6 h-6"
         />
       </Link>
       <Link href={linkedinLink} rel="noopener noreferrer" target="_blank">
         <Image
-          src={LikedinLogo}
+          src="/footer/LinkedIn.svg"
           alt="Linkedin"
           width={24}
           height={24}
+          className="w-6 h-6"
         />
       </Link>
     </div>
