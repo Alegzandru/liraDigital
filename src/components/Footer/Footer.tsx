@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import { Dot } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -19,6 +20,9 @@ const Footer = () => {
   const phoneText = isRo ? '+40 (746) 061 722' : '+373 (68) 356 821'
   const phoneLink = isRo ? 'tel:+40746061722' : 'tel:+37368356821'
   const email = isRo ? 'office@liradigital.ro' : 'office@lira.md'
+  const facebookLink = 'https://www.facebook.com/LiraDigitalAgency/'
+  const instagramLink = 'https://www.instagram.com/liradigital_agency/'
+  const linkedinLink = 'https://www.linkedin.com/company/lira-digital-agency/'
 
   const {
     state: { show },
@@ -60,23 +64,78 @@ const Footer = () => {
               </svg>
             </Link>
           </div>
-          <div className="flex flex-col mt-12 font-Poppins font-medium text-sm-links-md md:text-md-links-md lg:text-lg-links-md text-ui-grey">
-            <div>
-              <a
+          <div
+            id="links"
+            className="flex flex-col mt-12 font-Poppins font-medium text-sm-links-md md:text-md-links-md lg:text-lg-links-md text-ui-grey"
+          >
+            {/* Phone stays alone */}
+            <div id="phone-link">
+              <Link
                 href={phoneLink}
                 className="p-1 hover:text-ui-white hover:underline hover:bg-ui-black75 rounded transition-all duration-300"
               >
                 {phoneText}
-              </a>
+              </Link>
             </div>
-            <div className="mt-4 md:mt-5 lg:mt-7">
-              <a
-                href={`mailto:${email}`}
-                className="p-1 hover:text-ui-white hover:underline hover:bg-ui-black75 rounded transition-all duration-300"
+
+            {/* Row: email on left / social icons on right (desktop) */}
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between md:mt-5">
+              <div id="email-link" className="mt-4 md:mt-0">
+                <Link
+                  href={`mailto:${email}`}
+                  className="p-1 hover:text-ui-white hover:underline hover:bg-ui-black75 rounded transition-all duration-300"
+                >
+                  {email}
+                </Link>
+              </div>
+
+              <div
+                id="social-links"
+                className="flex gap-5 my-5 ml-3 md:ml-0 md:my-0 md:mr-12 text-sm-h2-poppins md:text-lg-h4-poppins"
               >
-                {email}
-              </a>
+                <Link
+                  href={facebookLink}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Image
+                    src="/footer/Facebook.svg"
+                    alt="Facebook"
+                    width={0}
+                    height={0}
+                    className="h-6 w-auto"
+                  />
+                </Link>
+                <Link
+                  href={instagramLink}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Image
+                    src="/footer/Instagram.svg"
+                    alt="Instagram"
+                    width={0}
+                    height={0}
+                    className="h-6 w-auto"
+                  />
+                </Link>
+                <Link
+                  href={linkedinLink}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Image
+                    src="/footer/Linkedin.svg"
+                    alt="Linkedin"
+                    width={0}
+                    height={0}
+                    className="h-6 w-auto"
+                  />
+                </Link>
+              </div>
             </div>
+
+            {/* Mobile-only policy links */}
             <Link
               href="/cookie-policy"
               className="visible md:invisible mt-4 mb-2"
@@ -94,7 +153,9 @@ const Footer = () => {
           Cookie Policy
         </Link>
         <Dot className="w-3 h-3 text-ui-grey invisible md:visible" />
-        <p className="w-full md:w-auto">All rights reserved 2025 © Lira Digital</p>
+        <p className="w-full md:w-auto">
+          All rights reserved 2025 © Lira Digital
+        </p>
         <Dot className="w-3 h-3 text-ui-grey invisible md:visible" />
         <Link href="/privacy-policy" className="invisible md:visible">
           Privacy Policy

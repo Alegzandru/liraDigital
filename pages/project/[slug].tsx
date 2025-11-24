@@ -1,23 +1,40 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+import { useRouter } from 'next/router'
 import { HeadWithMeta } from '../../src/components/Layout/HeadWithMeta'
 import ProjectComponent from '../../src/components/projectsPage/project/Project'
 import { API_URL } from '../../src/constants/common'
 import { Project } from '../../src/types'
+import { Locale } from '../../src/types/locale'
 import { getAvailablePhoto } from '../../src/utils/projects'
 
-const DynamicProject = (project: Project) => (
-  <div>
-    <HeadWithMeta
-      title={project.metatitle}
-      description={project.metadescription}
-      index={true}
-      img={''}
-    />
-    <ProjectComponent {...project}></ProjectComponent>
-  </div>
-)
+const DynamicProject = (project: Project) => {
+  const router = useRouter()
+  const locale = router.locale as Locale
+
+  const metaTitle =
+    locale === 'ro' && project.metatitle_ro
+      ? project.metatitle_ro
+      : project.metatitle
+
+  const metaDescription =
+    locale === 'ro' && project.metadescription_ro
+      ? project.metadescription_ro
+      : project.metadescription
+
+  return (
+    <div>
+      <HeadWithMeta
+        title={metaTitle}
+        description={metaDescription}
+        index={true}
+        img={''}
+      />
+      <ProjectComponent {...project}></ProjectComponent>
+    </div>
+  )
+}
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const slug = params?.slug
@@ -65,6 +82,8 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     platforms: project[0].platforms,
     metatitle: project[0].metatitle,
     metadescription: project[0].metadescription,
+    metatitle_ro: project[0].metatitle_ro,
+    metadescription_ro: project[0].metadescription_ro,
   }
 
   return {
