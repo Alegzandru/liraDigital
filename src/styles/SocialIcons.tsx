@@ -9,9 +9,14 @@ export default function SocialIcons() {
   return (
     <div
       id="social-links"
-      className="flex space-x-5 my-5 ml-3 md:ml-0 md:my-0 md:mr-12 text-sm-h2-poppins md:text-lg-h4-poppins"
+      className="flex my-5 ml-3 md:ml-0 md:my-0 md:mr-12 text-sm-h2-poppins md:text-lg-h4-poppins"
     >
-      <Link href={facebookLink} rel="noopener noreferrer" target="_blank">
+      <Link
+        href={facebookLink}
+        rel="noopener noreferrer"
+        target="_blank"
+        className="mr-5"
+      >
         <Image
           src="/footer/Facebook.svg"
           alt="Facebook"
@@ -20,7 +25,12 @@ export default function SocialIcons() {
           className="w-6 h-6"
         />
       </Link>
-      <Link href={instagramLink} rel="noopener noreferrer" target="_blank">
+      <Link
+        href={instagramLink}
+        rel="noopener noreferrer"
+        target="_blank"
+        className="mr-5"
+      >
         <Image
           src="/footer/Instagram.svg"
           alt="Instagram"
