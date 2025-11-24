@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ROHOST } from '../../constants/common'
-import SocialIcons from '../../styles/SocialIcons'
+import SocialIcons from '../socialLinks/SocialIcons'
 import GoogleMap from './GoogleMap'
 
 const Contacts = () => {

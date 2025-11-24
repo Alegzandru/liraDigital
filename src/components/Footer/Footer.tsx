@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ROHOST } from '../../constants/common'
-import SocialIcons from '../../styles/SocialIcons'
 import { ModalContext } from '../mainPage/ServiceModal/ServiceModal.context'
+import SocialIcons from '../socialLinks/SocialIcons'
 
 const Footer = () => {
   const { t } = useTranslation('common')
