@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import LikedinLogo from '../../public/footer/Linkedin.svg'
+import LikedinLogo from '../../public/footer/LinkedIn.svg'
 import FacebookLogo from '../../public/footer/Facebook.svg'
 import InstagramLogo from '../../public/footer/Instagram.svg'
 
