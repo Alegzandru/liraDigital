@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import { Dot } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { FaFacebookF, FaInstagram, FaLinkedin } from 'react-icons/fa'
 import { ROHOST } from '../../constants/common'
 import { ModalContext } from '../mainPage/ServiceModal/ServiceModal.context'
 
@@ -20,17 +20,13 @@ const Footer = () => {
   const phoneText = isRo ? '+40 (746) 061 722' : '+373 (68) 356 821'
   const phoneLink = isRo ? 'tel:+40746061722' : 'tel:+37368356821'
   const email = isRo ? 'office@liradigital.ro' : 'office@lira.md'
-  const facebookLink = 'https://www.facebook.com/'
-  const instagramLink = 'https://www.instagram.com/'
-  const linkedinLink = 'https://www.linkedin.com/'
+  const facebookLink = 'https://www.facebook.com/LiraDigitalAgency/'
+  const instagramLink = 'https://www.instagram.com/liradigital_agency/'
+  const linkedinLink = 'https://www.linkedin.com/company/lira-digital-agency/'
 
   const {
     state: { show },
   } = useContext(ModalContext)
-
-  const FacebookIcon = FaFacebookF as unknown as (props: any) => JSX.Element
-  const InstagramIcon = FaInstagram as unknown as (props: any) => JSX.Element
-  const LinkedinIcon = FaLinkedin as unknown as (props: any) => JSX.Element
 
   return (
     <footer>
@@ -102,21 +98,39 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <FacebookIcon />
+                  <Image
+                    src="/footer/Facebook.svg"
+                    alt="Facebook"
+                    width={0}
+                    height={0}
+                    className="h-6 w-auto"
+                  />
                 </Link>
                 <Link
                   href={instagramLink}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <InstagramIcon />
+                  <Image
+                    src="/footer/Instagram.svg"
+                    alt="Instagram"
+                    width={0}
+                    height={0}
+                    className="h-6 w-auto"
+                  />
                 </Link>
                 <Link
                   href={linkedinLink}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <LinkedinIcon />
+                  <Image
+                    src="/footer/Linkedin.svg"
+                    alt="Linkedin"
+                    width={0}
+                    height={0}
+                    className="h-6 w-auto"
+                  />
                 </Link>
               </div>
             </div>
