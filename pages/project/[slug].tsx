@@ -7,7 +7,7 @@ import ProjectComponent from '../../src/components/projectsPage/project/Project'
 import { API_URL } from '../../src/constants/common'
 import { Project } from '../../src/types'
 import { Locale } from '../../src/types/locale'
-import { getAvailablePhoto } from '../../src/utils/projects'
+import { getAvailablePhoto, getMediaUrl } from '../../src/utils/projects'
 
 const DynamicProject = (project: Project) => {
   const router = useRouter()
@@ -71,12 +71,12 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     result2_ro: project[0].result2_ro,
     result3: project[0].result3,
     result3_ro: project[0].result3_ro,
-    photo1: getAvailablePhoto(project[0], 'photo1'),
+    photo1: getMediaUrl(project[0], 'photo1'),
     photo2: getAvailablePhoto(project[0], 'photo2'),
     photo3: getAvailablePhoto(project[0], 'photo3'),
     before_photo: getAvailablePhoto(project[0], 'before_photo'),
     after_photo: getAvailablePhoto(project[0], 'after_photo'),
-    main_photo: getAvailablePhoto(project[0], 'main_photo'),
+    main_photo: getMediaUrl(project[0], 'main_photo'),
     services: project[0].services,
     tools: project[0].tools,
     platforms: project[0].platforms,
@@ -84,6 +84,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     metadescription: project[0].metadescription,
     metatitle_ro: project[0].metatitle_ro,
     metadescription_ro: project[0].metadescription_ro,
+    video: getMediaUrl(project[0], 'video'),
   }
 
   return {

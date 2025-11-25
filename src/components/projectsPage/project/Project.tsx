@@ -69,6 +69,7 @@ const ProjectComponent = ({
   services,
   tools,
   platforms,
+  video,
 }: Project) => {
   const { t } = useTranslation('projectPage')
 
@@ -172,17 +173,17 @@ const ProjectComponent = ({
                     __html:
                       initial_data && isRo
                         ? initial_data_ro
-                          .replace(
-                            /\#-/g,
-                            '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
-                          )
-                          .replace(/\-#/g, '</li>')
+                            .replace(
+                              /\#-/g,
+                              '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
+                            )
+                            .replace(/\-#/g, '</li>')
                         : initial_data
-                          .replace(
-                            /\#-/g,
-                            '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
-                          )
-                          .replace(/\-#/g, '</li>'),
+                            .replace(
+                              /\#-/g,
+                              '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
+                            )
+                            .replace(/\-#/g, '</li>'),
                   }}
                 />
               </div>
@@ -198,17 +199,17 @@ const ProjectComponent = ({
                     __html:
                       aims && isRo
                         ? aims_ro
-                          .replace(
-                            /\#-/g,
-                            '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
-                          )
-                          .replace(/\-#/g, '</li>')
+                            .replace(
+                              /\#-/g,
+                              '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
+                            )
+                            .replace(/\-#/g, '</li>')
                         : aims
-                          .replace(
-                            /\#-/g,
-                            '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
-                          )
-                          .replace(/\-#/g, '</li>'),
+                            .replace(
+                              /\#-/g,
+                              '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
+                            )
+                            .replace(/\-#/g, '</li>'),
                   }}
                 ></ul>
               </div>
@@ -243,6 +244,19 @@ const ProjectComponent = ({
           </div>
         </div>
       )}
+      <div className="pt-20 md:pt-30 lg:pt-40 pb-100px md:pb-32 w-full bg-ui-black80 px-container-sm md:px-container-md lg:px-container-lg flex justify-center items-center">
+        {video && video !== '/error' && (
+          <video
+            src={video}
+            autoPlay={true}
+            muted={true}
+            loop={true}
+            playsInline={true}
+            preload="metadata"
+            className="rounded-lg w-auto h-auto md:max-h-690px"
+          />
+        )}
+      </div>
 
       {platforms && platforms.length !== 0 && (
         <div className="pt-20 md:pt-30 pb-100px md:pb-32 w-full bg-ui-black75 px-container-sm md:px-container-md lg:px-container-lg">
@@ -295,7 +309,11 @@ const ProjectComponent = ({
             {isRo ? photo3_heading_ro : photo3_heading}
           </h3>
           {/* eslint-disable-next-line @next/next/no-img-element*/}
-          <img src={photo3} className="w-full rounded-lg" alt={photo3_heading} />
+          <img
+            src={photo3}
+            className="w-full rounded-lg"
+            alt={photo3_heading}
+          />
         </div>
       )}
 
