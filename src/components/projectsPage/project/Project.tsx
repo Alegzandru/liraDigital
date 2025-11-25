@@ -173,17 +173,17 @@ const ProjectComponent = ({
                     __html:
                       initial_data && isRo
                         ? initial_data_ro
-                            .replace(
-                              /\#-/g,
-                              '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
-                            )
-                            .replace(/\-#/g, '</li>')
+                          .replace(
+                            /\#-/g,
+                            '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
+                          )
+                          .replace(/\-#/g, '</li>')
                         : initial_data
-                            .replace(
-                              /\#-/g,
-                              '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
-                            )
-                            .replace(/\-#/g, '</li>'),
+                          .replace(
+                            /\#-/g,
+                            '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
+                          )
+                          .replace(/\-#/g, '</li>'),
                   }}
                 />
               </div>
@@ -199,17 +199,17 @@ const ProjectComponent = ({
                     __html:
                       aims && isRo
                         ? aims_ro
-                            .replace(
-                              /\#-/g,
-                              '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
-                            )
-                            .replace(/\-#/g, '</li>')
+                          .replace(
+                            /\#-/g,
+                            '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
+                          )
+                          .replace(/\-#/g, '</li>')
                         : aims
-                            .replace(
-                              /\#-/g,
-                              '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
-                            )
-                            .replace(/\-#/g, '</li>'),
+                          .replace(
+                            /\#-/g,
+                            '<li style="padding-left: 8px; list-style-type: disc; list-style-position: inside;">',
+                          )
+                          .replace(/\-#/g, '</li>'),
                   }}
                 ></ul>
               </div>
