@@ -29,3 +29,7 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 .env
+
+#ignore sitemaps, they are generated on build
+public/sitemap*.xml
+sitemap*.xml
