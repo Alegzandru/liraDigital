@@ -1,11 +1,11 @@
 import classNames from 'classnames'
 import { Dot } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ROHOST } from '../../constants/common'
 import { ModalContext } from '../mainPage/ServiceModal/ServiceModal.context'
+import SocialIcons from '../socialLinks/SocialIcons'
 
 const Footer = () => {
   const { t } = useTranslation('common')
@@ -20,9 +20,6 @@ const Footer = () => {
   const phoneText = isRo ? '+40 (746) 061 722' : '+373 (68) 356 821'
   const phoneLink = isRo ? 'tel:+40746061722' : 'tel:+37368356821'
   const email = isRo ? 'office@liradigital.ro' : 'office@lira.md'
-  const facebookLink = 'https://www.facebook.com/LiraDigitalAgency/'
-  const instagramLink = 'https://www.instagram.com/liradigital_agency/'
-  const linkedinLink = 'https://www.linkedin.com/company/lira-digital-agency/'
 
   const {
     state: { show },
@@ -78,7 +75,7 @@ const Footer = () => {
               </Link>
             </div>
 
-            {/* Row: email on left / social icons on right (desktop) */}
+            {/* Row: phone on left / social icons on right (desktop) */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-between md:mt-5">
               <div id="email-link" className="mt-4 md:mt-0">
                 <Link
@@ -88,51 +85,7 @@ const Footer = () => {
                   {email}
                 </Link>
               </div>
-
-              <div
-                id="social-links"
-                className="flex gap-5 my-5 ml-3 md:ml-0 md:my-0 md:mr-12 text-sm-h2-poppins md:text-lg-h4-poppins"
-              >
-                <Link
-                  href={facebookLink}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <Image
-                    src="/footer/Facebook.svg"
-                    alt="Facebook"
-                    width={0}
-                    height={0}
-                    className="h-6 w-auto"
-                  />
-                </Link>
-                <Link
-                  href={instagramLink}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <Image
-                    src="/footer/Instagram.svg"
-                    alt="Instagram"
-                    width={0}
-                    height={0}
-                    className="h-6 w-auto"
-                  />
-                </Link>
-                <Link
-                  href={linkedinLink}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <Image
-                    src="/footer/Linkedin.svg"
-                    alt="Linkedin"
-                    width={0}
-                    height={0}
-                    className="h-6 w-auto"
-                  />
-                </Link>
-              </div>
+              <SocialIcons />
             </div>
 
             {/* Mobile-only policy links */}
