@@ -1,13 +1,13 @@
 import classNames from 'classnames'
-import WhatWeDo from './WhatWeDo/WhatWeDo'
-import styles from './Services.module.scss'
 import Projects from './Projects/Projects'
+import styles from './Services.module.scss'
+import WhatWeDo from './WhatWeDo/WhatWeDo'
 
 const Services = () => (
   <div className={classNames('bg-ui-black80', styles.services_bg)}>
     <div>
-      <WhatWeDo/>
-      <Projects/>
+      <WhatWeDo />
+      <Projects />
     </div>
   </div>
 )
