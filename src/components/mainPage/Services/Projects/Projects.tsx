@@ -10,17 +10,17 @@ import styles from './Projects.module.scss'
 
 const Projects = () => {
   const [imageSizes, setImageSizes] = useState({ height: 200, width: 316 })
-  const [slide, setSlide] = useState(0)
+  // const [slide, setSlide] = useState(0)
 
   const { t } = useTranslation('mainPage')
 
-  const changeSlide = (direction: 'left' | 'right') => {
-    if (direction === 'left') {
-      setSlide(slide === 0 ? WEBSITES.length - 1 : slide - 1)
-    } else {
-      setSlide(slide === WEBSITES.length - 1 ? 0 : slide + 1)
-    }
-  }
+  // const changeSlide = (direction: 'left' | 'right') => {
+  //   if (direction === 'left') {
+  //     setSlide(slide === 0 ? WEBSITES.length - 1 : slide - 1)
+  //   } else {
+  //     setSlide(slide === WEBSITES.length - 1 ? 0 : slide + 1)
+  //   }
+  // }
 
   useEffect(() => {
     const onResizeHandler = () => {
@@ -49,15 +49,15 @@ const Projects = () => {
       >
         {t('We crafted these')}
       </h2>
+      {/* --------- SIMPLE SCROLL CONTAINER (desktop + mobile) --------- */}
       <div
         className={classNames(
-          'w-full flex flex-row justify-start items-center h-240px md:h-372px overflow-x-scroll md:overflow-x-visible md:ml-container-md lg:ml-container-lg px-6 md:px-0',
-          'md:ml-container-md lg:ml-container-lg',
+          'w-full flex flex-row justify-start items-center h-240px md:h-384px px-6 md:px-container-md lg:px-container-lg space-x-6 overflow-x-scroll',
           styles.projects_hideScrollbar,
         )}
       >
         {WEBSITES.map((project, index) => (
-          <div key={index} className="h-full">
+          <div key={index} className="h-full shrink-0">
             <Card
               height={imageSizes.height}
               width={imageSizes.width}
@@ -67,13 +67,12 @@ const Projects = () => {
               name={project.name}
               shadow={project.shadow}
               border={project.border}
-              staticSlide={index}
-              dynamicSlide={slide}
             />
           </div>
         ))}
       </div>
-      <div className="px-container-sm md:px-container-md lg:px-container-lg hidden md:flex h-240px md:h-372px -mt-240px md:-mt-372px w-full flex-row justify-between items-center mb-14 md:mb-20">
+
+      {/* <div className="px-container-sm md:px-container-md lg:px-container-lg hidden md:flex h-240px md:h-372px -mt-240px md:-mt-372px w-full flex-row justify-between items-center mb-14 md:mb-20">
         <button
           className={classNames(
             `${
@@ -124,8 +123,8 @@ const Projects = () => {
             />
           </svg>
         </button>
-      </div>
-      <div className="w-full text-center md:text-left px-container-sm md:px-container-md lg:px-container-lg overflow-hidden mt-14 md:mt-0">
+      </div> */}
+      <div className="w-full text-center md:text-left px-container-sm md:px-container-md lg:px-container-lg mt-14">
         <button className={classNames(styles.projects_button, 'rounded')}>
           <div
             className={classNames(
