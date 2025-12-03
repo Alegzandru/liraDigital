@@ -69,6 +69,10 @@ export type Project = {
   metatitle_ro: string
   metadescription_ro: string
   video: string
+  video_description: string
+  video_title: string
+  video_description_ro: string
+  video_title_ro: string
 }
 
 export type ProjectMinified = {
