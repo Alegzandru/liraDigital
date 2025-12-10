@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { SIZES } from '../../../../constants/common'
@@ -10,17 +10,49 @@ import styles from './Projects.module.scss'
 
 const Projects = () => {
   const [imageSizes, setImageSizes] = useState({ height: 200, width: 316 })
-  // const [slide, setSlide] = useState(0)
+  const scrollRef = useRef<HTMLDivElement | null>(null)
+  const [isAtStart, setIsAtStart] = useState(true)
+  const [isAtEnd, setIsAtEnd] = useState(false)
 
   const { t } = useTranslation('mainPage')
 
-  // const changeSlide = (direction: 'left' | 'right') => {
-  //   if (direction === 'left') {
-  //     setSlide(slide === 0 ? WEBSITES.length - 1 : slide - 1)
-  //   } else {
-  //     setSlide(slide === WEBSITES.length - 1 ? 0 : slide + 1)
-  //   }
-  // }
+  // Handle scroll position to enable/disable arrows
+  const handleScroll = () => {
+    if (!scrollRef.current) {
+      return
+    }
+
+    const el = scrollRef.current
+
+    const atStart = el.scrollLeft <= 5
+    const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 5
+
+    setIsAtStart(atStart)
+    setIsAtEnd(atEnd)
+  }
+
+  useEffect(() => {
+    if (!scrollRef.current) {
+      return
+    }
+
+    const el = scrollRef.current
+    el.addEventListener('scroll', handleScroll)
+
+    // initial check
+    handleScroll()
+
+    return () => el.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Scroll with arrows
+  const scrollByAmount = (direction: 'left' | 'right') => {
+    if (!scrollRef.current) {
+      return
+    }
+    const amount = direction === 'left' ? -400 : 400
+    scrollRef.current.scrollBy({ left: amount, behavior: 'smooth' })
+  }
 
   useEffect(() => {
     const onResizeHandler = () => {
@@ -33,9 +65,7 @@ const Projects = () => {
 
     onResizeHandler()
     window.addEventListener('resize', onResizeHandler)
-    return () => {
-      window.removeEventListener('resize', onResizeHandler)
-    }
+    return () => window.removeEventListener('resize', onResizeHandler)
   }, [])
 
   return (
@@ -49,81 +79,81 @@ const Projects = () => {
       >
         {t('We crafted these')}
       </h2>
-      {/* --------- SIMPLE SCROLL CONTAINER (desktop + mobile) --------- */}
-      <div
-        className={classNames(
-          'w-full flex flex-row justify-start items-center h-240px md:h-384px px-6 md:px-container-md lg:px-container-lg space-x-6 overflow-x-scroll',
-          styles.projects_hideScrollbar,
+
+      {/* --- ARROWS FLOATING OVER THE SCROLL AREA --- */}
+      <div className="relative w-full md:block">
+        {/* Left Arrow */}
+        {!isAtStart && (
+          <button
+            onClick={() => scrollByAmount('left')}
+            className="absolute left-6 top-1/3 -translate-y-1/2 hover:bg-opacity-100 p-2 md:p-3 rounded-r-lg group transition z-20"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="md:h-20 md:w-20 text-ui-white group-hover:text-ui-peach transition"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M7 16l-4-4m0 0l4-4m-4 4h18"
+              />
+            </svg>
+          </button>
         )}
-      >
-        {WEBSITES.map((project, index) => (
-          <div key={index} className="h-full shrink-0">
-            <Card
-              height={imageSizes.height}
-              width={imageSizes.width}
-              link={project.link}
-              img1={project.img1}
-              img2={project.img2}
-              name={project.name}
-              shadow={project.shadow}
-              border={project.border}
-            />
-          </div>
-        ))}
+
+        {/* Right Arrow */}
+        {!isAtEnd && (
+          <button
+            onClick={() => scrollByAmount('right')}
+            className="absolute right-6 top-1/3 -translate-y-1/2 p-2 md:p-3 rounded-l-lg group transition z-20"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="md:h-20 md:w-20 text-ui-white group-hover:text-ui-peach transition"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </button>
+        )}
+
+        {/* SCROLL CONTAINER */}
+        <div
+          ref={scrollRef}
+          className={classNames(
+            'w-full flex flex-row justify-start items-center h-240px md:h-384px px-6 md:px-container-md lg:px-container-lg space-x-6 overflow-x-scroll scroll-smooth',
+            styles.projects_hideScrollbar,
+          )}
+        >
+          {WEBSITES.map((project, index) => (
+            <div key={index} className="h-full shrink-0">
+              <Card
+                height={imageSizes.height}
+                width={imageSizes.width}
+                link={project.link}
+                img1={project.img1}
+                img2={project.img2}
+                name={project.name}
+                shadow={project.shadow}
+                border={project.border}
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* <div className="px-container-sm md:px-container-md lg:px-container-lg hidden md:flex h-240px md:h-372px -mt-240px md:-mt-372px w-full flex-row justify-between items-center mb-14 md:mb-20">
-        <button
-          className={classNames(
-            `${
-              slide !== 0 ? 'opacity-100' : 'opacity-0'
-            } w-12 h-10 md:w-20 md:h-16 bg-ui-dark flex flex-row justify-center items-center rounded-r-lg`,
-            'bg-opacity-40 hover:bg-opacity-100 transition duration-300 relative z-20 group',
-            slide !== 0 ? styles.projects_movingButtonLeft : '',
-          )}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            onClick={() => (slide !== 0 ? changeSlide('left') : '')}
-            className="h-10 w-10 md:h-16 md:w-16 text-ui-white group-hover:text-ui-peach transition duration-300 cursor-pointer"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M7 16l-4-4m0 0l4-4m-4 4h18"
-            />
-          </svg>
-        </button>
-        <button
-          className={classNames(
-            `${
-              slide !== WEBSITES.length - 1 ? 'opacity-100' : 'opacity-0'
-            } w-12 h-10 md:w-20 md:h-16 bg-ui-dark flex flex-row justify-center items-center rounded-l-lg`,
-            'bg-opacity-40 hover:bg-opacity-100 transition duration-300 relative z-20 group',
-            slide !== WEBSITES.length ? styles.projects_movingButtonRight : '',
-          )}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            onClick={() => changeSlide('right')}
-            className="h-10 w-10 md:h-16 md:w-16 text-ui-white group-hover:text-ui-peach transition duration-300 cursor-pointer"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-          </svg>
-        </button>
-      </div> */}
+      {/* BUTTON BELOW */}
       <div className="w-full text-center md:text-left px-container-sm md:px-container-md lg:px-container-lg mt-14">
         <button className={classNames(styles.projects_button, 'rounded')}>
           <div
