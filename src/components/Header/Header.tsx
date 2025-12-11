@@ -129,6 +129,9 @@ const Header = () => {
                     <div
                       className={classNames(
                         'h-5 text-lg-links-sm font-medium text-ui-grey transition duration-300',
+                        route.link === '/project-request'
+                          ? styles.header_activePhrase
+                          : '',
                         router.pathname === route.link
                           ? 'text-ui-peach'
                           : 'group-hover:text-ui-white',
