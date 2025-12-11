@@ -70,6 +70,10 @@ const ProjectComponent = ({
   tools,
   platforms,
   video,
+  video_description,
+  video_title,
+  video_description_ro,
+  video_title_ro,
 }: Project) => {
   const { t } = useTranslation('projectPage')
 
@@ -78,7 +82,7 @@ const ProjectComponent = ({
 
   return (
     <div>
-      <div className="pt-190px md:pt-200px pb-120px md:pb-40 w-full bg-ui-black90 px-container-sm md:px-container-md lg:px-container-lg">
+      <div className="pt-190px md:pt-200px pb-52px md:pb-32 w-full bg-ui-black90 px-container-sm md:px-container-md lg:px-container-lg">
         <h1 className="text-ui-white font-TangoSans text-sm-h1-poppins md:text-md-h1-tangosans lg:text-lg-h1-tangosans mb-10">
           {isRo ? name_ro : name}
         </h1>
@@ -107,7 +111,7 @@ const ProjectComponent = ({
         )}
         <div className="flex flex-col md:flex-row justify-between items-start">
           {customer && (
-            <div className="mb-14 md:mb-0">
+            <div className="mb-6 md:mb-0">
               <h5 className="font-Poppins text-ui-darkGrey text-sm-h5-poppins md:text-md-h5-poppins lg:text-lg-h5-poppins font-bold py-1 px-2 mb-3">
                 {t('Customer')}
               </h5>
@@ -119,7 +123,7 @@ const ProjectComponent = ({
 
           <div className="flex flex-col md:flex-row justify-start items-start">
             {services && services.length !== 0 && (
-              <div className="lg:min-w-384px md:mr-6 mb-14 md:mb-0">
+              <div className="lg:min-w-384px md:mr-6 mb-6 md:mb-0">
                 <h5 className="font-Poppins text-ui-darkGrey text-sm-h5-poppins md:text-md-h5-poppins lg:text-lg-h5-poppins font-bold py-1 px-2 mb-3">
                   {t('Services provided')}
                 </h5>
@@ -244,8 +248,16 @@ const ProjectComponent = ({
           </div>
         </div>
       )}
-      <div className="pt-20 md:pt-30 lg:pt-40 pb-100px md:pb-32 w-full bg-ui-black80 px-container-sm md:px-container-md lg:px-container-lg flex justify-center items-center">
-        {video && video !== '/error' && (
+      {video !== '/error' && (
+        <div className="pb-100px md:pb-32 w-full bg-ui-black80 px-container-sm md:px-container-md lg:px-container-lg flex flex-col gap-6 md:gap-0 md:flex-row justify-between items-center">
+          <div>
+            <h3 className="font-Poppins font-bold text-ui-peach text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins px-2 py-1 mb-2">
+              {isRo ? video_description_ro : video_description}
+            </h3>
+            <div className="font-Poppins text-sm-p md:text-md-p lg:text-lg-p text-ui-grey px-2">
+              {isRo ? video_title_ro : video_title}
+            </div>
+          </div>
           <video
             src={video}
             autoPlay={true}
@@ -255,8 +267,8 @@ const ProjectComponent = ({
             preload="metadata"
             className="rounded-lg w-auto h-auto md:max-h-690px"
           />
-        )}
-      </div>
+        </div>
+      )}
 
       {platforms && platforms.length !== 0 && (
         <div className="pt-20 md:pt-30 pb-100px md:pb-32 w-full bg-ui-black75 px-container-sm md:px-container-md lg:px-container-lg">

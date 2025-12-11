@@ -85,6 +85,10 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     metatitle_ro: project[0].metatitle_ro,
     metadescription_ro: project[0].metadescription_ro,
     video: getMediaUrl(project[0], 'video'),
+    video_description: project[0].video_description,
+    video_title: project[0].video_title,
+    video_description_ro: project[0].video_description_ro,
+    video_title_ro: project[0].video_title_ro,
   }
 
   return {

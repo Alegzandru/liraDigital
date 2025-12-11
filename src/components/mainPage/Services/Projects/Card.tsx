@@ -14,50 +14,48 @@ type Props = {
   name: string
   shadow: string
   border: string
-  staticSlide: number
-  dynamicSlide: number
+  // staticSlide: number
+  // dynamicSlide: number
 }
 
-const generateMargin = ({
-  dynamicSlide,
-  staticSlide,
-}: {
-  dynamicSlide: number
-  staticSlide: number
-}) => {
-  switch (dynamicSlide) {
-    case 0:
-      return 'ml-0'
-    case 1:
-      if (staticSlide === 0) {
-        return ''
-      } else if (staticSlide === 1) {
-        return styles.projects_move_11
-      } else if (staticSlide === 2) {
-        return styles.projects_move_12
-      }
-    case 2:
-      if (staticSlide === 0) {
-        return ''
-      } else if (staticSlide === 1) {
-        return styles.projects_move_21
-      } else if (staticSlide === 2) {
-        return styles.projects_move_22
-      }
-  }
-}
+// const generateMargin = ({
+//   dynamicSlide,
+//   staticSlide,
+// }: {
+//   dynamicSlide: number
+//   staticSlide: number
+// }) => {
+//   switch (dynamicSlide) {
+//     case 0:
+//       return 'ml-0'
+//     case 1:
+//       if (staticSlide === 0) {
+//         return ''
+//       } else if (staticSlide === 1) {
+//         return styles.projects_move_11
+//       } else if (staticSlide === 2) {
+//         return styles.projects_move_12
+//       }
+//     case 2:
+//       if (staticSlide === 0) {
+//         return ''
+//       } else if (staticSlide === 1) {
+//         return styles.projects_move_21
+//       } else if (staticSlide === 2) {
+//         return styles.projects_move_22
+//       }
+//   }
+// }
 
 const Card = ({
   height,
-  width,
+  // width,
   link,
   img1,
   img2,
   name,
   shadow,
   border,
-  dynamicSlide,
-  staticSlide,
 }: Props) => {
   const [mobile, setMobile] = useState(false)
 
@@ -74,14 +72,15 @@ const Card = ({
   }, [])
 
   return (
-    <div
-      className={classNames(
-        `${generateMargin({
-          dynamicSlide,
-          staticSlide,
-        })} mr-6 h-full transition-all duration-300`,
-      )}
-    >
+    // <div
+    //   className={classNames(
+    //     `${generateMargin({
+    //       dynamicSlide,
+    //       staticSlide,
+    //     })} mr-6 h-full transition-all duration-300`,
+    //   )}
+    // >
+    <div className="mr-6 h-full transition-all duration-300 rounded-xl">
       <Link href={`/project/${link}`}>
         <div
           className={classNames(
@@ -90,7 +89,7 @@ const Card = ({
           )}
           style={{
             boxShadow: mobile ? '' : shadow,
-            border: `5px solid ${border}`,
+            border: `2px solid ${border}`,
             height,
           }}
         >
@@ -98,27 +97,26 @@ const Card = ({
             <Image
               src={img1}
               alt={`${name} Website`}
-              height={height}
-              width={width}
-              objectFit="cover"
+              fill={true}
+              className="object-cover"
             />
           </div>
           <div className={styles.projects_container_photo2}>
             <Image
               src={img2}
               alt={`${name} Website`}
-              height={height}
-              width={width}
-              objectFit="cover"
+              fill={true}
+              className="object-cover"
             />
           </div>
         </div>
       </Link>
-      <div
+      {/* <div
         className={`${
           dynamicSlide > staticSlide ? 'hidden' : 'block'
         } text-ui-white font-Poppins mt-4 text-sm-p md:text-md-p lg:text-lg-p ml-8`}
-      >
+      > */}
+      <div className="text-ui-white font-Poppins mt-4 text-sm-p md:text-md-p lg:text-lg-p ml-8">
         {name}
       </div>
     </div>

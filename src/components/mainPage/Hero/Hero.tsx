@@ -85,7 +85,7 @@ const Hero = () => {
         )}
       >
         <div className="">
-          <h1 className="font-TangoSans font-bold text-ui-white text-md-h2-tangosans md:text-md-h1-tangosans lg:text-lg-h1-tangosans max-w-900px text-center relative">
+          <h1 className="font-TangoSans font-bold text-ui-white text-md-h2-tangosans md:text-md-h1-tangosans lg:text-lg-h1-tangosans max-w-1000px text-center relative">
             <div>
               {t("We craft your brand's")}{' '}
               <span
