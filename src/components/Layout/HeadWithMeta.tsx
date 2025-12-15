@@ -25,18 +25,14 @@ export const HeadWithMeta = ({
       {/* Title */}
       <title>{title}</title>
       <meta name="description" content={description} />
-
       {/* Index / noindex */}
       <meta name="robots" content={index ? 'index, follow' : 'noindex'} />
-
       {/* Canonical */}
       <link rel="canonical" href={currentUrl} />
-
       {/* Hreflang tags */}
       <link rel="alternate" href={`${baseUrl}/`} hrefLang="ro" />
       <link rel="alternate" href={`${baseUrl}/en`} hrefLang="en" />
       <link rel="alternate" href={`${baseUrl}/`} hrefLang="x-default" />
-
       {/* OpenGraph */}
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
@@ -44,15 +40,13 @@ export const HeadWithMeta = ({
       <meta property="og:image" content={img} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:site_name" content="Lira Digital Agency" />
-
       {/* Twitter */}
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={img} />
-
       {/* Favicon */}
       <link rel="icon" href="/favicon.ico" />
-      <link rel="shortcut icon" href="/favicon.ico" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -83,7 +77,6 @@ export const HeadWithMeta = ({
         href="/android-chrome-512x512.png"
       />
       <link rel="manifest" href="/site.webmanifest" />
-
       {/* Meta for iOS and web apps */}
       <meta name="apple-mobile-web-app-title" content="Lira Digital Agency" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
