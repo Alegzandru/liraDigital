@@ -51,7 +51,7 @@ export const HeadWithMeta = ({
       <meta name="twitter:image" content={img} />
 
       {/* Favicon */}
-      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link rel="icon" href="/favicon.ico" />
       <link rel="shortcut icon" href="/favicon.ico" />
       <link
         rel="apple-touch-icon"
@@ -70,8 +70,23 @@ export const HeadWithMeta = ({
         sizes="16x16"
         href="/favicon-16x16.png"
       />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="192x192"
+        href="/android-chrome-192x192.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="512x512"
+        href="/android-chrome-512x512.png"
+      />
       <link rel="manifest" href="/site.webmanifest" />
 
+      {/* Meta for iOS and web apps */}
+      <meta name="apple-mobile-web-app-title" content="Lira Digital Agency" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
   )
