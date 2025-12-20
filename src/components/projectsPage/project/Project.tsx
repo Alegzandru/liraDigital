@@ -252,10 +252,10 @@ const ProjectComponent = ({
         <div className="pb-100px md:pb-32 w-full bg-ui-black80 px-container-sm md:px-container-md lg:px-container-lg flex flex-col gap-6 md:gap-0 md:flex-row justify-between items-center">
           <div>
             <h3 className="font-Poppins font-bold text-ui-peach text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins px-2 py-1 mb-2">
-              {isRo ? video_description_ro : video_description}
+              {isRo ? video_title_ro : video_title}
             </h3>
             <div className="font-Poppins text-sm-p md:text-md-p lg:text-lg-p text-ui-grey px-2">
-              {isRo ? video_title_ro : video_title}
+              {isRo ? video_description_ro : video_description}
             </div>
           </div>
           <video
