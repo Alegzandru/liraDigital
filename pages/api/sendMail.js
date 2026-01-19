@@ -10,12 +10,25 @@ const sendMail = async (req, res) => {
     return res.status(405).json({ message: 'Method not allowed' })
   }
 
-  const { budget, company, description, email, phone, name, services } =
-    req.body.data
-
-  const variables = {
+  const {
     budget,
     company,
+    description,
+    email,
+    phone,
+    name,
+    services,
+    brandName,
+    industry,
+    website,
+  } = req.body.data
+
+  const variables = {
+    brandName,
+    industry,
+    website,
+    // budget,
+    // company,
     description,
     email,
     phone,
@@ -28,7 +41,7 @@ const sendMail = async (req, res) => {
       {
         From: {
           Email: process.env.SENDER_EMAIL,
-          Name: 'Lira Digital',
+          Name: 'Lira Digital Project Request',
         },
         To: [
           {
@@ -36,7 +49,7 @@ const sendMail = async (req, res) => {
             Name: 'Lira Digital Team',
           },
         ],
-        TemplateID: 7423741,
+        TemplateID: 7673945,
         TemplateLanguage: true,
         Subject: `New Project Request from ${name}`,
         Variables: variables,

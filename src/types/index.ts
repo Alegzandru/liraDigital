@@ -85,11 +85,15 @@ export type ProjectMinified = {
 
 export type ProjectReqInputs = {
   services: string[]
-  budget: string
+  // budget: string
+  brandName: string
+  industry: string
+  website: string
   description: string
   name: string
   email: string
-  company: string
+  // company: string
   phone: string
+  other: string
 }
 

@@ -5,8 +5,17 @@ export const VALIDATIONS = {
   budget: {
     required: 'Choose your budget',
   },
+  brandName: {
+    required: 'Brand name is required',
+  },
+  industry: {
+    required: 'Please select an industry',
+  },
   description: {
     required: 'Please write a short description of your project',
+  },
+  other: {
+    optional: 'This field is required',
   },
   name: {
     required: 'This field is required',
@@ -30,7 +39,7 @@ export const VALIDATIONS = {
     required: 'This field is required',
   },
   phone: {
-    required: 'This field is required',
+    optional: 'This field is required',
     pattern: {
       value: /^\s*(?:\+?(\d{2,3}))?[-. (]*(\d{2,3})[-. )]*(\d{3})[-. ]*(\d{3})\s*$/gm,
       message: 'The phone number is not valid',

@@ -11,9 +11,9 @@
     &_Bg{
       background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
 
-      :hover > &{
-        transform: scale(1.1, 1);
-      }
+      // :hover > &{
+      //   transform: scale(1.1, 1);
+      // }
     }
   }
 
@@ -27,18 +27,18 @@
 @media only screen and (min-width: 640px) {
   .projectReq{
     &_button{
-      position: absolute;
-      left: 50%;
-      margin-left: -133px;
-      width: 266px;
-      height: 60px;
+      // position: absolute;
+      // left: 50%;
+      // margin-left: -133px;
+      // width: 266px;
+      // height: 60px;
   
       &_Bg{
         background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
   
-        :hover > &{
-          transform: scale(1.1, 1);
-        }
+        // :hover > &{
+        //   transform: scale(1.1, 1);
+        // }
       }
     }
   }

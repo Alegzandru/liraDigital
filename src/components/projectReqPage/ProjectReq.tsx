@@ -1,18 +1,14 @@
 import classNames from 'classnames'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
+import { VALIDATIONS } from '../../constants/validations'
 import { ProjectReqInputs } from '../../types'
+import { ErrorBlock } from '../../utils/general'
 import styles from './ProjectReq.module.scss'
-import Step1 from './steps/Step1'
-import Step2 from './steps/Step2'
-import Step3 from './steps/Step3'
-import Step4 from './steps/Step4'
+import ChoiceContainer from './steps/ChoiceContainer'
 
 const ProjectReq = () => {
-  const [step, setStep] = useState(0)
-
   const {
     register,
     handleSubmit,
@@ -24,75 +20,30 @@ const ProjectReq = () => {
 
   const router = useRouter()
 
-  const backButton = () => (
-    <div
-      onClick={() => (step !== 0 ? setStep(step - 1) : null)}
-      className={classNames(
-        'flex flex-row justify-between items-center px-1 hover:bg-ui-black80 rounded h-7 cursor-pointer',
-        step !== 0 ? '' : 'opacity-0',
-      )}
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6 text-ui-peach mr-2"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M7 16l-4-4m0 0l4-4m-4 4h18"
-        />
-      </svg>
-      <div className="text-ui-peach font-Poppins font-bold text-sm-button-md md:text-md-button-md lg:text-lg-button-md">
-        {t('Back')}
-      </div>
-    </div>
-  )
+  const services = [
+    'Social Media Content & Trend analysis',
+    'Brand / Corporate Identity',
+    'Google Ads & YouTube Ads',
+    'Facebook Ads & Sales Funnels',
+    '360° Digital Marketing',
+    'UI/UX & Product Design',
+  ]
 
-  const nextButton = () => (
-    <button
-      className={classNames(
-        'rounded h-52px group overflow-hidden',
-        styles.projectReq_hoverButtonBg,
-      )}
-    >
-      <div
-        className={classNames(
-          styles.projectReq_mainButtonBg,
-          'relative z-0 h-full w-full group-hover:opacity-0 transition-opacity duration-300',
-        )}
-      />
-      <div
-        className={classNames(
-          'h-full pl-12 pr-6 -mt-52px w-full flex flex-row justify-between items-center relative z-10',
-        )}
-      >
-        <div className="font-Poppins text-ui-white text-sm-button-md md:text-md-button-md lg:text-lg-button-md font-bold mr-4 transition-all duration-300">
-          {t('Next step')}
-        </div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8 text-ui-white group-hover:ml-2 transition-all duration-300"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M17 8l4 4m0 0l-4 4m4-4H3"
-          />
-        </svg>
-      </div>
-    </button>
-  )
+  const industries = [
+    t('industries.e-commerce'),
+    t('industries.healthcare'),
+    t('industries.hospitality'),
+    t('industries.services'),
+    t('industries.it'),
+    t('industries.other'),
+  ]
+
+  // const budgets = ['500 $ - 1500 $', '1500 $ - 3000 $', '3000 $ - 5000 $']
+
+  const hasError = (name: keyof ProjectReqInputs) => errors && errors[name]
 
   const sendReqButton = () => (
-    <button className={classNames(styles.projectReq_button)}>
+    <button className="w-full md:w-auto h-auto">
       <div
         className={classNames(
           'h-12 md:h-15 w-full relative z-0 transition duration-300 rounded',
@@ -125,28 +76,10 @@ const ProjectReq = () => {
   }
 
   const onSubmit: SubmitHandler<ProjectReqInputs> = async (data) => {
-    if (step !== 3) {
-      setStep(step + 1)
-    } else {
-      await sendMailBrief(data)
-      router.push('thank-you')
-    }
+    await sendMailBrief(data)
+    router.push('thank-you')
   }
 
-  const showStep = () => {
-    switch (step) {
-      case 0:
-        return <Step1 register={register} watch={watch} errors={errors} />
-      case 1:
-        return <Step2 register={register} watch={watch} errors={errors} />
-      case 2:
-        return <Step3 register={register} errors={errors} />
-      case 3:
-        return <Step4 register={register} errors={errors} />
-      default:
-        return 'Default return'
-    }
-  }
   return (
     <div
       className={classNames(
@@ -154,43 +87,222 @@ const ProjectReq = () => {
         styles.projectReq_bg,
       )}
     >
-      <div>
-        <div className="flex flex-row justify-start items-center w-full">
-          <div
-            className={classNames(
-              'w-1/4 h-1',
-              step >= 0 ? 'bg-ui-peach' : 'bg-ui-black70',
-            )}
-          />
-          <div
-            className={classNames(
-              'w-1/4 h-1',
-              step >= 1 ? 'bg-ui-peach' : 'bg-ui-black70',
-            )}
-          />
-          <div
-            className={classNames(
-              'w-1/4 h-1',
-              step >= 2 ? 'bg-ui-peach' : 'bg-ui-black70',
-            )}
-          />
-          <div
-            className={classNames(
-              'w-1/4 h-1',
-              step >= 3 ? 'bg-ui-peach' : 'bg-ui-black70',
-            )}
-          />
-        </div>
-        <div className="font-Poppins text-ui-darkGrey text-md-p mt-4 mb-10 md:mb-18">
-          {`0${step + 1}/04`}
-        </div>
-      </div>
       <form onSubmit={handleSubmit(onSubmit)} className="max-w-1000px mx-auto">
-        <div className="w-full md:h-384px">{showStep()}</div>
-        <div className="flex flex-row justify-between items-end mt-14 lg:mt-20">
-          {backButton()}
-          {step === 3 ? sendReqButton() : nextButton()}
+        {/* Services Section */}
+        <div className="mb-10 md:mb-14 lg:mb-20">
+          <h1 className="font-Poppins font-bold text-ui-white text-sm-h1-poppins md:text-md-h1-poppins lg:text-lg-h1-poppins mb-4">
+            {t('Nice to meet you!')}
+          </h1>
+          <h3 className="font-Poppins font-medium text-ui-grey text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins mb-8">
+            {t('subheadline')}
+          </h3>
         </div>
+        <div className="mb-20 md:mb-28 lg:mb-36">
+          <h2 className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-8">
+            {t('What can we help you with? Multiple selections are possible.')}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6">
+            {services.map((service: string, index) => (
+              <div key={index}>
+                <ChoiceContainer
+                  errors={errors}
+                  register={register}
+                  text={service}
+                  name={'services'}
+                  checkboxValue={watch('services')}
+                />
+              </div>
+            ))}
+          </div>
+          <div className="col-span-full mb-6">
+            <textarea
+              placeholder={t('other')}
+              className={classNames(
+                'bg-ui-black90 border border-ui-black70 p-4 h-28 min-h-120px w-full transition-all duration-300 resize-none',
+                'rounded font-Poppins text-ui-white text-sm-p md:text-md-p lg:text-lg-p outline-none',
+                hasError('other')
+                  ? 'border-ui-error'
+                  : 'hover:border-ui-darkGrey focus:border-ui-peach focus:placeholder-ui-white',
+              )}
+              {...register('other')}
+            />
+          </div>
+          <ErrorBlock errors={errors} name={'services'} />
+        </div>
+
+        {/* Budget Section
+        <div className="mb-20 md:mb-28 lg:mb-36">
+          <h2 className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-6 md:mb-12 lg:mb-20">
+            {t('What is your budget?')}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            {budgets.map((budget: string, index) => (
+              <div key={index}>
+                <ChoiceContainer
+                  errors={errors}
+                  asRadio={true}
+                  radioValue={watch('budget')}
+                  register={register}
+                  text={budget}
+                  name={'budget'}
+                />
+              </div>
+            ))}
+          </div>
+          <ErrorBlock errors={errors} name="budget" />
+        </div> */}
+
+        {/* About Your Business / Brand Section */}
+        <div className="mb-20 md:mb-28 lg:mb-36">
+          <h2 className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-6 md:mb-12 lg:mb-20">
+            {t('About Your Business / Brand')}
+          </h2>
+
+          {/* Company or Brand Name */}
+          <div className="mb-8">
+            <input
+              type="text"
+              placeholder={t('Company or Brand Name')}
+              className={classNames(
+                'bg-ui-black90 border border-ui-darkGrey p-4 w-full rounded font-Poppins text-ui-grey text-sm-p md:text-md-p lg:text-lg-p outline-none transition-all duration-300',
+                hasError('brandName')
+                  ? 'border-ui-error placeholder-ui-error'
+                  : 'hover:border-ui-grey focus:border-ui-peach focus:text-ui-white',
+              )}
+              {...register('brandName', { ...VALIDATIONS.brandName })}
+            />
+            <ErrorBlock errors={errors} name="brandName" />
+          </div>
+
+          {/* Industry / Business Type */}
+          <div className="mb-8">
+            <h3 className="font-Poppins font-medium text-ui-white text-sm-p md:text-md-p lg:text-lg-p mb-4">
+              {t('Industry / Business Type')}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              {industries.map((industry: string, index) => (
+                <div key={index}>
+                  <ChoiceContainer
+                    errors={errors}
+                    asRadio={true}
+                    radioValue={watch('industry')}
+                    register={register}
+                    text={industry}
+                    name={'industry'}
+                  />
+                </div>
+              ))}
+            </div>
+            <ErrorBlock errors={errors} name="industry" />
+          </div>
+
+          {/* Website or Social Media Links */}
+          <div>
+            <h3 className="font-Poppins font-medium text-ui-white text-sm-p md:text-md-p lg:text-lg-p mb-4">
+              {t('Social Links')}
+            </h3>
+            <input
+              type="text"
+              placeholder={t('Social Links placeholder')}
+              className={classNames(
+                'bg-ui-black90 border border-ui-darkGrey p-4 w-full rounded font-Poppins text-ui-grey text-sm-p md:text-md-p lg:text-lg-p outline-none transition-all duration-300',
+                hasError('website')
+                  ? 'border-ui-error placeholder-ui-error'
+                  : 'hover:border-ui-grey focus:border-ui-peach focus:text-ui-white',
+              )}
+              {...register('website')}
+            />
+            <ErrorBlock errors={errors} name="website" />
+          </div>
+        </div>
+
+        {/* Description Section */}
+        <div className="mb-20 md:mb-28 lg:mb-36">
+          <h2 className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-20">
+            {t('Tell us about your project')}
+          </h2>
+          <textarea
+            placeholder={t('Ideas, goals, requirements or just whatever')}
+            className={classNames(
+              'bg-ui-black90 border border-ui-darkGrey p-4 min-h-220px w-full transition-all duration-300 resize-none',
+              'rounded font-Poppins text-ui-white text-sm-p md:text-md-p lg:text-lg-p outline-none',
+              hasError('description')
+                ? 'border-ui-error placeholder-ui-error'
+                : 'hover:border-ui-grey focus:border-ui-peach focus:placeholder-ui-white',
+            )}
+            {...register('description', { ...VALIDATIONS.description })}
+          />
+          <ErrorBlock errors={errors} name="description" />
+        </div>
+
+        {/* Contact Information Section */}
+        <div className="mb-20 md:mb-28 lg:mb-32">
+          <h2 className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-6 md:mb-12 lg:mb-20">
+            {t('How can we reach you')}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-16">
+            <div>
+              <input
+                type="text"
+                placeholder={t('Full name')}
+                className={classNames(
+                  'bg-ui-black90 border border-ui-darkGrey p-4 w-full rounded font-Poppins text-ui-grey text-sm-p md:text-md-p lg:text-lg-p outline-none transition-all duration-300',
+                  hasError('name')
+                    ? 'border-ui-error placeholder-ui-error'
+                    : 'hover:border-ui-grey focus:border-ui-peach focus:text-ui-white',
+                )}
+                {...register('name', { ...VALIDATIONS.name })}
+              />
+              <ErrorBlock errors={errors} name="name" />
+            </div>
+
+            {/* <div>
+              <input
+                type="text"
+                placeholder={t('Company')}
+                className={classNames(
+                  'bg-ui-black90 border border-ui-darkGrey p-4 w-full rounded font-Poppins text-ui-grey text-sm-p md:text-md-p lg:text-lg-p outline-none transition-all duration-300',
+                  hasError('company')
+                    ? 'border-ui-error placeholder-ui-error'
+                    : 'hover:border-ui-grey focus:border-ui-peach focus:text-ui-white',
+                )}
+                {...register('company', { ...VALIDATIONS.company })}
+              />
+              <ErrorBlock errors={errors} name="company" />
+            </div> */}
+            <div>
+              <input
+                type="text"
+                placeholder={t('Phone number')}
+                className={classNames(
+                  'bg-ui-black90 border border-ui-darkGrey p-4 w-full rounded font-Poppins text-ui-grey text-sm-p md:text-md-p lg:text-lg-p outline-none transition-all duration-300',
+                  hasError('phone')
+                    ? 'border-ui-error placeholder-ui-error'
+                    : 'hover:border-ui-grey focus:border-ui-peach focus:text-ui-white',
+                )}
+                {...register('phone', { ...VALIDATIONS.phone })}
+              />
+              <ErrorBlock errors={errors} name="phone" />
+            </div>
+
+            <div className="md:col-span-2">
+              <input
+                type="text"
+                placeholder={t('E-mail')}
+                className={classNames(
+                  'bg-ui-black90 border border-ui-darkGrey p-4 w-full rounded font-Poppins text-ui-grey text-sm-p md:text-md-p lg:text-lg-p outline-none transition-all duration-300 ',
+                  hasError('email')
+                    ? 'border-ui-error placeholder-ui-error'
+                    : 'hover:border-ui-grey focus:border-ui-peach focus:text-ui-white',
+                )}
+                {...register('email', { ...VALIDATIONS.email })}
+              />
+              <ErrorBlock errors={errors} name="email" />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-row justify-center">{sendReqButton()}</div>
       </form>
     </div>
   )
