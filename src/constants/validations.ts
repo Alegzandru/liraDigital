@@ -11,6 +11,9 @@ export const VALIDATIONS = {
   industry: {
     required: 'Please select an industry',
   },
+  website: {
+    optional: 'This field is required',
+  },
   description: {
     required: 'Please write a short description of your project',
   },
