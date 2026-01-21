@@ -52,7 +52,7 @@ const ProjectReq = () => {
       ></div>
       <div
         className={classNames(
-          'h-12 md:h-15 flex flex-row justify-center items-center px-14 text-ui-white text-sm-button-md md:text-md-button-md lg:text-lg-button-md font-bold font-Poppins',
+          'h-12 md:h-15 flex flex-row justify-center items-center md:px-14 text-ui-white text-smallest-p md:text-md-h4-poppins lg:text-lg-p-error font-bold font-Poppin',
           '-mt-12 md:-mt-15 relative z-10',
         )}
       >
@@ -90,7 +90,12 @@ const ProjectReq = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="max-w-1000px mx-auto">
         {/* Services Section */}
         <div className="mb-10 md:mb-14 lg:mb-20">
-          <h1 className="font-Poppins font-bold text-ui-white text-sm-h1-poppins md:text-md-h1-poppins lg:text-lg-h1-poppins mb-4">
+          <h1
+            className={classNames(
+              'font-Poppins font-bold text-ui-white text-sm-h1-poppins md:text-md-h1-poppins lg:text-lg-h1-poppins mb-4',
+              styles.projectReq_title,
+            )}
+          >
             {t('Nice to meet you!')}
           </h1>
           <h3 className="font-Poppins font-medium text-ui-grey text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins mb-8">
@@ -98,7 +103,10 @@ const ProjectReq = () => {
           </h3>
         </div>
         <div className="mb-20 md:mb-28 lg:mb-36">
-          <h2 className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-8">
+          <h2
+            id="services-section"
+            className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-8"
+          >
             {t('What can we help you with? Multiple selections are possible.')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6">
@@ -154,7 +162,10 @@ const ProjectReq = () => {
 
         {/* About Your Business / Brand Section */}
         <div className="mb-20 md:mb-28 lg:mb-36">
-          <h2 className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-6 md:mb-12 lg:mb-20">
+          <h2
+            id="business-section"
+            className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-6 md:mb-12 lg:mb-20"
+          >
             {t('About Your Business / Brand')}
           </h2>
 
@@ -218,7 +229,10 @@ const ProjectReq = () => {
 
         {/* Description Section */}
         <div className="mb-20 md:mb-28 lg:mb-36">
-          <h2 className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-20">
+          <h2
+            id="project-section"
+            className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-20"
+          >
             {t('Tell us about your project')}
           </h2>
           <textarea
@@ -237,7 +251,10 @@ const ProjectReq = () => {
 
         {/* Contact Information Section */}
         <div className="mb-20 md:mb-28 lg:mb-32">
-          <h2 className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-6 md:mb-12 lg:mb-20">
+          <h2
+            id="contact-section"
+            className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-6 md:mb-12 lg:mb-20"
+          >
             {t('How can we reach you')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-16">

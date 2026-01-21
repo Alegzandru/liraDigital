@@ -20,12 +20,14 @@ const sendMail = async (req, res) => {
     services,
     brandName,
     industry,
+    other,
     website,
   } = req.body.data
 
   const variables = {
     brandName,
     industry,
+    other,
     website,
     budget,
     company,

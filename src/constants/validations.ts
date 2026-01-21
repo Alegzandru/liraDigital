@@ -1,6 +1,8 @@
 export const VALIDATIONS = {
   services: {
-    required: 'Choose at least one service',
+    validate: (value: string[], formValues: any) => (value && value.length > 0) || (formValues?.other && formValues.other.trim().length > 0)
+      ? true
+      : 'Please select a service or describe in the other field',
   },
   budget: {
     required: 'Choose your budget',

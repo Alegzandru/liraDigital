@@ -1,15 +1,15 @@
-.projectReq{
-  &_hoverButtonBg{
-    background: linear-gradient(92.57deg, #F1A17E 2.15%, #EE9F7C 97.85%);
+.projectReq {
+  &_hoverButtonBg {
+    background: linear-gradient(92.57deg, #f1a17e 2.15%, #ee9f7c 97.85%);
   }
-  &_mainButtonBg{
-    background: linear-gradient(92.57deg, #0D0D0D -19.35%, #FAA782 97.85%);
+  &_mainButtonBg {
+    background: linear-gradient(92.57deg, #0d0d0d -19.35%, #faa782 97.85%);
   }
-  &_button{
+  &_button {
     height: 48px;
 
-    &_Bg{
-      background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
+    &_Bg {
+      background: -webkit-linear-gradient(10.28deg, #fab984 0%, #ff498a 99.79%);
 
       // :hover > &{
       //   transform: scale(1.1, 1);
@@ -17,25 +17,35 @@
     }
   }
 
-  &_bg{
+  &_bg {
     background-image: url('../../../public/services/bgRomb.svg');
     background-position: center;
     background-repeat: no-repeat;
   }
+
+  &_title {
+    background: -webkit-linear-gradient(10.28deg, #fab984 0%, #ff498a 99.79%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 @media only screen and (min-width: 640px) {
-  .projectReq{
-    &_button{
+  .projectReq {
+    &_button {
       // position: absolute;
       // left: 50%;
       // margin-left: -133px;
       // width: 266px;
       // height: 60px;
-  
-      &_Bg{
-        background: -webkit-linear-gradient(10.28deg, #FAB984 0%, #FF498A 99.79%);
-  
+
+      &_Bg {
+        background: -webkit-linear-gradient(
+          10.28deg,
+          #fab984 0%,
+          #ff498a 99.79%
+        );
+
         // :hover > &{
         //   transform: scale(1.1, 1);
         // }
