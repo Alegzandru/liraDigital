@@ -98,17 +98,17 @@ const ProjectReq = () => {
           >
             {t('Nice to meet you!')}
           </h1>
-          <h3 className="font-Poppins font-medium text-ui-grey text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins mb-8">
+          <h4 className="font-Poppins font-medium text-ui-grey text-sm-h4-poppins md:text-md-h4-poppins lg:text-lg-h4-poppins mb-8">
             {t('subheadline')}
-          </h3>
+          </h4>
         </div>
         <div className="mb-20 md:mb-28 lg:mb-36">
-          <h2
+          <h3
             id="services-section"
-            className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-8"
+            className="font-Poppins font-bold text-ui-white text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins mb-8"
           >
             {t('What can we help you with? Multiple selections are possible.')}
-          </h2>
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6">
             {services.map((service: string, index) => (
               <div key={index}>
@@ -162,12 +162,12 @@ const ProjectReq = () => {
 
         {/* About Your Business / Brand Section */}
         <div className="mb-20 md:mb-28 lg:mb-36">
-          <h2
+          <h3
             id="business-section"
-            className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-6 md:mb-12 lg:mb-20"
+            className="font-Poppins font-bold text-ui-white text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins mb-8"
           >
             {t('About Your Business / Brand')}
-          </h2>
+          </h3>
 
           {/* Company or Brand Name */}
           <div className="mb-8">
@@ -229,12 +229,12 @@ const ProjectReq = () => {
 
         {/* Description Section */}
         <div className="mb-20 md:mb-28 lg:mb-36">
-          <h2
+          <h3
             id="project-section"
-            className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-20"
+            className="font-Poppins font-bold text-ui-white text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins mb-8"
           >
             {t('Tell us about your project')}
-          </h2>
+          </h3>
           <textarea
             placeholder={t('Ideas, goals, requirements or just whatever')}
             className={classNames(
@@ -251,12 +251,12 @@ const ProjectReq = () => {
 
         {/* Contact Information Section */}
         <div className="mb-20 md:mb-28 lg:mb-32">
-          <h2
+          <h3
             id="contact-section"
-            className="font-Poppins font-bold text-ui-white text-sm-h2-poppins md:text-md-h2-poppins lg:text-lg-h2-poppins mb-6 md:mb-12 lg:mb-20"
+            className="font-Poppins font-bold text-ui-white text-sm-h3-poppins md:text-md-h3-poppins lg:text-lg-h3-poppins mb-8"
           >
             {t('How can we reach you')}
-          </h2>
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-16">
             <div>
               <input

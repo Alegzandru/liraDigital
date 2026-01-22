@@ -107,7 +107,7 @@ const Footer = () => {
         </Link>
         <Dot className="w-3 h-3 text-ui-grey invisible md:visible" />
         <p className="w-full md:w-auto">
-          All rights reserved 2025 © Lira Digital
+          All rights reserved 2026 © Lira Digital
         </p>
         <Dot className="w-3 h-3 text-ui-grey invisible md:visible" />
         <Link href="/privacy-policy" className="invisible md:visible">
