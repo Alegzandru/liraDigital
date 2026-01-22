@@ -34,11 +34,11 @@ export const CLIENTS = [
   //   name: 'Belvedere Wood Parchet',
   //   link: 'https://www.belvederewood.md/',
   // },
-  {
-    src: '/clients/logoDansicons.webp',
-    name: 'Dansicons',
-    link: 'https://dansicons.md/',
-  },
+  // {
+  //   src: '/clients/logoDansicons.webp',
+  //   name: 'Dansicons',
+  //   link: 'https://dansicons.md/',
+  // },
   // {
   //   src: '/clients/logoMillory.webp',
   //   name: 'Millory',
@@ -113,5 +113,10 @@ export const CLIENTS = [
     src: '/clients/logoBerlinChemie.webp',
     name: 'Berlin-Chemie',
     link: 'https://www.berlin-chemie.md/',
+  },
+  {
+    src: '/clients/logoTecsol.png',
+    name: 'Tecsol',
+    link: 'https://tecsol.md/',
   },
 ]
