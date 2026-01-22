@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import { useRouter } from 'next/router'
+import { useEffect, useRef } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { VALIDATIONS } from '../../constants/validations'
@@ -13,12 +14,37 @@ const ProjectReq = () => {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors, submitCount },
   } = useForm<ProjectReqInputs>()
 
   const { t } = useTranslation('project-request')
 
   const router = useRouter()
+
+  const servicesRef = useRef<HTMLDivElement | null>(null)
+  const industryRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    if (!submitCount) {
+      return
+    }
+
+    if (errors.services) {
+      servicesRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      })
+      return
+    }
+
+    if (errors.industry) {
+      industryRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      })
+      return
+    }
+  }, [submitCount, errors])
 
   const services = [
     'Social Media Content & Trend analysis',
@@ -109,7 +135,10 @@ const ProjectReq = () => {
           >
             {t('What can we help you with? Multiple selections are possible.')}
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6">
+          <div
+            ref={servicesRef}
+            className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6"
+          >
             {services.map((service: string, index) => (
               <div key={index}>
                 <ChoiceContainer
@@ -190,7 +219,10 @@ const ProjectReq = () => {
             <h3 className="font-Poppins font-medium text-ui-white text-sm-p md:text-md-p lg:text-lg-p mb-4">
               {t('Industry / Business Type')}
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div
+              ref={industryRef}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+            >
               {industries.map((industry: string, index) => (
                 <div key={index}>
                   <ChoiceContainer
