@@ -9,6 +9,7 @@
 
   "What can we help you with? Multiple selections are possible.": "What services are you interested in? (multiple selection)",
   "other": "Other (please describe below)",
+  "Please select a service or describe in the other field": "Please select a service or describe in the Other field",
 
   "About Your Business / Brand": "About Your Business / Brand",
   "Company or Brand Name": "Company or Brand Name",
@@ -41,6 +42,6 @@
   "Full name": "Full name",
   "E-mail": "E-mail",
   "Company": "Company",
-  "Phone number": "Phone number (optional, but recommended)",
+  "Phone number": "Phone number",
   "Thank you!": "Thank you!"
 }

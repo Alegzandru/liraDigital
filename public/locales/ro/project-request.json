@@ -9,6 +9,7 @@
 
   "What can we help you with? Multiple selections are possible.": "Ce servicii te interesează? (checkbox-uri multiple)",
   "other": "Altceva (descrie mai jos)",
+  "Please select a service or describe in the other field": "Vă rugăm să selectați un serviciu sau să descrieți în câmpul 'Altceva'",
 
   "About Your Business / Brand": "Despre companie / brand",
   "Company or Brand Name": "Nume companie sau brand",
@@ -41,6 +42,6 @@
   "Full name": "Nume complet",
   "E-mail": "E-mail",
   "Company": "Companie",
-  "Phone number": "Nr. de telefon (optional, dar recomandat)",
+  "Phone number": "Nr. de telefon",
   "Thank you!": "Vă mulțumim!"
 }

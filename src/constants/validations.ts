@@ -44,7 +44,7 @@ export const VALIDATIONS = {
     required: 'This field is required',
   },
   phone: {
-    optional: 'This field is required',
+    required: 'This field is required',
     pattern: {
       value: /^\s*(?:\+?(\d{2,3}))?[-. (]*(\d{2,3})[-. )]*(\d{3})[-. ]*(\d{3})\s*$/gm,
       message: 'The phone number is not valid',
